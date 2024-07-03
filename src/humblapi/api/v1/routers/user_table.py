@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from humbldata.portfolio.analytics.user_table.helpers import (
     aggregate_user_table_data,
 )
@@ -6,7 +6,10 @@ from humbldata.portfolio.analytics.user_table.helpers import (
 from humblapi.core.config import Config
 
 config = Config()
-router = APIRouter(prefix=config.API_V1_STR)
+router = APIRouter(
+    prefix=config.API_V1_STR,
+    tags=["user"],
+)
 
 
 @router.get("/user-table")

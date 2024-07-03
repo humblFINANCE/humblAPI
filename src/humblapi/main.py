@@ -5,9 +5,6 @@ from contextlib import asynccontextmanager
 
 import coloredlogs
 from fastapi import FastAPI
-from humbldata.portfolio.analytics.user_table.helpers import (
-    aggregate_user_table_data,
-)
 
 from humblapi.api.v1.routers import user_table
 from humblapi.core.config import Config
