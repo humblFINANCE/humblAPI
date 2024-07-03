@@ -9,7 +9,7 @@ from humbldata.portfolio.analytics.user_table.helpers import (
     aggregate_user_table_data,
 )
 
-from humblapi.api.v1.routers.user_table import user_table_route
+from humblapi.api.v1.routers import user_table
 from humblapi.core.config import Config
 
 
@@ -45,7 +45,7 @@ async def lifespan(app: FastAPI):
 config = Config()
 app = FastAPI(title=config.PROJECT_NAME, lifespan=lifespan)
 
-# app.include_router(user_table_route)
+app.include_router(user_table.router)
 
 
 @app.get("/")
@@ -70,34 +70,3 @@ async def health_check():
 async def predict(x: float):
     result = ml_models["answer_to_everything"](x)
     return {"result": result}
-
-
-@app.get("/user-table")
-async def user_table_route():
-    """
-    Retrieve user table data for specific symbols.
-
-    This endpoint aggregates user table data for the specified symbols
-    (XLU, XLE, and AAPL) using the aggregate_user_table_data function.
-    The aggregated data is then collected and converted to a dictionary.
-
-    Returns
-    -------
-    dict
-        A dictionary containing the aggregated user table data for the
-        specified symbols. The dict of a humblObject with `as_series=False` is
-        identical to a JSON format.
-
-    Notes
-    -----
-    The function uses the aggregate_user_table_data helper from the
-    humbldata.portfolio.analytics.user_table.helpers module to perform
-    the data aggregation.
-    """
-    user_table_data = (
-        (await aggregate_user_table_data(symbols=["XLU", "XLE", "AAPL"]))
-        .collect()
-        .to_dict(as_series=False)
-    )
-
-    return user_table_data

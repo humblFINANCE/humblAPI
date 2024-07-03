@@ -6,10 +6,10 @@ from humbldata.portfolio.analytics.user_table.helpers import (
 from humblapi.core.config import Config
 
 config = Config()
-router = APIRouter()
+router = APIRouter(prefix=config.API_V1_STR)
 
 
-@router.get("user-table/")
+@router.get("/user-table")
 async def user_table_route():
     """
     Retrieve user table data for specific symbols.
