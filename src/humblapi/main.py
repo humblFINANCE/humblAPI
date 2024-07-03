@@ -19,6 +19,6 @@ def startup_event() -> None:
 
 
 @app.get("/")
-def read_root() -> str:
+def read_root() -> dict:
     """Read root."""
-    return "Hello world"
+    return {"message": "Hello world"}
