@@ -1,3 +1,15 @@
+# Stage 1: Generate requirements.txt
+FROM python:3.11-slim as requirements-stage
+
+WORKDIR /tmp
+
+RUN pip install poetry
+
+COPY pyproject.toml poetry.lock* /tmp/
+
+RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
+
+# Stage 2: Final image
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -19,16 +31,11 @@ RUN apt-get update && apt-get install -y \
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 ENV PATH="/root/.cargo/bin:${PATH}"
 
-# Copy project files
-COPY pyproject.toml poetry.lock* README.md /app/
+# Copy requirements.txt from the previous stage
+COPY --from=requirements-stage /tmp/requirements.txt /app/requirements.txt
 
-# Install dependencies without pywry
-RUN pip install poetry && \
-    poetry config virtualenvs.create false && \
-    poetry install --no-dev --no-interaction --no-ansi
-
-# Install pywry separately
-RUN pip install pywry==0.6.2
+# Install dependencies
+RUN pip install --no-cache-dir -r /app/requirements.txt
 
 # Copy the rest of the application
 COPY . /app
