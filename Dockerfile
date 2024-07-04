@@ -25,7 +25,7 @@ COPY pyproject.toml poetry.lock* README.md /app/
 # Install dependencies without pywry
 RUN pip install poetry && \
     poetry config virtualenvs.create false && \
-    poetry install --no-dev --no-interaction --no-ansi --no-root -vvv
+    poetry install --no-dev --no-interaction --no-ansi --no-root -v
 
 # Install pywry separately
 RUN pip install pywry==0.6.2
