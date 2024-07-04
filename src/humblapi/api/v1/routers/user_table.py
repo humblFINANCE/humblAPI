@@ -15,7 +15,7 @@ router = APIRouter(
 @router.get("/user-table")
 async def user_table_route():
     """
-    Retrieve user table data for specific symbols.
+    Retrieve user table data for their portfolio symbols.
 
     This endpoint aggregates user table data for the specified symbols
     (XLU, XLE, and AAPL) using the aggregate_user_table_data function.
