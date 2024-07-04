@@ -10,9 +10,7 @@ description = "A lightweight Fast API app to connect humnlDATA and humblFINANCE"
 authors = ["Jennings Fantini <jenningsfantini@gmail.com>"]
 readme = "README.md"
 repository = "https://github.com/humblFINANCE/humblFINANCE-api"
-packages = [
-    { include = "humblapi", from = "src" },
-]
+
 [tool.cruft]
 skip = ["menv/", "tests"]
 
