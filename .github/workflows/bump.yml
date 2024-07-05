@@ -11,12 +11,12 @@ permissions:
 
 jobs:
   bump-version:
-    if: "!startsWith(github.event.head_commit.message, 'bump:')"
+    if: "contains(github.event.head_commit.message, 'bump(release)') == false"
     runs-on: ubuntu-latest
     name: "Bump version and create changelog with commitizen"
     steps:
       - name: Check out Repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           token: "${{ secrets.GH_PAT_CLASSIC }}"
           fetch-depth: 0
@@ -25,10 +25,13 @@ jobs:
         with:
           github_token: "${{ secrets.GH_PAT_CLASSIC }}"
           changelog_increment_filename: body.md
+          extra_requirements: "cz-conventional-gitmoji"
+          git_name: "jjfantini"
+          git_email: "jenningsfantini+github@gmail.com"
       - name: Generate Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
-          name: humblapi v${{ env.REVISION }}
+          name: humbldata v${{ env.REVISION }}
           body_path: "body.md"
           tag_name: v${{ env.REVISION }}
         env:
