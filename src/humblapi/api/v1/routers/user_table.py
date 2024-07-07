@@ -1,7 +1,5 @@
 from fastapi import APIRouter, Depends
-from humbldata.portfolio.analytics.user_table.helpers import (
-    aggregate_user_table_data,
-)
+from humbldata.portfolio.portfolio_controller import Portfolio
 
 from humblapi.core.config import Config
 
@@ -13,13 +11,22 @@ router = APIRouter(
 
 
 @router.get("/user-table")
-async def user_table_route():
+async def user_table_route(
+    symbols: str = "AAPL,NVDA,TSLA", membership: str = "peon"
+):
     """
-    Retrieve user table data for their portfolio symbols.
+    Retrieve user table data for the specified portfolio symbols.
 
-    This endpoint aggregates user table data for the specified symbols
-    (XLU, XLE, and AAPL) using the aggregate_user_table_data function.
+    This endpoint aggregates user table data for the symbols provided in the query parameter.
     The aggregated data is then collected and converted to a dictionary.
+
+    Parameters
+    ----------
+    symbols : str, optional
+        A comma-separated string of stock symbols (e.g., "AAPL,MSFT,NVDA").
+        Default is "AAPL,NVDA,TSLA" if no symbols are provided.
+    membership : str, optional
+        The user role or membership level. Default is "peon".
 
     Returns
     -------
@@ -30,14 +37,16 @@ async def user_table_route():
 
     Notes
     -----
-    The function uses the aggregate_user_table_data helper from the
-    humbldata.portfolio.analytics.user_table.helpers module to perform
+    The function uses the Portfolio class from humbldata to perform
     the data aggregation.
     """
-    user_table_data = (
-        (await aggregate_user_table_data(symbols=["XLU", "XLE", "AAPL"]))
-        .collect()
-        .to_dict(as_series=False)
+    # Split the symbols string into a list
+    symbol_list = symbols.split(",")
+
+    portfolio = Portfolio(symbols=symbol_list, user_role=membership)
+
+    user_table_data = (await portfolio.analytics.user_table()).to_dict(
+        as_series=False
     )
 
     return user_table_data
