@@ -5,6 +5,7 @@ from contextlib import asynccontextmanager
 
 import coloredlogs
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from humblapi.api.v1.routers import user_table
 from humblapi.core.config import Config
@@ -41,6 +42,15 @@ async def lifespan(app: FastAPI):
 
 config = Config()
 app = FastAPI(title=config.PROJECT_NAME, lifespan=lifespan)
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
 
 app.include_router(user_table.router)
 
