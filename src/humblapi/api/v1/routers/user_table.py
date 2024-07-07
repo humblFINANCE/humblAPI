@@ -46,7 +46,7 @@ async def user_table_route(
     portfolio = Portfolio(symbols=symbol_list, user_role=membership)
 
     user_table_data = (await portfolio.analytics.user_table()).to_dict(
-        as_series=False
+        row_wise=True, as_series=False
     )
 
     return user_table_data
