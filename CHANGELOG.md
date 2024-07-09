@@ -1,3 +1,13 @@
+## v0.3.0 (2024-07-09)
+
+### ✨ Features
+
+- **logger**: added  function
+
+### 🐛🚑️ Fixes
+
+- **middleware**: added url path and method to logging middleware
+
 ## v0.2.2 (2024-07-07)
 
 ### 🐛🚑️ Fixes
