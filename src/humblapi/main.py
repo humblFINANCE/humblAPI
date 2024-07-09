@@ -6,9 +6,11 @@ from contextlib import asynccontextmanager
 import coloredlogs
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware.base import BaseHTTPMiddleware
 
 from humblapi.api.v1.routers import user_table
 from humblapi.core.config import Config
+from humblapi.core.middleware import MyMiddleware
 
 
 def fake_answer_to_everything_ml_model(x: float):
@@ -42,6 +44,8 @@ async def lifespan(app: FastAPI):
 
 config = Config()
 app = FastAPI(title=config.PROJECT_NAME, lifespan=lifespan)
+middleware = MyMiddleware(some_attribute="some_attribute_here_if_needed")
+app.add_middleware(BaseHTTPMiddleware, dispatch=middleware)
 
 # Add CORS middleware
 app.add_middleware(
