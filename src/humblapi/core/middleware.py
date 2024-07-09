@@ -22,10 +22,10 @@ class MyMiddleware:
         response = await call_next(request)
         end_time = time.time()
 
-        execution_time = f"{end_time - start_time:.6f}"
+        execution_time = f"{end_time - start_time:.4f}"
 
         response.headers["X-Process-Time"] = execution_time
         logger.info(
-            f"{request.method} {request.url.path} - execution time: {execution_time} s"
+            f"'{request.method} {request.url.path}' - execution time: {execution_time} s"
         )
         return response
