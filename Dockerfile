@@ -1,24 +1,12 @@
-# Stage 1: Generate requirements.txt
-FROM python:3.11-slim as requirements-stage
+FROM python:3.11 as build
 
-WORKDIR /tmp
+WORKDIR /build
 
-RUN pip install poetry
-
-COPY pyproject.toml poetry.lock* /tmp/
-
-RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
-
-# Stage 2: Final image
-FROM python:3.11-slim
-
-WORKDIR /app
-
-# Install system dependencies
+# Install build dependencies
 RUN apt-get update && apt-get install -y \
+    curl \
     gcc \
     g++ \
-    curl \
     pkg-config \
     libssl-dev \
     libgtk-3-dev \
@@ -27,18 +15,36 @@ RUN apt-get update && apt-get install -y \
     libwebkit2gtk-4.0-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Rust
+# Install poetry and add it to PATH
+RUN curl -sSL https://install.python-poetry.org | python3 -
+ENV PATH="/root/.local/bin:$PATH"
+
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 ENV PATH="/root/.cargo/bin:${PATH}"
 
-# Copy requirements.txt from the previous stage
-COPY --from=requirements-stage /tmp/requirements.txt /app/requirements.txt
+
+COPY src src
+COPY pyproject.toml poetry.lock* README.md ./
+
+RUN poetry build -f wheel
+RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
+RUN poetry run pip wheel -w wheels -r requirements.txt
+RUN mv dist/* wheels
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Copy dependencies from the previous stage
+COPY --from=build /build/wheels /app/wheels
+
+# Set up a virtual environment
+RUN python -m venv venv
 
 # Install dependencies
-RUN pip install --no-cache-dir -r /app/requirements.txt
-
-# Copy the rest of the application
-COPY . /app
+# RUN venv/bin/pip install "uvicorn[standard]"  # TODO: run `poetry add` on me instead
+RUN venv/bin/pip install wheels/* --no-deps --no-index
 
 EXPOSE 8080
-CMD ["fastapi", "run", "src/humblapi/main.py", "--host", "0.0.0.0", "--port", "8080"]
+ENTRYPOINT ["venv/bin/uvicorn", "humblapi.main:app"]
+CMD ["--host", "0.0.0.0", "--port", "8080"]

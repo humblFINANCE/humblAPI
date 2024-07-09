@@ -23,6 +23,32 @@ class Env(metaclass=SingletonMeta):
         """Example API KEY."""
         return self._environ.get("SERVICE_API", None)
 
+    @property
+    def LOGGER_LEVEL(self) -> int:
+        """
+        Get the global logger level.
+
+        Returns
+        -------
+        int
+            The numeric logging level (default: 20 for INFO).
+
+        Notes
+        -----
+        Mapping of string levels to numeric values:
+        DEBUG: 10, INFO: 20, WARNING: 30, ERROR: 40, CRITICAL: 50
+        """
+        level_map = {
+            "DEBUG": 10,
+            "INFO": 20,
+            "WARNING": 30,
+            "ERROR": 40,
+            "CRITICAL": 50,
+        }
+        return level_map.get(
+            self._environ.get("LOGGER_LEVEL", "INFO").upper(), 20
+        )
+
     # Use this when you want a variable to return a bool
     @staticmethod
     def str2bool(value) -> bool:
