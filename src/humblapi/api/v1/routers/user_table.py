@@ -54,8 +54,6 @@ async def user_table_route(
     user_table_data = (await portfolio.analytics.user_table()).to_dict(
         row_wise=True, as_series=False
     )
-    # user_table_data = (await portfolio.analytics.user_table()).to_polars()
-
     return user_table_data
 
 
