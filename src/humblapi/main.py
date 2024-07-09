@@ -10,7 +10,7 @@ from starlette.middleware.base import BaseHTTPMiddleware
 
 from humblapi.api.v1.routers import user_table
 from humblapi.core.config import Config
-from humblapi.core.middleware import MyMiddleware
+from humblapi.core.middleware import TimeLogMiddleware
 
 
 def fake_answer_to_everything_ml_model(x: float):
@@ -47,7 +47,7 @@ config = Config()
 app = FastAPI(title=config.PROJECT_NAME, lifespan=lifespan)
 
 # Add Middleware
-middleware = MyMiddleware(some_attribute="some_attribute_here_if_needed")
+middleware = TimeLogMiddleware(some_attribute="some_attribute_here_if_needed")
 app.add_middleware(BaseHTTPMiddleware, dispatch=middleware)
 app.add_middleware(
     CORSMiddleware,

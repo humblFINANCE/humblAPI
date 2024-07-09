@@ -10,7 +10,7 @@ env = Env()
 logger = setup_logger("humblAPI Middleware", level=env.LOGGER_LEVEL)
 
 
-class MyMiddleware:
+class TimeLogMiddleware:
     def __init__(
         self,
         some_attribute: str,
