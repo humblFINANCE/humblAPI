@@ -3,7 +3,9 @@ import time
 
 from fastapi import Request
 
-logger = logging.getLogger(__name__)
+from humblapi.core.logger import setup_logger
+
+logger = setup_logger("humblAPI Middleware")
 
 
 class MyMiddleware:
@@ -14,7 +16,6 @@ class MyMiddleware:
         self.some_attribute = some_attribute
 
     async def __call__(self, request: Request, call_next):
-        logger.info("I'm a middleware!")
         start_time = time.time()
         response = await call_next(request)
         end_time = time.time()
