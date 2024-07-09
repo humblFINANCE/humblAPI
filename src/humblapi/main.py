@@ -42,12 +42,13 @@ async def lifespan(app: FastAPI):
     ml_models.clear()
 
 
+# Setup App
 config = Config()
 app = FastAPI(title=config.PROJECT_NAME, lifespan=lifespan)
+
+# Add Middleware
 middleware = MyMiddleware(some_attribute="some_attribute_here_if_needed")
 app.add_middleware(BaseHTTPMiddleware, dispatch=middleware)
-
-# Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Allows all origins
@@ -56,6 +57,7 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
+# Add Routers
 app.include_router(user_table.router)
 
 

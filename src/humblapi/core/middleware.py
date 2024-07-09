@@ -3,9 +3,11 @@ import time
 
 from fastapi import Request
 
+from humblapi.core.env import Env
 from humblapi.core.logger import setup_logger
 
-logger = setup_logger("humblAPI Middleware")
+env = Env()
+logger = setup_logger("humblAPI Middleware", level=env.LOGGER_LEVEL)
 
 
 class MyMiddleware:
@@ -20,5 +22,10 @@ class MyMiddleware:
         response = await call_next(request)
         end_time = time.time()
 
-        logger.info(f"execution time: {end_time - start_time:.6f} seconds")
+        execution_time = f"{end_time - start_time:.6f}"
+
+        response.headers["X-Process-Time"] = execution_time
+        logger.info(
+            f"{request.method} {request.url.path} - execution time: {execution_time} s"
+        )
         return response
