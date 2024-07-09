@@ -1,4 +1,8 @@
 from fastapi import APIRouter, Depends
+from humbldata.core.standard_models.portfolio.analytics.user_table import (
+    UserTableData,
+    UserTableQueryParams,
+)
 from humbldata.portfolio.portfolio_controller import Portfolio
 
 from humblapi.core.config import Config
@@ -30,14 +34,16 @@ async def user_table_route(
 
     Returns
     -------
-    dict
+    dict : UserTableData
         A dictionary containing the aggregated user table data for the
-        specified symbols. The dict of a humblObject with `as_series=False` is
+        specified symbols. The dict of a HumblObject with `as_series=False` is
         identical to a JSON format.
+        UserTableData is a pandera.polars model that is used to validate the
+        output from humblDATA.
 
     Notes
     -----
-    The function uses the Portfolio class from humbldata to perform
+    The function uses the `Portfolio` class from humblDATA to perform
     the data aggregation.
     """
     # Split the symbols string into a list
@@ -48,6 +54,7 @@ async def user_table_route(
     user_table_data = (await portfolio.analytics.user_table()).to_dict(
         row_wise=True, as_series=False
     )
+    # user_table_data = (await portfolio.analytics.user_table()).to_polars()
 
     return user_table_data
 
