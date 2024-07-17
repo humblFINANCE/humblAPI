@@ -862,63 +862,63 @@ rich = "*"
 
 [[package]]
 name = "coverage"
-version = "7.5.4"
+version = "7.6.0"
 description = "Code coverage measurement for Python"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "coverage-7.5.4-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:6cfb5a4f556bb51aba274588200a46e4dd6b505fb1a5f8c5ae408222eb416f99"},
-    {file = "coverage-7.5.4-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:2174e7c23e0a454ffe12267a10732c273243b4f2d50d07544a91198f05c48f47"},
-    {file = "coverage-7.5.4-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:2214ee920787d85db1b6a0bd9da5f8503ccc8fcd5814d90796c2f2493a2f4d2e"},
-    {file = "coverage-7.5.4-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:1137f46adb28e3813dec8c01fefadcb8c614f33576f672962e323b5128d9a68d"},
-    {file = "coverage-7.5.4-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:b385d49609f8e9efc885790a5a0e89f2e3ae042cdf12958b6034cc442de428d3"},
-    {file = "coverage-7.5.4-cp310-cp310-musllinux_1_2_aarch64.whl", hash = "sha256:b4a474f799456e0eb46d78ab07303286a84a3140e9700b9e154cfebc8f527016"},
-    {file = "coverage-7.5.4-cp310-cp310-musllinux_1_2_i686.whl", hash = "sha256:5cd64adedf3be66f8ccee418473c2916492d53cbafbfcff851cbec5a8454b136"},
-    {file = "coverage-7.5.4-cp310-cp310-musllinux_1_2_x86_64.whl", hash = "sha256:e564c2cf45d2f44a9da56f4e3a26b2236504a496eb4cb0ca7221cd4cc7a9aca9"},
-    {file = "coverage-7.5.4-cp310-cp310-win32.whl", hash = "sha256:7076b4b3a5f6d2b5d7f1185fde25b1e54eb66e647a1dfef0e2c2bfaf9b4c88c8"},
-    {file = "coverage-7.5.4-cp310-cp310-win_amd64.whl", hash = "sha256:018a12985185038a5b2bcafab04ab833a9a0f2c59995b3cec07e10074c78635f"},
-    {file = "coverage-7.5.4-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:db14f552ac38f10758ad14dd7b983dbab424e731588d300c7db25b6f89e335b5"},
-    {file = "coverage-7.5.4-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:3257fdd8e574805f27bb5342b77bc65578e98cbc004a92232106344053f319ba"},
-    {file = "coverage-7.5.4-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:3a6612c99081d8d6134005b1354191e103ec9705d7ba2754e848211ac8cacc6b"},
-    {file = "coverage-7.5.4-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:d45d3cbd94159c468b9b8c5a556e3f6b81a8d1af2a92b77320e887c3e7a5d080"},
-    {file = "coverage-7.5.4-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ed550e7442f278af76d9d65af48069f1fb84c9f745ae249c1a183c1e9d1b025c"},
-    {file = "coverage-7.5.4-cp311-cp311-musllinux_1_2_aarch64.whl", hash = "sha256:7a892be37ca35eb5019ec85402c3371b0f7cda5ab5056023a7f13da0961e60da"},
-    {file = "coverage-7.5.4-cp311-cp311-musllinux_1_2_i686.whl", hash = "sha256:8192794d120167e2a64721d88dbd688584675e86e15d0569599257566dec9bf0"},
-    {file = "coverage-7.5.4-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:820bc841faa502e727a48311948e0461132a9c8baa42f6b2b84a29ced24cc078"},
-    {file = "coverage-7.5.4-cp311-cp311-win32.whl", hash = "sha256:6aae5cce399a0f065da65c7bb1e8abd5c7a3043da9dceb429ebe1b289bc07806"},
-    {file = "coverage-7.5.4-cp311-cp311-win_amd64.whl", hash = "sha256:d2e344d6adc8ef81c5a233d3a57b3c7d5181f40e79e05e1c143da143ccb6377d"},
-    {file = "coverage-7.5.4-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:54317c2b806354cbb2dc7ac27e2b93f97096912cc16b18289c5d4e44fc663233"},
-    {file = "coverage-7.5.4-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:042183de01f8b6d531e10c197f7f0315a61e8d805ab29c5f7b51a01d62782747"},
-    {file = "coverage-7.5.4-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:a6bb74ed465d5fb204b2ec41d79bcd28afccf817de721e8a807d5141c3426638"},
-    {file = "coverage-7.5.4-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:b3d45ff86efb129c599a3b287ae2e44c1e281ae0f9a9bad0edc202179bcc3a2e"},
-    {file = "coverage-7.5.4-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:5013ed890dc917cef2c9f765c4c6a8ae9df983cd60dbb635df8ed9f4ebc9f555"},
-    {file = "coverage-7.5.4-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:1014fbf665fef86cdfd6cb5b7371496ce35e4d2a00cda501cf9f5b9e6fced69f"},
-    {file = "coverage-7.5.4-cp312-cp312-musllinux_1_2_i686.whl", hash = "sha256:3684bc2ff328f935981847082ba4fdc950d58906a40eafa93510d1b54c08a66c"},
-    {file = "coverage-7.5.4-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:581ea96f92bf71a5ec0974001f900db495488434a6928a2ca7f01eee20c23805"},
-    {file = "coverage-7.5.4-cp312-cp312-win32.whl", hash = "sha256:73ca8fbc5bc622e54627314c1a6f1dfdd8db69788f3443e752c215f29fa87a0b"},
-    {file = "coverage-7.5.4-cp312-cp312-win_amd64.whl", hash = "sha256:cef4649ec906ea7ea5e9e796e68b987f83fa9a718514fe147f538cfeda76d7a7"},
-    {file = "coverage-7.5.4-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:cdd31315fc20868c194130de9ee6bfd99755cc9565edff98ecc12585b90be882"},
-    {file = "coverage-7.5.4-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:02ff6e898197cc1e9fa375581382b72498eb2e6d5fc0b53f03e496cfee3fac6d"},
-    {file = "coverage-7.5.4-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d05c16cf4b4c2fc880cb12ba4c9b526e9e5d5bb1d81313d4d732a5b9fe2b9d53"},
-    {file = "coverage-7.5.4-cp38-cp38-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:c5986ee7ea0795a4095ac4d113cbb3448601efca7f158ec7f7087a6c705304e4"},
-    {file = "coverage-7.5.4-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:5df54843b88901fdc2f598ac06737f03d71168fd1175728054c8f5a2739ac3e4"},
-    {file = "coverage-7.5.4-cp38-cp38-musllinux_1_2_aarch64.whl", hash = "sha256:ab73b35e8d109bffbda9a3e91c64e29fe26e03e49addf5b43d85fc426dde11f9"},
-    {file = "coverage-7.5.4-cp38-cp38-musllinux_1_2_i686.whl", hash = "sha256:aea072a941b033813f5e4814541fc265a5c12ed9720daef11ca516aeacd3bd7f"},
-    {file = "coverage-7.5.4-cp38-cp38-musllinux_1_2_x86_64.whl", hash = "sha256:16852febd96acd953b0d55fc842ce2dac1710f26729b31c80b940b9afcd9896f"},
-    {file = "coverage-7.5.4-cp38-cp38-win32.whl", hash = "sha256:8f894208794b164e6bd4bba61fc98bf6b06be4d390cf2daacfa6eca0a6d2bb4f"},
-    {file = "coverage-7.5.4-cp38-cp38-win_amd64.whl", hash = "sha256:e2afe743289273209c992075a5a4913e8d007d569a406ffed0bd080ea02b0633"},
-    {file = "coverage-7.5.4-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:b95c3a8cb0463ba9f77383d0fa8c9194cf91f64445a63fc26fb2327e1e1eb088"},
-    {file = "coverage-7.5.4-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:3d7564cc09dd91b5a6001754a5b3c6ecc4aba6323baf33a12bd751036c998be4"},
-    {file = "coverage-7.5.4-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:44da56a2589b684813f86d07597fdf8a9c6ce77f58976727329272f5a01f99f7"},
-    {file = "coverage-7.5.4-cp39-cp39-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:e16f3d6b491c48c5ae726308e6ab1e18ee830b4cdd6913f2d7f77354b33f91c8"},
-    {file = "coverage-7.5.4-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:dbc5958cb471e5a5af41b0ddaea96a37e74ed289535e8deca404811f6cb0bc3d"},
-    {file = "coverage-7.5.4-cp39-cp39-musllinux_1_2_aarch64.whl", hash = "sha256:a04e990a2a41740b02d6182b498ee9796cf60eefe40cf859b016650147908029"},
-    {file = "coverage-7.5.4-cp39-cp39-musllinux_1_2_i686.whl", hash = "sha256:ddbd2f9713a79e8e7242d7c51f1929611e991d855f414ca9996c20e44a895f7c"},
-    {file = "coverage-7.5.4-cp39-cp39-musllinux_1_2_x86_64.whl", hash = "sha256:b1ccf5e728ccf83acd313c89f07c22d70d6c375a9c6f339233dcf792094bcbf7"},
-    {file = "coverage-7.5.4-cp39-cp39-win32.whl", hash = "sha256:56b4eafa21c6c175b3ede004ca12c653a88b6f922494b023aeb1e836df953ace"},
-    {file = "coverage-7.5.4-cp39-cp39-win_amd64.whl", hash = "sha256:65e528e2e921ba8fd67d9055e6b9f9e34b21ebd6768ae1c1723f4ea6ace1234d"},
-    {file = "coverage-7.5.4-pp38.pp39.pp310-none-any.whl", hash = "sha256:79b356f3dd5b26f3ad23b35c75dbdaf1f9e2450b6bcefc6d0825ea0aa3f86ca5"},
-    {file = "coverage-7.5.4.tar.gz", hash = "sha256:a44963520b069e12789d0faea4e9fdb1e410cdc4aab89d94f7f55cbb7fef0353"},
+    {file = "coverage-7.6.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:dff044f661f59dace805eedb4a7404c573b6ff0cdba4a524141bc63d7be5c7fd"},
+    {file = "coverage-7.6.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:a8659fd33ee9e6ca03950cfdcdf271d645cf681609153f218826dd9805ab585c"},
+    {file = "coverage-7.6.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:7792f0ab20df8071d669d929c75c97fecfa6bcab82c10ee4adb91c7a54055463"},
+    {file = "coverage-7.6.0-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:d4b3cd1ca7cd73d229487fa5caca9e4bc1f0bca96526b922d61053ea751fe791"},
+    {file = "coverage-7.6.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e7e128f85c0b419907d1f38e616c4f1e9f1d1b37a7949f44df9a73d5da5cd53c"},
+    {file = "coverage-7.6.0-cp310-cp310-musllinux_1_2_aarch64.whl", hash = "sha256:a94925102c89247530ae1dab7dc02c690942566f22e189cbd53579b0693c0783"},
+    {file = "coverage-7.6.0-cp310-cp310-musllinux_1_2_i686.whl", hash = "sha256:dcd070b5b585b50e6617e8972f3fbbee786afca71b1936ac06257f7e178f00f6"},
+    {file = "coverage-7.6.0-cp310-cp310-musllinux_1_2_x86_64.whl", hash = "sha256:d50a252b23b9b4dfeefc1f663c568a221092cbaded20a05a11665d0dbec9b8fb"},
+    {file = "coverage-7.6.0-cp310-cp310-win32.whl", hash = "sha256:0e7b27d04131c46e6894f23a4ae186a6a2207209a05df5b6ad4caee6d54a222c"},
+    {file = "coverage-7.6.0-cp310-cp310-win_amd64.whl", hash = "sha256:54dece71673b3187c86226c3ca793c5f891f9fc3d8aa183f2e3653da18566169"},
+    {file = "coverage-7.6.0-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:c7b525ab52ce18c57ae232ba6f7010297a87ced82a2383b1afd238849c1ff933"},
+    {file = "coverage-7.6.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:4bea27c4269234e06f621f3fac3925f56ff34bc14521484b8f66a580aacc2e7d"},
+    {file = "coverage-7.6.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ed8d1d1821ba5fc88d4a4f45387b65de52382fa3ef1f0115a4f7a20cdfab0e94"},
+    {file = "coverage-7.6.0-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:01c322ef2bbe15057bc4bf132b525b7e3f7206f071799eb8aa6ad1940bcf5fb1"},
+    {file = "coverage-7.6.0-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:03cafe82c1b32b770a29fd6de923625ccac3185a54a5e66606da26d105f37dac"},
+    {file = "coverage-7.6.0-cp311-cp311-musllinux_1_2_aarch64.whl", hash = "sha256:0d1b923fc4a40c5832be4f35a5dab0e5ff89cddf83bb4174499e02ea089daf57"},
+    {file = "coverage-7.6.0-cp311-cp311-musllinux_1_2_i686.whl", hash = "sha256:4b03741e70fb811d1a9a1d75355cf391f274ed85847f4b78e35459899f57af4d"},
+    {file = "coverage-7.6.0-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:a73d18625f6a8a1cbb11eadc1d03929f9510f4131879288e3f7922097a429f63"},
+    {file = "coverage-7.6.0-cp311-cp311-win32.whl", hash = "sha256:65fa405b837060db569a61ec368b74688f429b32fa47a8929a7a2f9b47183713"},
+    {file = "coverage-7.6.0-cp311-cp311-win_amd64.whl", hash = "sha256:6379688fb4cfa921ae349c76eb1a9ab26b65f32b03d46bb0eed841fd4cb6afb1"},
+    {file = "coverage-7.6.0-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:f7db0b6ae1f96ae41afe626095149ecd1b212b424626175a6633c2999eaad45b"},
+    {file = "coverage-7.6.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:bbdf9a72403110a3bdae77948b8011f644571311c2fb35ee15f0f10a8fc082e8"},
+    {file = "coverage-7.6.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:9cc44bf0315268e253bf563f3560e6c004efe38f76db03a1558274a6e04bf5d5"},
+    {file = "coverage-7.6.0-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:da8549d17489cd52f85a9829d0e1d91059359b3c54a26f28bec2c5d369524807"},
+    {file = "coverage-7.6.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0086cd4fc71b7d485ac93ca4239c8f75732c2ae3ba83f6be1c9be59d9e2c6382"},
+    {file = "coverage-7.6.0-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:1fad32ee9b27350687035cb5fdf9145bc9cf0a094a9577d43e909948ebcfa27b"},
+    {file = "coverage-7.6.0-cp312-cp312-musllinux_1_2_i686.whl", hash = "sha256:044a0985a4f25b335882b0966625270a8d9db3d3409ddc49a4eb00b0ef5e8cee"},
+    {file = "coverage-7.6.0-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:76d5f82213aa78098b9b964ea89de4617e70e0d43e97900c2778a50856dac605"},
+    {file = "coverage-7.6.0-cp312-cp312-win32.whl", hash = "sha256:3c59105f8d58ce500f348c5b56163a4113a440dad6daa2294b5052a10db866da"},
+    {file = "coverage-7.6.0-cp312-cp312-win_amd64.whl", hash = "sha256:ca5d79cfdae420a1d52bf177de4bc2289c321d6c961ae321503b2ca59c17ae67"},
+    {file = "coverage-7.6.0-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:d39bd10f0ae453554798b125d2f39884290c480f56e8a02ba7a6ed552005243b"},
+    {file = "coverage-7.6.0-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:beb08e8508e53a568811016e59f3234d29c2583f6b6e28572f0954a6b4f7e03d"},
+    {file = "coverage-7.6.0-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:b2e16f4cd2bc4d88ba30ca2d3bbf2f21f00f382cf4e1ce3b1ddc96c634bc48ca"},
+    {file = "coverage-7.6.0-cp38-cp38-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:6616d1c9bf1e3faea78711ee42a8b972367d82ceae233ec0ac61cc7fec09fa6b"},
+    {file = "coverage-7.6.0-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ad4567d6c334c46046d1c4c20024de2a1c3abc626817ae21ae3da600f5779b44"},
+    {file = "coverage-7.6.0-cp38-cp38-musllinux_1_2_aarch64.whl", hash = "sha256:d17c6a415d68cfe1091d3296ba5749d3d8696e42c37fca5d4860c5bf7b729f03"},
+    {file = "coverage-7.6.0-cp38-cp38-musllinux_1_2_i686.whl", hash = "sha256:9146579352d7b5f6412735d0f203bbd8d00113a680b66565e205bc605ef81bc6"},
+    {file = "coverage-7.6.0-cp38-cp38-musllinux_1_2_x86_64.whl", hash = "sha256:cdab02a0a941af190df8782aafc591ef3ad08824f97850b015c8c6a8b3877b0b"},
+    {file = "coverage-7.6.0-cp38-cp38-win32.whl", hash = "sha256:df423f351b162a702c053d5dddc0fc0ef9a9e27ea3f449781ace5f906b664428"},
+    {file = "coverage-7.6.0-cp38-cp38-win_amd64.whl", hash = "sha256:f2501d60d7497fd55e391f423f965bbe9e650e9ffc3c627d5f0ac516026000b8"},
+    {file = "coverage-7.6.0-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:7221f9ac9dad9492cecab6f676b3eaf9185141539d5c9689d13fd6b0d7de840c"},
+    {file = "coverage-7.6.0-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:ddaaa91bfc4477d2871442bbf30a125e8fe6b05da8a0015507bfbf4718228ab2"},
+    {file = "coverage-7.6.0-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:c4cbe651f3904e28f3a55d6f371203049034b4ddbce65a54527a3f189ca3b390"},
+    {file = "coverage-7.6.0-cp39-cp39-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:831b476d79408ab6ccfadaaf199906c833f02fdb32c9ab907b1d4aa0713cfa3b"},
+    {file = "coverage-7.6.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:46c3d091059ad0b9c59d1034de74a7f36dcfa7f6d3bde782c49deb42438f2450"},
+    {file = "coverage-7.6.0-cp39-cp39-musllinux_1_2_aarch64.whl", hash = "sha256:4d5fae0a22dc86259dee66f2cc6c1d3e490c4a1214d7daa2a93d07491c5c04b6"},
+    {file = "coverage-7.6.0-cp39-cp39-musllinux_1_2_i686.whl", hash = "sha256:07ed352205574aad067482e53dd606926afebcb5590653121063fbf4e2175166"},
+    {file = "coverage-7.6.0-cp39-cp39-musllinux_1_2_x86_64.whl", hash = "sha256:49c76cdfa13015c4560702574bad67f0e15ca5a2872c6a125f6327ead2b731dd"},
+    {file = "coverage-7.6.0-cp39-cp39-win32.whl", hash = "sha256:482855914928c8175735a2a59c8dc5806cf7d8f032e4820d52e845d1f731dca2"},
+    {file = "coverage-7.6.0-cp39-cp39-win_amd64.whl", hash = "sha256:543ef9179bc55edfd895154a51792b01c017c87af0ebaae092720152e19e42ca"},
+    {file = "coverage-7.6.0-pp38.pp39.pp310-none-any.whl", hash = "sha256:6fe885135c8a479d3e37a7aae61cbd3a0fb2deccb4dda3c25f92a49189f766d6"},
+    {file = "coverage-7.6.0.tar.gz", hash = "sha256:289cc803fa1dc901f84701ac10c9ee873619320f2f9aff38794db4a4a0268d51"},
 ]
 
 [package.extras]
@@ -1090,21 +1090,6 @@ files = [
 [package.dependencies]
 attrs = ">=23.1.0,<24.0.0"
 commitizen = ">=3.2.2,<4.0.0"
-
-[[package]]
-name = "datetime"
-version = "5.5"
-description = "This package provides a DateTime data type, as known from Zope. Unless you need to communicate with Zope APIs, you're probably better off using Python's built-in datetime module."
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "DateTime-5.5-py3-none-any.whl", hash = "sha256:0abf6c51cb4ba7cee775ca46ccc727f3afdde463be28dbbe8803631fefd4a120"},
-    {file = "DateTime-5.5.tar.gz", hash = "sha256:21ec6331f87a7fcb57bd7c59e8a68bfffe6fcbf5acdbbc7b356d6a9a020191d3"},
-]
-
-[package.dependencies]
-pytz = "*"
-"zope.interface" = "*"
 
 [[package]]
 name = "debugpy"
@@ -1375,13 +1360,13 @@ tests = ["asttokens (>=2.1.0)", "coverage", "coverage-enable-subprocess", "ipyth
 
 [[package]]
 name = "fastapi"
-version = "0.111.0"
+version = "0.111.1"
 description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "fastapi-0.111.0-py3-none-any.whl", hash = "sha256:97ecbf994be0bcbdadedf88c3150252bed7b2087075ac99735403b1b76cc8fc0"},
-    {file = "fastapi-0.111.0.tar.gz", hash = "sha256:b9db9dd147c91cb8b769f7183535773d8741dd46f9dc6676cd82eab510228cd7"},
+    {file = "fastapi-0.111.1-py3-none-any.whl", hash = "sha256:4f51cfa25d72f9fbc3280832e84b32494cf186f50158d364a8765aabf22587bf"},
+    {file = "fastapi-0.111.1.tar.gz", hash = "sha256:ddd1ac34cb1f76c2e2d7f8545a4bcb5463bce4834e81abf0b189e0c359ab2413"},
 ]
 
 [package.dependencies]
@@ -1390,7 +1375,7 @@ fastapi-cli = ">=0.0.2"
 httpx = ">=0.23.0"
 itsdangerous = {version = ">=1.1.0", optional = true, markers = "extra == \"all\""}
 jinja2 = ">=2.11.2"
-orjson = ">=3.2.1"
+orjson = {version = ">=3.2.1", optional = true, markers = "extra == \"all\""}
 pydantic = ">=1.7.4,<1.8 || >1.8,<1.8.1 || >1.8.1,<2.0.0 || >2.0.0,<2.0.1 || >2.0.1,<2.1.0 || >2.1.0,<3.0.0"
 pydantic-extra-types = {version = ">=2.0.0", optional = true, markers = "extra == \"all\""}
 pydantic-settings = {version = ">=2.0.0", optional = true, markers = "extra == \"all\""}
@@ -1398,7 +1383,7 @@ python-multipart = ">=0.0.7"
 pyyaml = {version = ">=5.3.1", optional = true, markers = "extra == \"all\""}
 starlette = ">=0.37.2,<0.38.0"
 typing-extensions = ">=4.8.0"
-ujson = ">=4.0.1,<4.0.2 || >4.0.2,<4.1.0 || >4.1.0,<4.2.0 || >4.2.0,<4.3.0 || >4.3.0,<5.0.0 || >5.0.0,<5.1.0 || >5.1.0"
+ujson = {version = ">=4.0.1,<4.0.2 || >4.0.2,<4.1.0 || >4.1.0,<4.2.0 || >4.2.0,<4.3.0 || >4.3.0,<5.0.0 || >5.0.0,<5.1.0 || >5.1.0", optional = true, markers = "extra == \"all\""}
 uvicorn = {version = ">=0.12.0", extras = ["standard"]}
 
 [package.extras]
@@ -1453,31 +1438,30 @@ typing = ["typing-extensions (>=4.7.1)"]
 
 [[package]]
 name = "finvizfinance"
-version = "0.14.7"
+version = "1.0.1"
 description = "Finviz Finance. Information downloader."
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.9"
 files = [
-    {file = "finvizfinance-0.14.7-py3-none-any.whl", hash = "sha256:d55d087d75c4e22bca2a16ef57b4805d500dc380aece847b5aec287ef5f6984a"},
-    {file = "finvizfinance-0.14.7.tar.gz", hash = "sha256:5b937fdc803a03493bfbcdbdcb857174a2cb6dc557cc87f791d19e5f4f15ca5a"},
+    {file = "finvizfinance-1.0.1-py3-none-any.whl", hash = "sha256:a3ab0030a8f10c8b63314ebc5772e9c8b9d99c7ddbe325c18adf07a759a79472"},
+    {file = "finvizfinance-1.0.1.tar.gz", hash = "sha256:9c67893fd8f1a6ef8c3d11de6845066f3ed34849fc905874468028ca235b7d30"},
 ]
 
 [package.dependencies]
-bs4 = "*"
-datetime = "*"
+beautifulsoup4 = "*"
 lxml = "*"
 pandas = "*"
 requests = "*"
 
 [[package]]
 name = "formulaic"
-version = "1.0.1"
+version = "1.0.2"
 description = "An implementation of Wilkinson formulas."
 optional = false
 python-versions = ">=3.7.2"
 files = [
-    {file = "formulaic-1.0.1-py3-none-any.whl", hash = "sha256:be9e6127b98ba0293654be528fd070ede264f64d0247477c4d5af799b0b12cf2"},
-    {file = "formulaic-1.0.1.tar.gz", hash = "sha256:64dd7992a7aa5bbceb1e40679d0f01fc6f0ba12b7d23d78094a88c2edc68fba1"},
+    {file = "formulaic-1.0.2-py3-none-any.whl", hash = "sha256:663328b038a0eb7644f59400615da7abf2672b0e11124b3bef3307afc441d97c"},
+    {file = "formulaic-1.0.2.tar.gz", hash = "sha256:6eb65bedd1903c5381d8f2ae7a55b6ba13cb77d57bbaf6e4278f3b2c38e3660e"},
 ]
 
 [package.dependencies]
@@ -1839,13 +1823,13 @@ pyreadline3 = {version = "*", markers = "sys_platform == \"win32\" and python_ve
 
 [[package]]
 name = "humbldata"
-version = "1.6.1"
+version = "1.6.2"
 description = "open-sourcing the math behind major financial institutional investors/banks. this package connects data analysis to the humblFINANCE website."
 optional = false
 python-versions = "<3.12,>=3.11"
 files = [
-    {file = "humbldata-1.6.1-py3-none-any.whl", hash = "sha256:3249cc2e88c8102ee2e6dd5b6c975b56cae28b3531959c00b4b99b0cd8f63855"},
-    {file = "humbldata-1.6.1.tar.gz", hash = "sha256:f55be230e8b769a528b3d051df0ee61ec88f95fb30a2126b1c737f967b55d7df"},
+    {file = "humbldata-1.6.2-py3-none-any.whl", hash = "sha256:fd857d73aeffbeac08fc1ccce1c58158c9790415fb0c7258f91e9f3aa041c998"},
+    {file = "humbldata-1.6.2.tar.gz", hash = "sha256:06521439da165ef18492c17cd4b191a828e1569c11ab73943d79a2f1f1903cf6"},
 ]
 
 [package.dependencies]
@@ -1858,13 +1842,13 @@ uuid7 = ">=0.1.0"
 
 [[package]]
 name = "identify"
-version = "2.5.36"
+version = "2.6.0"
 description = "File identification library for Python"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "identify-2.5.36-py2.py3-none-any.whl", hash = "sha256:37d93f380f4de590500d9dba7db359d0d3da95ffe7f9de1753faa159e71e7dfa"},
-    {file = "identify-2.5.36.tar.gz", hash = "sha256:e5e00f54165f9047fbebeb4a560f9acfb8af4c88232be60a488e9b68d122745d"},
+    {file = "identify-2.6.0-py2.py3-none-any.whl", hash = "sha256:e79ae4406387a9d300332b5fd366d8994f1525e8414984e1a59e058b2eda2dd0"},
+    {file = "identify-2.6.0.tar.gz", hash = "sha256:cb171c685bdc31bcc4c1734698736a7d5b6c8bf2e0c15117f4d469c8640ae5cf"},
 ]
 
 [package.extras]
@@ -2141,13 +2125,13 @@ files = [
 
 [[package]]
 name = "jsonschema"
-version = "4.22.0"
+version = "4.23.0"
 description = "An implementation of JSON Schema validation for Python"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "jsonschema-4.22.0-py3-none-any.whl", hash = "sha256:ff4cfd6b1367a40e7bc6411caec72effadd3db0bbe5017de188f2d6108335802"},
-    {file = "jsonschema-4.22.0.tar.gz", hash = "sha256:5b22d434a45935119af990552c862e5d6d564e8f6601206b305a61fdf661a2b7"},
+    {file = "jsonschema-4.23.0-py3-none-any.whl", hash = "sha256:fbadb6f8b144a8f8cf9f0b89ba94501d143e50411a1278633f56a7acf7fd5566"},
+    {file = "jsonschema-4.23.0.tar.gz", hash = "sha256:d71497fef26351a33265337fa77ffeb82423f3ea21283cd9467bb03999266bc4"},
 ]
 
 [package.dependencies]
@@ -2162,11 +2146,11 @@ rfc3339-validator = {version = "*", optional = true, markers = "extra == \"forma
 rfc3986-validator = {version = ">0.1.0", optional = true, markers = "extra == \"format-nongpl\""}
 rpds-py = ">=0.7.1"
 uri-template = {version = "*", optional = true, markers = "extra == \"format-nongpl\""}
-webcolors = {version = ">=1.11", optional = true, markers = "extra == \"format-nongpl\""}
+webcolors = {version = ">=24.6.0", optional = true, markers = "extra == \"format-nongpl\""}
 
 [package.extras]
 format = ["fqdn", "idna", "isoduration", "jsonpointer (>1.13)", "rfc3339-validator", "rfc3987", "uri-template", "webcolors (>=1.11)"]
-format-nongpl = ["fqdn", "idna", "isoduration", "jsonpointer (>1.13)", "rfc3339-validator", "rfc3986-validator (>0.1.0)", "uri-template", "webcolors (>=1.11)"]
+format-nongpl = ["fqdn", "idna", "isoduration", "jsonpointer (>1.13)", "rfc3339-validator", "rfc3986-validator (>0.1.0)", "uri-template", "webcolors (>=24.6.0)"]
 
 [[package]]
 name = "jsonschema-specifications"
@@ -2265,13 +2249,13 @@ jupyter-server = ">=1.1.2"
 
 [[package]]
 name = "jupyter-server"
-version = "2.14.1"
+version = "2.14.2"
 description = "The backend—i.e. core services, APIs, and REST endpoints—to Jupyter web applications."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "jupyter_server-2.14.1-py3-none-any.whl", hash = "sha256:16f7177c3a4ea8fe37784e2d31271981a812f0b2874af17339031dc3510cc2a5"},
-    {file = "jupyter_server-2.14.1.tar.gz", hash = "sha256:12558d158ec7a0653bf96cc272bc7ad79e0127d503b982ed144399346694f726"},
+    {file = "jupyter_server-2.14.2-py3-none-any.whl", hash = "sha256:47ff506127c2f7851a17bf4713434208fc490955d0e8632e95014a9a9afbeefd"},
+    {file = "jupyter_server-2.14.2.tar.gz", hash = "sha256:66095021aa9638ced276c248b1d81862e4c50f292d575920bbe960de1c56b12b"},
 ]
 
 [package.dependencies]
@@ -2423,46 +2407,46 @@ files = [
 
 [[package]]
 name = "linearmodels"
-version = "4.25"
+version = "4.31"
 description = "Linear Panel, Instrumental Variable, Asset Pricing, and System Regression models for Python"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "linearmodels-4.25-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:e8d3b34c62357701b60d043356563c247096ad79b8b95ac9bbafb1820a455f48"},
-    {file = "linearmodels-4.25-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:b1b2e7e4e27b12e9d5ec4e2de41e9aeaa685405bc37beaff0f080a2ad3e24f61"},
-    {file = "linearmodels-4.25-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:6e107d3d97819cdc4bfe64c85870e0ed655f2e1bd04911e22127dee0e3fab8d2"},
-    {file = "linearmodels-4.25-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:728d82fac702f65cc128742145b3702428b6aed5283450365ec5110f42e883dd"},
-    {file = "linearmodels-4.25-cp310-cp310-win_amd64.whl", hash = "sha256:c0aec5de380c4daf0596bb3be647a8cc8d0081c06715465df7a87efced08014e"},
-    {file = "linearmodels-4.25-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:db4c313127f3307a7c174ee12d9306fbc8dbb8a585b55234ebfa435fa5dd9ee9"},
-    {file = "linearmodels-4.25-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:339f01a68e504db1cccb4be9d4167c38c92ea5700cd3eba03ad0352d869c15eb"},
-    {file = "linearmodels-4.25-cp37-cp37m-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:f55f68eb675f863f80860526143451f516d9b77c580c0afb6c86f8bf7292da86"},
-    {file = "linearmodels-4.25-cp37-cp37m-win32.whl", hash = "sha256:ab9cb6a6fcad05bc5e790341c321713232883a8757aab4c7ce038a0a1af55728"},
-    {file = "linearmodels-4.25-cp37-cp37m-win_amd64.whl", hash = "sha256:f9fcb1eaaaf268ffcffbf4c2333bc9634d7a9ecf2ced0b5222bab6a8491d9fc6"},
-    {file = "linearmodels-4.25-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:397201c401f1d21bbfa9b2f4c44694c2f8c557d69271c244f43ac2ec5c6f2376"},
-    {file = "linearmodels-4.25-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:e989cc12320e4cc599f3ceb83e8fa16e27af2584c3f76020bc56c20f76866839"},
-    {file = "linearmodels-4.25-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:c24f4aa2f44bf9e04606e15851b8874b2c8097f533c47bf11d6dab4954ecc6db"},
-    {file = "linearmodels-4.25-cp38-cp38-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:6843e0a8971d4d0539f22967ebf7dc9b381e55f087b6ee7bb32ad7ee728c91a7"},
-    {file = "linearmodels-4.25-cp38-cp38-win32.whl", hash = "sha256:cced735e5c645902c3c2003826d75ff04dd5caa60096918e8f7f4fc0eb79ed31"},
-    {file = "linearmodels-4.25-cp38-cp38-win_amd64.whl", hash = "sha256:4d5d401d1c2c9b8c2e8fd2dd8b064e513bf4cb0d6a30b9198f33f67163cbc7d8"},
-    {file = "linearmodels-4.25-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:3bd3ddc0753d29fcd26ff80d87957904f7d91c3f7d898c8839b13a226ee5fede"},
-    {file = "linearmodels-4.25-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:11b3f66bdf17434b04be916f16ddb319bf8dae54b89b8c268cb37a8ad7b0f4ee"},
-    {file = "linearmodels-4.25-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f5a1b691e840189a2ed17796a806960166e30e86e6970c80e60fe10762456005"},
-    {file = "linearmodels-4.25-cp39-cp39-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:4abd59e3dda544807676d94ba1ea2ceba87624ab30491ea561430f31379229bc"},
-    {file = "linearmodels-4.25-cp39-cp39-win32.whl", hash = "sha256:061f2970191fcee284f600d5cc84a556a411729494325af8c557047ab733ae46"},
-    {file = "linearmodels-4.25-cp39-cp39-win_amd64.whl", hash = "sha256:19f8cb6237b61badb687a4a020527552a70e077cf1b303959c33faeb8cdde285"},
-    {file = "linearmodels-4.25.tar.gz", hash = "sha256:a73e94195f486f74be6176809a515bb498b5371d8acb9e4ae6f0e59a7c28210a"},
+    {file = "linearmodels-4.31-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:9b8099d476526bba1f8709ffbfaf868aac1db70e7c1607b6f1aa36913ab930d9"},
+    {file = "linearmodels-4.31-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:248b6c325997c9e322d7c270bc89d7f3c8c6bc394053bb3ccd0d061e57a9b398"},
+    {file = "linearmodels-4.31-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:cac9aa59859834fea6d0db3ad3fdcf828aa40d6226ca0043e39bec108a171ce5"},
+    {file = "linearmodels-4.31-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:3df2f7398d94ce25683c0a71c5b8c85fe588e8eae88303c4404b1391f7387195"},
+    {file = "linearmodels-4.31-cp310-cp310-win_amd64.whl", hash = "sha256:6b6f23d22b373f2be628bb5e3751c08ebb99cb7be6eb7698420596efd95bdd91"},
+    {file = "linearmodels-4.31-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:8b48da80ec81176745f125f1a10cb9cc549ea9dd7275da7406ad49092d925bd3"},
+    {file = "linearmodels-4.31-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:8b4452934fbbf969596028f4e3cfb68fc5b31feb39f2e8dcf90c60480b7dd80b"},
+    {file = "linearmodels-4.31-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:968720a990759afd7c37f8eb54c368f94e5b40b1491339b8a649f06677f67a61"},
+    {file = "linearmodels-4.31-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:dc2dca305579129bb801aa3b1fa7471304c6b94400b80bf97345be5f38fa6566"},
+    {file = "linearmodels-4.31-cp311-cp311-win_amd64.whl", hash = "sha256:4cc382c922de7278e10e08f69aec18ecaf212fc86b4718eb36faf811509037b8"},
+    {file = "linearmodels-4.31-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:cb05a791250d6366099b14e9ad4ba9bb4fab5c2865dbedc4195feb599e17f699"},
+    {file = "linearmodels-4.31-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:18b4be70fffa7291c4058bf98ed1bd3309f8be8131c382811dd83a5f3122a4ff"},
+    {file = "linearmodels-4.31-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:2a3762ff2ec4d413bf5ae97169d090ab8dc96becdf54d2b465711aa2b0e47e21"},
+    {file = "linearmodels-4.31-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e5bf38f464ba420780734ce1ed7b6ec396974458afbce698d63624727f0858e2"},
+    {file = "linearmodels-4.31-cp38-cp38-win32.whl", hash = "sha256:657647d22e4d05dbf444bd154fb40c9b01b516c3af7e9fe0b8624c2fcb5f9e6a"},
+    {file = "linearmodels-4.31-cp38-cp38-win_amd64.whl", hash = "sha256:663084a878b9e801f0aae261dfb999af37d385f5c7d8b67930cefab490d7b166"},
+    {file = "linearmodels-4.31-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:de2579b18a277d41b215292c7514a8c325b511c1f5a35aefbfe89fdd666a8c7f"},
+    {file = "linearmodels-4.31-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:15737df58e9a13f847f6f3e2e296255082bcf2cd8183b64e629d7252a50fbb91"},
+    {file = "linearmodels-4.31-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:f7c9b245f33c573cdf983dc7eecc5d593ea51b9f17799fbd89902856797359e8"},
+    {file = "linearmodels-4.31-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9f0a033e66cdf336e682f8a48de44512362ae96fad6e0b3def7f83c01f1d346e"},
+    {file = "linearmodels-4.31-cp39-cp39-win32.whl", hash = "sha256:4222bd5748fa662173fc44214b7dcf04f68775550a7014045c6bb07741ae2153"},
+    {file = "linearmodels-4.31-cp39-cp39-win_amd64.whl", hash = "sha256:24cda8759583a7c3d179efee9e1e502092c8794774c6334f87b2b131869fd9dd"},
+    {file = "linearmodels-4.31.tar.gz", hash = "sha256:78a00ebd0360c2886357e8197faca174dc4521256a01e9f24114054bca676be9"},
 ]
 
 [package.dependencies]
 Cython = ">=0.29.21"
-formulaic = "*"
+formulaic = ">=0.3.2"
 mypy-extensions = ">=0.4"
 numpy = ">=1.16"
 pandas = ">=0.24"
-patsy = "*"
 property-cached = ">=1.6.3"
 pyhdfe = ">=0.1"
 scipy = ">=1.2"
+setuptools-scm = {version = ">=7.0.0", extras = ["toml"]}
 statsmodels = ">=0.11"
 
 [[package]]
@@ -3222,150 +3206,151 @@ files = [
 
 [[package]]
 name = "openbb"
-version = "4.2.3"
+version = "4.3.0"
 description = "Investment research for everyone, anywhere."
 optional = false
-python-versions = "<3.12,>=3.8"
+python-versions = "<3.13,>=3.9"
 files = [
-    {file = "openbb-4.2.3-py3-none-any.whl", hash = "sha256:2676078707836ed595d7ee0eee6d79c8f210e3a36789f10cd2fb53e9337a60bb"},
-    {file = "openbb-4.2.3.tar.gz", hash = "sha256:174b90d953a977aee4982b455a6346f272778eeb88c43fcd5c4e04d53b807ee4"},
+    {file = "openbb-4.3.0-py3-none-any.whl", hash = "sha256:5dd960b6e11c48b50a91d7a9bea55f71bfa55b30ce4bb52b9978118fb4ec7abc"},
+    {file = "openbb-4.3.0.tar.gz", hash = "sha256:ebc067407e92c72ea4a3a1308dbe90a9f51b511a5a437d8e1a4e51086ebf56f9"},
 ]
 
 [package.dependencies]
-openbb-alpha-vantage = {version = ">=1.2.3,<2.0.0", optional = true, markers = "extra == \"alpha-vantage\" or extra == \"all\""}
-openbb-benzinga = ">=1.2.3,<2.0.0"
-openbb-biztoc = {version = ">=1.2.3,<2.0.0", optional = true, markers = "extra == \"biztoc\" or extra == \"all\""}
-openbb-cboe = {version = ">=1.2.3,<2.0.0", optional = true, markers = "extra == \"cboe\" or extra == \"all\""}
-openbb-charting = {version = ">=2.1.2,<3.0.0", optional = true, markers = "extra == \"charting\" or extra == \"all\""}
-openbb-commodity = ">=1.1.3,<2.0.0"
-openbb-core = ">=1.2.5,<2.0.0"
-openbb-crypto = ">=1.2.3,<2.0.0"
-openbb-currency = ">=1.2.3,<2.0.0"
-openbb-derivatives = ">=1.2.3,<2.0.0"
-openbb-ecb = {version = ">=1.2.3,<2.0.0", optional = true, markers = "extra == \"ecb\" or extra == \"all\""}
-openbb-econdb = ">=1.1.3,<2.0.0"
-openbb-econometrics = {version = ">=1.2.3,<2.0.0", optional = true, markers = "extra == \"econometrics\" or extra == \"all\""}
-openbb-economy = ">=1.2.3,<2.0.0"
-openbb-equity = ">=1.2.3,<2.0.0"
-openbb-etf = ">=1.2.3,<2.0.0"
-openbb-federal-reserve = ">=1.2.3,<2.0.0"
-openbb-finra = {version = ">=1.2.3,<2.0.0", optional = true, markers = "extra == \"finra\" or extra == \"all\""}
-openbb-finviz = {version = ">=1.1.3,<2.0.0", optional = true, markers = "extra == \"finviz\" or extra == \"all\""}
-openbb-fixedincome = ">=1.2.3,<2.0.0"
-openbb-fmp = ">=1.2.3,<2.0.0"
-openbb-fred = ">=1.2.3,<2.0.0"
-openbb-government-us = {version = ">=1.2.3,<2.0.0", optional = true, markers = "extra == \"government-us\" or extra == \"all\""}
-openbb-index = ">=1.2.3,<2.0.0"
-openbb-intrinio = ">=1.2.3,<2.0.0"
-openbb-nasdaq = {version = ">=1.2.3,<2.0.0", optional = true, markers = "extra == \"nasdaq\" or extra == \"all\""}
-openbb-news = ">=1.2.3,<2.0.0"
-openbb-oecd = ">=1.2.3,<2.0.0"
-openbb-polygon = ">=1.2.3,<2.0.0"
-openbb-quantitative = {version = ">=1.2.3,<2.0.0", optional = true, markers = "extra == \"quantitative\" or extra == \"all\""}
-openbb-regulators = ">=1.2.3,<2.0.0"
-openbb-sec = ">=1.2.3,<2.0.0"
-openbb-seeking-alpha = {version = ">=1.2.3,<2.0.0", optional = true, markers = "extra == \"seeking-alpha\" or extra == \"all\""}
-openbb-stockgrid = {version = ">=1.2.3,<2.0.0", optional = true, markers = "extra == \"stockgrid\" or extra == \"all\""}
-openbb-technical = {version = ">=1.2.3,<2.0.0", optional = true, markers = "extra == \"technical\" or extra == \"all\""}
-openbb-tiingo = ">=1.2.3,<2.0.0"
-openbb-tmx = {version = ">=1.1.3,<2.0.0", optional = true, markers = "extra == \"tmx\" or extra == \"all\""}
-openbb-tradier = {version = ">=1.1.3,<2.0.0", optional = true, markers = "extra == \"tradier\" or extra == \"all\""}
-openbb-tradingeconomics = ">=1.2.3,<2.0.0"
-openbb-wsj = {version = ">=1.2.3,<2.0.0", optional = true, markers = "extra == \"wsj\" or extra == \"all\""}
-openbb-yfinance = ">=1.2.3,<2.0.0"
+openbb-alpha-vantage = {version = ">=1.3.0,<2.0.0", optional = true, markers = "extra == \"alpha-vantage\" or extra == \"all\""}
+openbb-benzinga = ">=1.3.0,<2.0.0"
+openbb-biztoc = {version = ">=1.3.0,<2.0.0", optional = true, markers = "extra == \"biztoc\" or extra == \"all\""}
+openbb-cboe = {version = ">=1.3.0,<2.0.0", optional = true, markers = "extra == \"cboe\" or extra == \"all\""}
+openbb-charting = {version = ">=2.2.0,<3.0.0", optional = true, markers = "extra == \"charting\" or extra == \"all\""}
+openbb-commodity = ">=1.2.0,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
+openbb-crypto = ">=1.3.0,<2.0.0"
+openbb-currency = ">=1.3.0,<2.0.0"
+openbb-derivatives = ">=1.3.0,<2.0.0"
+openbb-ecb = {version = ">=1.3.0,<2.0.0", optional = true, markers = "extra == \"ecb\" or extra == \"all\""}
+openbb-econdb = ">=1.2.0,<2.0.0"
+openbb-econometrics = {version = ">=1.3.0,<2.0.0", optional = true, markers = "extra == \"econometrics\" or extra == \"all\""}
+openbb-economy = ">=1.3.0,<2.0.0"
+openbb-equity = ">=1.3.0,<2.0.0"
+openbb-etf = ">=1.3.0,<2.0.0"
+openbb-federal-reserve = ">=1.3.0,<2.0.0"
+openbb-finra = {version = ">=1.3.0,<2.0.0", optional = true, markers = "extra == \"finra\" or extra == \"all\""}
+openbb-finviz = {version = ">=1.2.0,<2.0.0", optional = true, markers = "extra == \"finviz\" or extra == \"all\""}
+openbb-fixedincome = ">=1.3.0,<2.0.0"
+openbb-fmp = ">=1.3.0,<2.0.0"
+openbb-fred = ">=1.3.0,<2.0.0"
+openbb-government-us = {version = ">=1.3.0,<2.0.0", optional = true, markers = "extra == \"government-us\" or extra == \"all\""}
+openbb-index = ">=1.3.0,<2.0.0"
+openbb-intrinio = ">=1.3.0,<2.0.0"
+openbb-nasdaq = {version = ">=1.3.0,<2.0.0", optional = true, markers = "extra == \"nasdaq\" or extra == \"all\""}
+openbb-news = ">=1.3.0,<2.0.0"
+openbb-oecd = ">=1.3.0,<2.0.0"
+openbb-polygon = ">=1.3.0,<2.0.0"
+openbb-quantitative = {version = ">=1.3.0,<2.0.0", optional = true, markers = "extra == \"quantitative\" or extra == \"all\""}
+openbb-regulators = ">=1.3.0,<2.0.0"
+openbb-sec = ">=1.3.0,<2.0.0"
+openbb-seeking-alpha = {version = ">=1.3.0,<2.0.0", optional = true, markers = "extra == \"seeking-alpha\" or extra == \"all\""}
+openbb-stockgrid = {version = ">=1.3.0,<2.0.0", optional = true, markers = "extra == \"stockgrid\" or extra == \"all\""}
+openbb-technical = {version = ">=1.3.0,<2.0.0", optional = true, markers = "extra == \"technical\" or extra == \"all\""}
+openbb-tiingo = ">=1.3.0,<2.0.0"
+openbb-tmx = {version = ">=1.2.0,<2.0.0", optional = true, markers = "extra == \"tmx\" or extra == \"all\""}
+openbb-tradier = {version = ">=1.2.0,<2.0.0", optional = true, markers = "extra == \"tradier\" or extra == \"all\""}
+openbb-tradingeconomics = ">=1.3.0,<2.0.0"
+openbb-wsj = {version = ">=1.3.0,<2.0.0", optional = true, markers = "extra == \"wsj\" or extra == \"all\""}
+openbb-yfinance = ">=1.3.0,<2.0.0"
 
 [package.extras]
-all = ["openbb-alpha-vantage (>=1.2.3,<2.0.0)", "openbb-biztoc (>=1.2.3,<2.0.0)", "openbb-cboe (>=1.2.3,<2.0.0)", "openbb-charting (>=2.1.2,<3.0.0)", "openbb-ecb (>=1.2.3,<2.0.0)", "openbb-econometrics (>=1.2.3,<2.0.0)", "openbb-finra (>=1.2.3,<2.0.0)", "openbb-finviz (>=1.1.3,<2.0.0)", "openbb-government-us (>=1.2.3,<2.0.0)", "openbb-nasdaq (>=1.2.3,<2.0.0)", "openbb-quantitative (>=1.2.3,<2.0.0)", "openbb-seeking-alpha (>=1.2.3,<2.0.0)", "openbb-stockgrid (>=1.2.3,<2.0.0)", "openbb-technical (>=1.2.3,<2.0.0)", "openbb-tmx (>=1.1.3,<2.0.0)", "openbb-tradier (>=1.1.3,<2.0.0)", "openbb-wsj (>=1.2.3,<2.0.0)"]
-alpha-vantage = ["openbb-alpha-vantage (>=1.2.3,<2.0.0)"]
-biztoc = ["openbb-biztoc (>=1.2.3,<2.0.0)"]
-cboe = ["openbb-cboe (>=1.2.3,<2.0.0)"]
-charting = ["openbb-charting (>=2.1.2,<3.0.0)"]
-ecb = ["openbb-ecb (>=1.2.3,<2.0.0)"]
-econometrics = ["openbb-econometrics (>=1.2.3,<2.0.0)"]
-finra = ["openbb-finra (>=1.2.3,<2.0.0)"]
-finviz = ["openbb-finviz (>=1.1.3,<2.0.0)"]
-government-us = ["openbb-government-us (>=1.2.3,<2.0.0)"]
-nasdaq = ["openbb-nasdaq (>=1.2.3,<2.0.0)"]
-quantitative = ["openbb-quantitative (>=1.2.3,<2.0.0)"]
-seeking-alpha = ["openbb-seeking-alpha (>=1.2.3,<2.0.0)"]
-stockgrid = ["openbb-stockgrid (>=1.2.3,<2.0.0)"]
-technical = ["openbb-technical (>=1.2.3,<2.0.0)"]
-tmx = ["openbb-tmx (>=1.1.3,<2.0.0)"]
-tradier = ["openbb-tradier (>=1.1.3,<2.0.0)"]
-wsj = ["openbb-wsj (>=1.2.3,<2.0.0)"]
+all = ["openbb-alpha-vantage (>=1.3.0,<2.0.0)", "openbb-biztoc (>=1.3.0,<2.0.0)", "openbb-cboe (>=1.3.0,<2.0.0)", "openbb-charting (>=2.2.0,<3.0.0)", "openbb-ecb (>=1.3.0,<2.0.0)", "openbb-econometrics (>=1.3.0,<2.0.0)", "openbb-finra (>=1.3.0,<2.0.0)", "openbb-finviz (>=1.2.0,<2.0.0)", "openbb-government-us (>=1.3.0,<2.0.0)", "openbb-nasdaq (>=1.3.0,<2.0.0)", "openbb-quantitative (>=1.3.0,<2.0.0)", "openbb-seeking-alpha (>=1.3.0,<2.0.0)", "openbb-stockgrid (>=1.3.0,<2.0.0)", "openbb-technical (>=1.3.0,<2.0.0)", "openbb-tmx (>=1.2.0,<2.0.0)", "openbb-tradier (>=1.2.0,<2.0.0)", "openbb-wsj (>=1.3.0,<2.0.0)"]
+alpha-vantage = ["openbb-alpha-vantage (>=1.3.0,<2.0.0)"]
+biztoc = ["openbb-biztoc (>=1.3.0,<2.0.0)"]
+cboe = ["openbb-cboe (>=1.3.0,<2.0.0)"]
+charting = ["openbb-charting (>=2.2.0,<3.0.0)"]
+ecb = ["openbb-ecb (>=1.3.0,<2.0.0)"]
+econometrics = ["openbb-econometrics (>=1.3.0,<2.0.0)"]
+finra = ["openbb-finra (>=1.3.0,<2.0.0)"]
+finviz = ["openbb-finviz (>=1.2.0,<2.0.0)"]
+government-us = ["openbb-government-us (>=1.3.0,<2.0.0)"]
+nasdaq = ["openbb-nasdaq (>=1.3.0,<2.0.0)"]
+quantitative = ["openbb-quantitative (>=1.3.0,<2.0.0)"]
+seeking-alpha = ["openbb-seeking-alpha (>=1.3.0,<2.0.0)"]
+stockgrid = ["openbb-stockgrid (>=1.3.0,<2.0.0)"]
+technical = ["openbb-technical (>=1.3.0,<2.0.0)"]
+tmx = ["openbb-tmx (>=1.2.0,<2.0.0)"]
+tradier = ["openbb-tradier (>=1.2.0,<2.0.0)"]
+wsj = ["openbb-wsj (>=1.3.0,<2.0.0)"]
 
 [[package]]
 name = "openbb-alpha-vantage"
-version = "1.2.3"
+version = "1.3.0"
 description = "Alpha Vantage extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_alpha_vantage-1.2.3-py3-none-any.whl", hash = "sha256:cff7fb65ea17484af05a8b476fda989773cfd110f9cac54b10fe22188f7b19ae"},
-    {file = "openbb_alpha_vantage-1.2.3.tar.gz", hash = "sha256:4743563dccac610fed4295e4c9e5cdea7e00ce42ea9bd677c4d57fd74b8b684a"},
+    {file = "openbb_alpha_vantage-1.3.0-py3-none-any.whl", hash = "sha256:cfaa848656f0058b67dd2b6e1632245f5b2443e70da98db7c16ee0a4092ed4aa"},
+    {file = "openbb_alpha_vantage-1.3.0.tar.gz", hash = "sha256:c507cc2e1d35ae04fafe82b4a8d07bfd4aff7a5606ce9f6a663e30e73664220f"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-benzinga"
-version = "1.2.3"
+version = "1.3.0"
 description = "Benzinga extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_benzinga-1.2.3-py3-none-any.whl", hash = "sha256:40eaa451f167c9975b20eeb976e75a61ad70e5be8e42737fd81fddcf99855f68"},
+    {file = "openbb_benzinga-1.3.0-py3-none-any.whl", hash = "sha256:71c419c412b6af3722923dfd8f5cd0c66eb04cedfb45bc945d6ecf7200b2b52e"},
+    {file = "openbb_benzinga-1.3.0.tar.gz", hash = "sha256:46bd71902d8c2da3c9cd0a0d3d7efae3f2d7bed31e560754e43d5bbc985c31f0"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-biztoc"
-version = "1.2.3"
+version = "1.3.0"
 description = ""
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_biztoc-1.2.3-py3-none-any.whl", hash = "sha256:cbb5b63e8718699db7f4273f08b38b4d360e19d363e741f57b67ad9b4424ffbb"},
-    {file = "openbb_biztoc-1.2.3.tar.gz", hash = "sha256:60a5afc258b8035a1360cef06b5841f03c8a898184e6dadb3f09c3a12f007b22"},
+    {file = "openbb_biztoc-1.3.0-py3-none-any.whl", hash = "sha256:a8064553df2f510cac7d3af60c08ab63c24e6a7340928f5b7773872bd4a47fe6"},
+    {file = "openbb_biztoc-1.3.0.tar.gz", hash = "sha256:49722597ffee617d9dffbb72e6b7341074f14385ff4ec01985ac4bc5dc053561"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
-requests-cache = ">=1.1.0,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-cboe"
-version = "1.2.3"
+version = "1.3.0"
 description = "CBOE extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_cboe-1.2.3-py3-none-any.whl", hash = "sha256:a31dbecaa208e1bc7e6dc03f762f7968be5a4f15f1c148542b9f154d3b89338b"},
-    {file = "openbb_cboe-1.2.3.tar.gz", hash = "sha256:df0988e338426d579cc241020a95c8acc30c84ab6daff9ee010673dc8676488c"},
+    {file = "openbb_cboe-1.3.0-py3-none-any.whl", hash = "sha256:51b87fa237bfeda26b9eebdacd8badda7a427a8e69bd59068a854979093d5a20"},
+    {file = "openbb_cboe-1.3.0.tar.gz", hash = "sha256:cd35da4dfb8685ee5de555c6e49fe30909fbc551e9be0725dfee7fb0a0d31c53"},
 ]
 
 [package.dependencies]
 aiohttp-client-cache = ">=0.11.0,<0.12.0"
 aiosqlite = ">=0.20.0,<0.21.0"
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-charting"
-version = "2.1.3"
+version = "2.2.0"
 description = "Charting extension for OpenBB"
 optional = false
-python-versions = "<3.12,>=3.8"
+python-versions = "<3.13,>=3.9"
 files = [
-    {file = "openbb_charting-2.1.3-py3-none-any.whl", hash = "sha256:1b6b509734f04d4e2ffd611f1214ff470b4ee6ce49605afa50882d75717e56b6"},
-    {file = "openbb_charting-2.1.3.tar.gz", hash = "sha256:cc4a0dce6058ee9d9148be905c65a9bf5e84c1dee08927bf606c4d6217dbc5cc"},
+    {file = "openbb_charting-2.2.0-py3-none-any.whl", hash = "sha256:fc0a7bf64547157e035c5023e554ebb339d5c1347a711a8cca3a54909f886cc8"},
+    {file = "openbb_charting-2.2.0.tar.gz", hash = "sha256:1bdd73bb6f946eba8b3e4af76fd7ecc3d5b25a4f68ce2eea4fbcd5dddb1c85a1"},
 ]
 
 [package.dependencies]
 nbformat = ">=5.9.2,<6.0.0"
-openbb-core = ">=1.2.4,<2.0.0"
+numpy = ">=1,<2"
+openbb-core = ">=1.3.0,<2.0.0"
 pandas-ta = ">=0.3.14b,<0.4.0"
 plotly = ">=5.17.0,<6.0.0"
 pywry = ">=0.6.1,<0.7.0"
@@ -3374,27 +3359,27 @@ statsmodels = ">=0.14.0,<0.15.0"
 
 [[package]]
 name = "openbb-commodity"
-version = "1.1.3"
+version = "1.2.0"
 description = "Commodity extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_commodity-1.1.3-py3-none-any.whl", hash = "sha256:87b1a1674df7266fae0e81346f4c060d7093244eb85148cf4c23f1a31a06b556"},
-    {file = "openbb_commodity-1.1.3.tar.gz", hash = "sha256:dab37c7e0ed5a75b356fe2610138a961d97050aad68e2eaaeaa7cd4741cd1136"},
+    {file = "openbb_commodity-1.2.0-py3-none-any.whl", hash = "sha256:838124823b834a983865538efc99d007349ac8b1c4afc70f73735fbd46811732"},
+    {file = "openbb_commodity-1.2.0.tar.gz", hash = "sha256:418ae223d0004984bea377f5fbe620c1d5ccc5cdac76410be97baf65abd0d91b"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-core"
-version = "1.2.9"
+version = "1.3.0"
 description = "OpenBB package with core functionality."
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_core-1.2.9-py3-none-any.whl", hash = "sha256:b616f1edf826ace889772e1dc59732de6a898bb42b4f9e31f9ac631e65182723"},
-    {file = "openbb_core-1.2.9.tar.gz", hash = "sha256:820cf04a3e7f617f137cdb4ee84ad3bea972051058d10a386ea18fb0050b5ffc"},
+    {file = "openbb_core-1.3.0-py3-none-any.whl", hash = "sha256:cf9ed4b2438b896fd6a567fe17530a4c3de2e602f3bc29bf2082c0cb3c83ebdc"},
+    {file = "openbb_core-1.3.0.tar.gz", hash = "sha256:da75321d0fa4ecb85e0c49948927e72ebc3a6fce8ac146ffd4e3eff01dc8420c"},
 ]
 
 [package.dependencies]
@@ -3416,365 +3401,367 @@ websockets = ">=12.0,<13.0"
 
 [[package]]
 name = "openbb-crypto"
-version = "1.2.3"
+version = "1.3.0"
 description = "Crypto extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_crypto-1.2.3-py3-none-any.whl", hash = "sha256:33873c0a3c23012f3ced0e2ed1c2f7cd3a5097c047bdc84f2e04178c03603a7d"},
-    {file = "openbb_crypto-1.2.3.tar.gz", hash = "sha256:23057e716ae6e07d081d2462a64fbcc48be64ba0e40fda531d26954f4033f5d2"},
+    {file = "openbb_crypto-1.3.0-py3-none-any.whl", hash = "sha256:e8a94413abde1941ea7793f11a34f60aa1ae3bca41b42352fc076ac7a492c93f"},
+    {file = "openbb_crypto-1.3.0.tar.gz", hash = "sha256:b243cba126bec28bba5035f1490e18e2957da45730f397194397bad84422367d"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-currency"
-version = "1.2.3"
+version = "1.3.0"
 description = "Currency extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_currency-1.2.3-py3-none-any.whl", hash = "sha256:6567257a029d9618d19e2f2ea860fbe114a2c5e9e27f908fe1839270a118fbce"},
-    {file = "openbb_currency-1.2.3.tar.gz", hash = "sha256:2c103a313bf605a5ac97796f796092e767b3e512b74fe5b257bf56a325d33eef"},
+    {file = "openbb_currency-1.3.0-py3-none-any.whl", hash = "sha256:a9581b144116959d44bd4b892060663c61ec16862facce20faaeec2bce99cac3"},
+    {file = "openbb_currency-1.3.0.tar.gz", hash = "sha256:42ab4da0fb7fb4ab3229548665c217e85a63477339f19c3db8db6c10ef09f59b"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-derivatives"
-version = "1.2.4"
+version = "1.3.0"
 description = "Derivatives extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_derivatives-1.2.4-py3-none-any.whl", hash = "sha256:360932c59f9cfe02b8967bc498a762858aa8083c04dde450dc8d48dea4ae5890"},
-    {file = "openbb_derivatives-1.2.4.tar.gz", hash = "sha256:e34b836eb003a0505922655a4863a496884de3c11f606aec1ae5e3ec118eb6b4"},
+    {file = "openbb_derivatives-1.3.0-py3-none-any.whl", hash = "sha256:80e05dffb63573a6acab142e0b140c73fa9e15328546156e62aa5e74247b8b9e"},
+    {file = "openbb_derivatives-1.3.0.tar.gz", hash = "sha256:e9b417fffd3ef8b28791c661b0612af932ba48db550971fbfce997807062d05f"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-ecb"
-version = "1.2.3"
+version = "1.3.0"
 description = "ECB extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_ecb-1.2.3-py3-none-any.whl", hash = "sha256:76ebeb55666d0533eb848728a95fb3b7f974038b8de66f0462bacbe94f2b007d"},
-    {file = "openbb_ecb-1.2.3.tar.gz", hash = "sha256:040c9de2d45e51815239e050d3a10828b192cf6b0f9730772e2306579cc0b71b"},
+    {file = "openbb_ecb-1.3.0-py3-none-any.whl", hash = "sha256:c6bd6d37caf9067e7db81d1d99c6e59bb9ab9a2d92bc174ec2d31d6c997dd7cb"},
+    {file = "openbb_ecb-1.3.0.tar.gz", hash = "sha256:60fb2a40dbf13aac60bcaa67863b09292e3ec28b46898311bf776f281062a639"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 xmltodict = ">=0.13.0,<0.14.0"
 
 [[package]]
 name = "openbb-econdb"
-version = "1.1.3"
+version = "1.2.0"
 description = "EconDB extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_econdb-1.1.3-py3-none-any.whl", hash = "sha256:9ac66e5ce1f78d2e1826e2a3b65b14022fcaaa1916938c9571b638b6b572a6df"},
-    {file = "openbb_econdb-1.1.3.tar.gz", hash = "sha256:0fbdaebda98f340cc9694f1f9b17c20d5368f170ffc24a5d7bdc6d5ef66a4eef"},
+    {file = "openbb_econdb-1.2.0-py3-none-any.whl", hash = "sha256:9c9c14ed9c06900cd010677f557340ff75e058b41abac26646d4097e518dcf93"},
+    {file = "openbb_econdb-1.2.0.tar.gz", hash = "sha256:ebac836ae252169f724729823db5a01bb32bfdd5c416a40e67dd376e53070af1"},
 ]
 
 [package.dependencies]
 aiohttp-client-cache = ">=0.11.0,<0.12.0"
 aiosqlite = ">=0.20.0,<0.21.0"
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-econometrics"
-version = "1.2.3"
+version = "1.3.0"
 description = "Econometrics Toolkit for OpenBB"
 optional = false
-python-versions = "<3.12,>=3.8"
+python-versions = "<3.13,>=3.9"
 files = [
-    {file = "openbb_econometrics-1.2.3-py3-none-any.whl", hash = "sha256:75a929c520e15c1ac72a3d744169c52d3d807d2240e419197c95d6513cbb25b0"},
-    {file = "openbb_econometrics-1.2.3.tar.gz", hash = "sha256:2269e7ea662a711c3da1649bd8c749050d0a13404ace66e501e3cff38fd57cd8"},
+    {file = "openbb_econometrics-1.3.0-py3-none-any.whl", hash = "sha256:d0b3a152f65707ccd7c10e5b8dbdee17e100926476a1f53589ab462bcb622ea9"},
+    {file = "openbb_econometrics-1.3.0.tar.gz", hash = "sha256:683f4e3b6643ce877648936a0f5bd25d6d8dfaa4f09f320bf270ed5c17586e7b"},
 ]
 
 [package.dependencies]
 arch = ">=5.5.0,<6.0.0"
-linearmodels = "<=4.25"
-openbb-core = ">=1.2.5,<2.0.0"
+linearmodels = ">=4.30,<5.0"
+openbb-core = ">=1.3.0,<2.0.0"
 scipy = ">=1.10.1,<2.0.0"
 statsmodels = ">=0.14.0,<0.15.0"
 
 [[package]]
 name = "openbb-economy"
-version = "1.2.3"
+version = "1.3.0"
 description = "Economy extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_economy-1.2.3-py3-none-any.whl", hash = "sha256:7d81a689c742e83379b7535bf5d34088212c3379fa213f4e9fd8a84258bbf83f"},
-    {file = "openbb_economy-1.2.3.tar.gz", hash = "sha256:5231698d0bc8f9b977a3896608673528c0cb0f2d379037c3a68a5875831b44b0"},
+    {file = "openbb_economy-1.3.0-py3-none-any.whl", hash = "sha256:4989fea9df3e84bd797f6c2f20b98e78a542845575bbc996b0769c1549d0b6bd"},
+    {file = "openbb_economy-1.3.0.tar.gz", hash = "sha256:a3b12dddf4ae95037f55378af6d728f747b4f71fb0437f189e2ed286f7492680"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-equity"
-version = "1.2.3"
+version = "1.3.0"
 description = "Equity extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_equity-1.2.3-py3-none-any.whl", hash = "sha256:aa3972df5127bfb9fbf367e04894d075be92810619560d1d6ac0cf7af2282b4e"},
-    {file = "openbb_equity-1.2.3.tar.gz", hash = "sha256:4077453eebe799b3e878cff40ad7a853b1bb105f268808c0addab6219529d0a2"},
+    {file = "openbb_equity-1.3.0-py3-none-any.whl", hash = "sha256:eeb73ce361e40e87917d6979a1d53f846dcacd1837b4fb7497b052e9942bff56"},
+    {file = "openbb_equity-1.3.0.tar.gz", hash = "sha256:5e9fe191f544ca95f7b6376ad243938ad3ea87b0f8e03c5569319f85e7ccb69d"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-etf"
-version = "1.2.3"
+version = "1.3.0"
 description = "ETF extension for OpenBB"
 optional = false
-python-versions = "<3.12,>=3.8"
+python-versions = "<3.13,>=3.9"
 files = [
-    {file = "openbb_etf-1.2.3-py3-none-any.whl", hash = "sha256:ac6b3b47173413d0928516714bfa84917dd16b1c7eebcf2aa30d09a7f5da5052"},
-    {file = "openbb_etf-1.2.3.tar.gz", hash = "sha256:7f0c14ad53328c164e8aaa6a8c231811413365317f29495695a72b52cdc44958"},
+    {file = "openbb_etf-1.3.0-py3-none-any.whl", hash = "sha256:f79dfae010f00b2f25a11b763fca5a47925eaab6e8ad8f64610b880b4ee3dd78"},
+    {file = "openbb_etf-1.3.0.tar.gz", hash = "sha256:00d5589a449f5c9e448b22c8761b706dc5de9d0f8849e78e7532975514f186c3"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-federal-reserve"
-version = "1.2.3"
+version = "1.3.0"
 description = "US Federal Reserve Data Extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_federal_reserve-1.2.3-py3-none-any.whl", hash = "sha256:97ba0fc6d6312a752d70d6afab7d3d08144913ebdc352209e92f1389edfa89b9"},
+    {file = "openbb_federal_reserve-1.3.0-py3-none-any.whl", hash = "sha256:7b14f0c6bba803c8ac510fc1531fd6bc8875086d4844f62db1b408106ee18640"},
+    {file = "openbb_federal_reserve-1.3.0.tar.gz", hash = "sha256:b976b33a60d236081ba858358e7d8aa9090a34fe7d29749d7920107bd5edfddb"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-finra"
-version = "1.2.3"
+version = "1.3.0"
 description = "FINRA extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_finra-1.2.3-py3-none-any.whl", hash = "sha256:2ba01795c6f9ca7a8289699e11978106efc4a3cef74225937e0b99975d7e3943"},
-    {file = "openbb_finra-1.2.3.tar.gz", hash = "sha256:a0b02587768c2554684d0d9077b8c5af4815d404dc9c306a20a895bdba8ca3f4"},
+    {file = "openbb_finra-1.3.0-py3-none-any.whl", hash = "sha256:8eb1c5a4453fc19a63fea6f7d2959fd2083d3eacd0eb9526fbcffc734f49b7c2"},
+    {file = "openbb_finra-1.3.0.tar.gz", hash = "sha256:62c0951bce171f8cf6c749580a85c4968f0db7ce94a095ec8c780990e2309794"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-finviz"
-version = "1.1.3"
+version = "1.2.0"
 description = "Finviz extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_finviz-1.1.3-py3-none-any.whl", hash = "sha256:32be7fce1999bc7032a812a6551ab65285bbab081895f9a4899751237f3c5c4f"},
-    {file = "openbb_finviz-1.1.3.tar.gz", hash = "sha256:4b5f2e38c0ea4b2d7958a54cbf4cdcc5b8d22f90e5729fc7c186df74e2e620a2"},
+    {file = "openbb_finviz-1.2.0-py3-none-any.whl", hash = "sha256:94a90d8a3483cde4e82db9c264af2925f0452930d58218fcd312167108862889"},
+    {file = "openbb_finviz-1.2.0.tar.gz", hash = "sha256:4af86debc66228fbb0780d40af9ba1c73859d1f6bfa6131c571ee1190b150e98"},
 ]
 
 [package.dependencies]
-finvizfinance = "0.14.7"
-openbb-core = ">=1.2.5,<2.0.0"
+finvizfinance = ">=1.0.0,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-fixedincome"
-version = "1.2.3"
+version = "1.3.0"
 description = "Fixed income extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_fixedincome-1.2.3-py3-none-any.whl", hash = "sha256:28fddf1e38a42f1eb139f7aa9641541a2115a4f3e42487a171ff85ea52e112fc"},
-    {file = "openbb_fixedincome-1.2.3.tar.gz", hash = "sha256:121742c8c6a258364932331cb815aaa38f697b27bbbb6387ff922a8a21facb31"},
+    {file = "openbb_fixedincome-1.3.0-py3-none-any.whl", hash = "sha256:b1e5e548ceb76e467de13a8e236265b4eb3845fea6976bcbd6b07bfb49bfcd79"},
+    {file = "openbb_fixedincome-1.3.0.tar.gz", hash = "sha256:ee73272dd67b82da4252ef68feb86f18f8a894af03f10fe90da17f7d59bcb810"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-fmp"
-version = "1.2.3"
+version = "1.3.0"
 description = "FMP extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_fmp-1.2.3-py3-none-any.whl", hash = "sha256:645210f47e1de2d20ee65b73ad835c93226c8c1d378e630fa2109e31bea0545f"},
-    {file = "openbb_fmp-1.2.3.tar.gz", hash = "sha256:56d13b1c89b80f691a74deafd964144b539ab6a0d150707d45cfa42324f97e96"},
+    {file = "openbb_fmp-1.3.0-py3-none-any.whl", hash = "sha256:ca6007ddf84cd5c2601fa837ccc4d775d93054d52c340373d15b35ff631aff94"},
+    {file = "openbb_fmp-1.3.0.tar.gz", hash = "sha256:d83618e190a989ba0e9b97ccb2ed159f437ce437e732e3806b7bf36b4bf1cc34"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-fred"
-version = "1.2.3"
+version = "1.3.0"
 description = "FRED extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_fred-1.2.3-py3-none-any.whl", hash = "sha256:cf50a34d0a8ed6d51f799cca324f66aa6917de66685c2b91d76f41c5acf6d12b"},
-    {file = "openbb_fred-1.2.3.tar.gz", hash = "sha256:d9aeb401342913c3fbec63f97c4a0297c700f381ce0c489fa5818597e8b50296"},
+    {file = "openbb_fred-1.3.0-py3-none-any.whl", hash = "sha256:84c2deeca0e92169cad813b8b4a2314df466c312c1a0a6af8687a951db19000e"},
+    {file = "openbb_fred-1.3.0.tar.gz", hash = "sha256:fea01af5e54c51cb5083f145b67beb4839b6d3ca3ffd66ced248e7e4e9982075"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-government-us"
-version = "1.2.3"
+version = "1.3.0"
 description = "US Government Data Extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_government_us-1.2.3-py3-none-any.whl", hash = "sha256:6c9dfb333323cbf44f034906332139bd3d7ab1ab2c32a3ec62b7489d41b984aa"},
-    {file = "openbb_government_us-1.2.3.tar.gz", hash = "sha256:705a24af596911636ec957222e3a3757071ee5ae53d98375434f153bdb0d2627"},
+    {file = "openbb_government_us-1.3.0-py3-none-any.whl", hash = "sha256:ade91a6ce0012405875f2a857feb8c3ccef80642863f5d25cb585a3ea481c813"},
+    {file = "openbb_government_us-1.3.0.tar.gz", hash = "sha256:fd23ba72846a134485dedb2c15724cfa130f1fc7b901dd3476fcfcbd05679384"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 random-user-agent = ">=1.0.1,<2.0.0"
 
 [[package]]
 name = "openbb-index"
-version = "1.2.3"
+version = "1.3.0"
 description = "Index extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_index-1.2.3-py3-none-any.whl", hash = "sha256:1c113f29c7fbb4bd04ffd7a1f012e0de9c446207eb16729b3da27be60d8fe3e2"},
-    {file = "openbb_index-1.2.3.tar.gz", hash = "sha256:f9605c20b8c6be7377486f35d72dc5cd22039778cf1fcb16ec7cf42837a004b9"},
+    {file = "openbb_index-1.3.0-py3-none-any.whl", hash = "sha256:0ac0c560e2cc80e781cdf44e48331f6259f2400d6a5e57b2ab57711ec5228f39"},
+    {file = "openbb_index-1.3.0.tar.gz", hash = "sha256:ab25556d3ae2a33209e4cd8727b811e3aacb06e4e709c93bcc8e7700f860ae74"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-intrinio"
-version = "1.2.4"
+version = "1.3.0"
 description = "Intrinio extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_intrinio-1.2.4-py3-none-any.whl", hash = "sha256:9329756c0fdb5bfe0c9a07141800ff1fd7d9daf1d923f4365585dccb732f5113"},
-    {file = "openbb_intrinio-1.2.4.tar.gz", hash = "sha256:d1619db20a0f54dd94646152b61eb4b8c94f3bd5ac4d54893a0cc9d432faf5f6"},
+    {file = "openbb_intrinio-1.3.0-py3-none-any.whl", hash = "sha256:6d022d3e63db2d0a4178ec2872f2f3807412ef43a0f8fd96694d25581fbb748b"},
+    {file = "openbb_intrinio-1.3.0.tar.gz", hash = "sha256:912aca4355b5caa9e262c7a802aba47c7a71a415bf7455d1dfda30bba2b02e0a"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 requests-cache = ">=1.1.0,<2.0.0"
 
 [[package]]
 name = "openbb-nasdaq"
-version = "1.2.3"
+version = "1.3.0"
 description = "Nasdaq extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_nasdaq-1.2.3-py3-none-any.whl", hash = "sha256:efe5cff21106bea6fcf3866963d3b61769760ce472f969ea04516cc95c4b00ef"},
-    {file = "openbb_nasdaq-1.2.3.tar.gz", hash = "sha256:3490dfe52b7e7f03da5ce08f101b85d9926f50db013341a5c7abb5c33379bf51"},
+    {file = "openbb_nasdaq-1.3.0-py3-none-any.whl", hash = "sha256:aeb7c12fda8d36b247bad2d02edeff515d854f93a4680dfcf89154578b9aae61"},
+    {file = "openbb_nasdaq-1.3.0.tar.gz", hash = "sha256:7560bea0eaeccb966df7b13237ab0fd274d9201f356630d5eaa500e3365a0c06"},
 ]
 
 [package.dependencies]
 nasdaq-data-link = ">=1.0.4,<2.0.0"
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 random-user-agent = ">=1.0.1,<2.0.0"
 
 [[package]]
 name = "openbb-news"
-version = "1.2.3"
+version = "1.3.0"
 description = "News extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_news-1.2.3-py3-none-any.whl", hash = "sha256:f40e5b3d91bc78c5f3aca913ba3689f161eaabf44b6c9889b26cc648efb18d64"},
-    {file = "openbb_news-1.2.3.tar.gz", hash = "sha256:ad1bce992244f2a2948b89d2a1b5d0c9b0a90c4b7961b2ad2740b09d35b6cb64"},
+    {file = "openbb_news-1.3.0-py3-none-any.whl", hash = "sha256:8700c3fc5fd91dcfc47854e15959481650b0ac45f6fd57357a3bf7a0aa63dbd5"},
+    {file = "openbb_news-1.3.0.tar.gz", hash = "sha256:5031b9521d3308326a4a797a02464754214234388761840bc7f5aade99560949"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-oecd"
-version = "1.2.3"
+version = "1.3.0"
 description = "OECD extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_oecd-1.2.3-py3-none-any.whl", hash = "sha256:fdaacec528e5ff4f6ef8962e7232133a03151eccbaca598eb4530d5a1dcf87c0"},
-    {file = "openbb_oecd-1.2.3.tar.gz", hash = "sha256:37f1c9afba623f187cdc8777204738bfe91968940dfa3ab3183d686bbbba78a5"},
+    {file = "openbb_oecd-1.3.0-py3-none-any.whl", hash = "sha256:b7a9504f853ceb812ba281d81cf9b8f494a058dc0f59948cb885506a604879cd"},
+    {file = "openbb_oecd-1.3.0.tar.gz", hash = "sha256:9e4bbcc5c0ba76c6f29590248b8ac0f95cc6a72d81007b81cc0150ffb78a8118"},
 ]
 
 [package.dependencies]
 defusedxml = ">=0.8.0rc2,<0.9.0"
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 urllib3 = ">1.26.16"
 
 [[package]]
 name = "openbb-polygon"
-version = "1.2.3"
+version = "1.3.0"
 description = "Polygon extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_polygon-1.2.3-py3-none-any.whl", hash = "sha256:767b274445121e21fe85fa6ce553880fcd9883e801451bd8c9e5114e849092c6"},
-    {file = "openbb_polygon-1.2.3.tar.gz", hash = "sha256:23081491021fd0e724690ee95f4757d374be6c6178932e7785c8bcaa8ec143f7"},
+    {file = "openbb_polygon-1.3.0-py3-none-any.whl", hash = "sha256:28943e4478eb997a5c0ff27faa1dc468d68f862e7089ce57801225d8213e6e21"},
+    {file = "openbb_polygon-1.3.0.tar.gz", hash = "sha256:0ce3c9a39f56b6600f510f2ea3ce7401fc724b99c03453440120e25f97dd9648"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-quantitative"
-version = "1.2.3"
+version = "1.3.0"
 description = "Quantitative Analysis extension for OpenBB"
 optional = false
-python-versions = "<3.12,>=3.8"
+python-versions = "<3.13,>=3.9"
 files = [
-    {file = "openbb_quantitative-1.2.3-py3-none-any.whl", hash = "sha256:dbecfec6a65a03bd9ceebba8ba58bdad1fa3bfc2fdd3d0bcc7dabb25215b4bfc"},
-    {file = "openbb_quantitative-1.2.3.tar.gz", hash = "sha256:109e846183dcd5a903fda520283b9a6ee588360265296525b43ecfb3b61976de"},
+    {file = "openbb_quantitative-1.3.0-py3-none-any.whl", hash = "sha256:5625ce6e6716f1d318ff8ffa0ac81762539eaea61e27f8a5e5fc3c448c50b5a8"},
+    {file = "openbb_quantitative-1.3.0.tar.gz", hash = "sha256:750a25f207325bd694d82e36538acddbc945fc8fd5115ae77d7fdbc3ac98b755"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+numpy = ">=1,<2"
+openbb-core = ">=1.3.0,<2.0.0"
 pandas-ta = ">=0.3.14b,<0.4.0"
 scipy = ">=1.10.1,<2.0.0"
 statsmodels = ">=0.14.0,<0.15.0"
 
 [[package]]
 name = "openbb-regulators"
-version = "1.2.3"
+version = "1.3.0"
 description = "Markets and Agency Regulators extension for OpenBB"
 optional = false
-python-versions = "<3.12,>=3.8"
+python-versions = "<3.13,>=3.9"
 files = [
-    {file = "openbb_regulators-1.2.3-py3-none-any.whl", hash = "sha256:b050141ed7505074c3c4bda3648fb7b37ea388de658091133d8c6fbcab8b6e6f"},
-    {file = "openbb_regulators-1.2.3.tar.gz", hash = "sha256:8749b4d60f4b4fa61a1d819fee0ba5c32ad38b16d8d454be2a79d56c7e050a6e"},
+    {file = "openbb_regulators-1.3.0-py3-none-any.whl", hash = "sha256:9358a44f2c87393a9f96fed1ec63df74e6b272c884217d7bca435382430d986a"},
+    {file = "openbb_regulators-1.3.0.tar.gz", hash = "sha256:4b508bdcfcf796cad3db369abe0404f2858c6a4a169a1b687408d56c11d04ce3"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-sec"
-version = "1.2.3"
+version = "1.3.0"
 description = "SEC extension for OpenBB"
 optional = false
-python-versions = "<3.12,>=3.8"
+python-versions = "<3.13,>=3.9"
 files = [
-    {file = "openbb_sec-1.2.3-py3-none-any.whl", hash = "sha256:998dbcaf3cd4c2ccfeaba31b980f77685c884e3c21b406162c6b24160c09433f"},
-    {file = "openbb_sec-1.2.3.tar.gz", hash = "sha256:f6077a996cd2d5e8c30a1bd2b1ff82446a019084fc8307046277f775f2fe1aea"},
+    {file = "openbb_sec-1.3.0-py3-none-any.whl", hash = "sha256:2277d5b7b23106eb18bb7a0073c19bbaf362850ebad5d12a477dddbb9ad3c687"},
+    {file = "openbb_sec-1.3.0.tar.gz", hash = "sha256:45c8c7703b6e6ddb8d085195b18917fbd94d9af031f6b8f977958dec0c807bb4"},
 ]
 
 [package.dependencies]
@@ -3782,144 +3769,145 @@ aiohttp-client-cache = ">=0.11.0,<0.12.0"
 aiosqlite = ">=0.20.0,<0.21.0"
 bs4 = ">=0.0.2,<0.0.3"
 lxml = ">=5.2.1,<6.0.0"
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 xmltodict = ">=0.13.0,<0.14.0"
 
 [[package]]
 name = "openbb-seeking-alpha"
-version = "1.2.3"
+version = "1.3.0"
 description = "Seeking Alpha extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_seeking_alpha-1.2.3-py3-none-any.whl", hash = "sha256:bee30beebeaefdd380816afb28e12161eca8abc329c92f42df7d19ae66aee305"},
-    {file = "openbb_seeking_alpha-1.2.3.tar.gz", hash = "sha256:aa17a51330e4623e284e76a60210790399999ee66fd475b2aff2f70b3d6f9599"},
+    {file = "openbb_seeking_alpha-1.3.0-py3-none-any.whl", hash = "sha256:d87f8ab120cf10c03b4f282272f82c9a40ef482135315e37489982886f2df504"},
+    {file = "openbb_seeking_alpha-1.3.0.tar.gz", hash = "sha256:dc853b7469f3a9b8ae3e1f2b639692ac49250fe67457435df81129f1354920e6"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-stockgrid"
-version = "1.2.3"
+version = "1.3.0"
 description = "stockgrid extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_stockgrid-1.2.3-py3-none-any.whl", hash = "sha256:573727df2f4c8c55add459304614fdc05d4d6a829ee3920399a62a51721bda68"},
-    {file = "openbb_stockgrid-1.2.3.tar.gz", hash = "sha256:3547e6b13f9bc124ee95f4611ba31f3d843053f288c7a25d41987c1e6abcffd3"},
+    {file = "openbb_stockgrid-1.3.0-py3-none-any.whl", hash = "sha256:9f7558ec280ac671c63f8f832663faed6e40690b5ac9dd7c321c8a7bba414adf"},
+    {file = "openbb_stockgrid-1.3.0.tar.gz", hash = "sha256:be263d6acdb2263dd30cb5fd816d455179b8da6b5b5249b8ffe8cef0f0fb003f"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 pytest-freezegun = ">=0.4.2,<0.5.0"
 
 [[package]]
 name = "openbb-technical"
-version = "1.2.3"
+version = "1.3.0"
 description = "Technical Analysis extension for OpenBB"
 optional = false
-python-versions = "<3.12,>=3.8"
+python-versions = "<3.13,>=3.9"
 files = [
-    {file = "openbb_technical-1.2.3-py3-none-any.whl", hash = "sha256:88b95a92a8d63b2780d49a6e95ee36b861f58809e3c78f7b3b0fe5e5da43e992"},
-    {file = "openbb_technical-1.2.3.tar.gz", hash = "sha256:34055a43db4033e8717c72b8cf7cd87c8b398cc1de17de88573eaf7ce4c56211"},
+    {file = "openbb_technical-1.3.0-py3-none-any.whl", hash = "sha256:0b1e64bfe8b63e727c79026e5616a8240f3960b424b155379905c3abcef8ccf3"},
+    {file = "openbb_technical-1.3.0.tar.gz", hash = "sha256:cf74c9792e47137aed8269e60b560f4d9ed34fe47eed7301a094daf0f092c1a0"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+numpy = ">=1,<2"
+openbb-core = ">=1.3.0,<2.0.0"
 pandas-ta = ">=0.3.14b,<0.4.0"
-scikit-learn = ">=1.3.1,<2.0.0"
+scikit-learn = ">=1.5.0,<2.0.0"
 scipy = ">=1.10.1,<2.0.0"
 statsmodels = ">=0.14.0,<0.15.0"
 
 [[package]]
 name = "openbb-tiingo"
-version = "1.2.3"
+version = "1.3.0"
 description = "Tiingo extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_tiingo-1.2.3-py3-none-any.whl", hash = "sha256:0be0399f950d88fe31596c9e51b7b0b371acd0c94d9e8432416c13a3ff1802cc"},
-    {file = "openbb_tiingo-1.2.3.tar.gz", hash = "sha256:4387e7fab87f71e42c82157606ee482468f2c0be2f5775d03145a24baa5bfbe1"},
+    {file = "openbb_tiingo-1.3.0-py3-none-any.whl", hash = "sha256:e598905bfbcc079bb667e2cd89b116b4f451adb2591827d8872a0c0a94becc01"},
+    {file = "openbb_tiingo-1.3.0.tar.gz", hash = "sha256:2e477929d8a75294d33b1032b89c9dfd8dd623592aab89441698f4d53d59f813"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-tmx"
-version = "1.1.3"
+version = "1.2.0"
 description = "Unofficial TMX data provider extension for the OpenBB Platform - Public Canadian markets data for Python and Fast API."
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_tmx-1.1.3-py3-none-any.whl", hash = "sha256:0fb42891348af0675dab61db9f80a560f0249b4c46b3e6486807681373bd11c2"},
-    {file = "openbb_tmx-1.1.3.tar.gz", hash = "sha256:5a66530ff0ed7839736b09f2c64d6dd790316dc5c50daadb3409490c45c72aef"},
+    {file = "openbb_tmx-1.2.0-py3-none-any.whl", hash = "sha256:417352f9deca6fec66d13cedd5c8577d0975ca7c4a2543cde8bd8480ef5f77b1"},
+    {file = "openbb_tmx-1.2.0.tar.gz", hash = "sha256:559bc88c3f257486033af06b96d501f8a54918e2ac7e77720a438c3137713881"},
 ]
 
 [package.dependencies]
 aiohttp-client-cache = ">=0.11.0,<0.12.0"
 aiosqlite = ">=0.20.0,<0.21.0"
-exchange-calendars = ">=4.2.8,<5.0.0"
-openbb-core = ">=1.2.5,<2.0.0"
+exchange-calendars = ">=4.5.4,<5.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 random-user-agent = ">=1.0.1,<2.0.0"
 
 [[package]]
 name = "openbb-tradier"
-version = "1.1.3"
+version = "1.2.0"
 description = "Tradier Provider Extension for the OpenBB Platform"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_tradier-1.1.3-py3-none-any.whl", hash = "sha256:d4416275f4225bfadb71505d09dc2c52c3c148551ef48e82a87d19bbdc980bc4"},
-    {file = "openbb_tradier-1.1.3.tar.gz", hash = "sha256:36944147fa7839ae1b2e4e811ff1b9e6ba1144b8abdec9772ba5f38681a471f9"},
+    {file = "openbb_tradier-1.2.0-py3-none-any.whl", hash = "sha256:24728f8b517a9d4107bef70df4bdf68c809928f67b20a4da9d4abfceef599c87"},
+    {file = "openbb_tradier-1.2.0.tar.gz", hash = "sha256:358eb84c7fe72e7eeb76bb0295780904648fa17a6251f3d2ca28e8e44049a92f"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-tradingeconomics"
-version = "1.2.3"
+version = "1.3.0"
 description = "Trading Economics extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_tradingeconomics-1.2.3-py3-none-any.whl", hash = "sha256:8cafdd9ba614a31b950aa1834277ea5034f0a6d28cc0b5c54033fb8ead5a789d"},
-    {file = "openbb_tradingeconomics-1.2.3.tar.gz", hash = "sha256:eac0ca7ab068b8b2c9b46da2452c9a504bc4d89db60300ce96223e1c0ec6a594"},
+    {file = "openbb_tradingeconomics-1.3.0-py3-none-any.whl", hash = "sha256:9b2a6f9c1686b0cf9e042c5a339f86c221ad73ddb2db08d8caa49a5f0e511c6d"},
+    {file = "openbb_tradingeconomics-1.3.0.tar.gz", hash = "sha256:ea5c6707cd03fa51639495a584cc0fbcc8d2ef8e3b246ade9a48d1409e94b4ef"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-wsj"
-version = "1.2.3"
+version = "1.3.0"
 description = "wsj extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_wsj-1.2.3-py3-none-any.whl", hash = "sha256:e63e5ef8b266c78a76a3c71b47b19d08c32096d642d2af20bd21b5d0527b6f87"},
-    {file = "openbb_wsj-1.2.3.tar.gz", hash = "sha256:1ee6f7a24131eabdede199e2cb76f7c45fc2d0bc2b8ed05e275a76d9c177b234"},
+    {file = "openbb_wsj-1.3.0-py3-none-any.whl", hash = "sha256:07741be61a3a0f1cd8f37565d8c68569453a1eed2b8f35e10c7bb899e35e955d"},
+    {file = "openbb_wsj-1.3.0.tar.gz", hash = "sha256:7b08abbeb4e34578d7cb9559cc933de6d844c27a7af605a07bf0b09212db2bf5"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
+openbb-core = ">=1.3.0,<2.0.0"
 
 [[package]]
 name = "openbb-yfinance"
-version = "1.2.3"
+version = "1.3.0"
 description = "yfinance extension for OpenBB"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "openbb_yfinance-1.2.3-py3-none-any.whl", hash = "sha256:683dd11ee9fde76312676c856ba8978e12794e528c64989711a6e276d8671c0f"},
-    {file = "openbb_yfinance-1.2.3.tar.gz", hash = "sha256:08716771d74f36d358c6adafc7de9c7f1cd643369e461d21caf2025e728d89a2"},
+    {file = "openbb_yfinance-1.3.0-py3-none-any.whl", hash = "sha256:4e1b7812687f86233dc7d09e99b1bbaeb35a186e0cc91d2af54dacc4620ce35f"},
+    {file = "openbb_yfinance-1.3.0.tar.gz", hash = "sha256:df3c83f1eb5b1571aa75f35140925995c940ccda6d8cc8cb3939d71bdde3c93e"},
 ]
 
 [package.dependencies]
-openbb-core = ">=1.2.5,<2.0.0"
-yfinance = ">=0.2.27,<0.3.0"
+openbb-core = ">=1.3.0,<2.0.0"
+yfinance = ">=0.2.40,<0.3.0"
 
 [[package]]
 name = "orjson"
@@ -5504,110 +5492,110 @@ jupyter = ["ipywidgets (>=7.5.1,<9)"]
 
 [[package]]
 name = "rpds-py"
-version = "0.18.1"
+version = "0.19.0"
 description = "Python bindings to Rust's persistent data structures (rpds)"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "rpds_py-0.18.1-cp310-cp310-macosx_10_12_x86_64.whl", hash = "sha256:d31dea506d718693b6b2cffc0648a8929bdc51c70a311b2770f09611caa10d53"},
-    {file = "rpds_py-0.18.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:732672fbc449bab754e0b15356c077cc31566df874964d4801ab14f71951ea80"},
-    {file = "rpds_py-0.18.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:4a98a1f0552b5f227a3d6422dbd61bc6f30db170939bd87ed14f3c339aa6c7c9"},
-    {file = "rpds_py-0.18.1-cp310-cp310-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:7f1944ce16401aad1e3f7d312247b3d5de7981f634dc9dfe90da72b87d37887d"},
-    {file = "rpds_py-0.18.1-cp310-cp310-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:38e14fb4e370885c4ecd734f093a2225ee52dc384b86fa55fe3f74638b2cfb09"},
-    {file = "rpds_py-0.18.1-cp310-cp310-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:08d74b184f9ab6289b87b19fe6a6d1a97fbfea84b8a3e745e87a5de3029bf944"},
-    {file = "rpds_py-0.18.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:d70129cef4a8d979caa37e7fe957202e7eee8ea02c5e16455bc9808a59c6b2f0"},
-    {file = "rpds_py-0.18.1-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:ce0bb20e3a11bd04461324a6a798af34d503f8d6f1aa3d2aa8901ceaf039176d"},
-    {file = "rpds_py-0.18.1-cp310-cp310-musllinux_1_2_aarch64.whl", hash = "sha256:81c5196a790032e0fc2464c0b4ab95f8610f96f1f2fa3d4deacce6a79852da60"},
-    {file = "rpds_py-0.18.1-cp310-cp310-musllinux_1_2_i686.whl", hash = "sha256:f3027be483868c99b4985fda802a57a67fdf30c5d9a50338d9db646d590198da"},
-    {file = "rpds_py-0.18.1-cp310-cp310-musllinux_1_2_x86_64.whl", hash = "sha256:d44607f98caa2961bab4fa3c4309724b185b464cdc3ba6f3d7340bac3ec97cc1"},
-    {file = "rpds_py-0.18.1-cp310-none-win32.whl", hash = "sha256:c273e795e7a0f1fddd46e1e3cb8be15634c29ae8ff31c196debb620e1edb9333"},
-    {file = "rpds_py-0.18.1-cp310-none-win_amd64.whl", hash = "sha256:8352f48d511de5f973e4f2f9412736d7dea76c69faa6d36bcf885b50c758ab9a"},
-    {file = "rpds_py-0.18.1-cp311-cp311-macosx_10_12_x86_64.whl", hash = "sha256:6b5ff7e1d63a8281654b5e2896d7f08799378e594f09cf3674e832ecaf396ce8"},
-    {file = "rpds_py-0.18.1-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:8927638a4d4137a289e41d0fd631551e89fa346d6dbcfc31ad627557d03ceb6d"},
-    {file = "rpds_py-0.18.1-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:154bf5c93d79558b44e5b50cc354aa0459e518e83677791e6adb0b039b7aa6a7"},
-    {file = "rpds_py-0.18.1-cp311-cp311-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:07f2139741e5deb2c5154a7b9629bc5aa48c766b643c1a6750d16f865a82c5fc"},
-    {file = "rpds_py-0.18.1-cp311-cp311-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:8c7672e9fba7425f79019db9945b16e308ed8bc89348c23d955c8c0540da0a07"},
-    {file = "rpds_py-0.18.1-cp311-cp311-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:489bdfe1abd0406eba6b3bb4fdc87c7fa40f1031de073d0cfb744634cc8fa261"},
-    {file = "rpds_py-0.18.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:3c20f05e8e3d4fc76875fc9cb8cf24b90a63f5a1b4c5b9273f0e8225e169b100"},
-    {file = "rpds_py-0.18.1-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:967342e045564cef76dfcf1edb700b1e20838d83b1aa02ab313e6a497cf923b8"},
-    {file = "rpds_py-0.18.1-cp311-cp311-musllinux_1_2_aarch64.whl", hash = "sha256:2cc7c1a47f3a63282ab0f422d90ddac4aa3034e39fc66a559ab93041e6505da7"},
-    {file = "rpds_py-0.18.1-cp311-cp311-musllinux_1_2_i686.whl", hash = "sha256:f7afbfee1157e0f9376c00bb232e80a60e59ed716e3211a80cb8506550671e6e"},
-    {file = "rpds_py-0.18.1-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:9e6934d70dc50f9f8ea47081ceafdec09245fd9f6032669c3b45705dea096b88"},
-    {file = "rpds_py-0.18.1-cp311-none-win32.whl", hash = "sha256:c69882964516dc143083d3795cb508e806b09fc3800fd0d4cddc1df6c36e76bb"},
-    {file = "rpds_py-0.18.1-cp311-none-win_amd64.whl", hash = "sha256:70a838f7754483bcdc830444952fd89645569e7452e3226de4a613a4c1793fb2"},
-    {file = "rpds_py-0.18.1-cp312-cp312-macosx_10_12_x86_64.whl", hash = "sha256:3dd3cd86e1db5aadd334e011eba4e29d37a104b403e8ca24dcd6703c68ca55b3"},
-    {file = "rpds_py-0.18.1-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:05f3d615099bd9b13ecf2fc9cf2d839ad3f20239c678f461c753e93755d629ee"},
-    {file = "rpds_py-0.18.1-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:35b2b771b13eee8729a5049c976197ff58a27a3829c018a04341bcf1ae409b2b"},
-    {file = "rpds_py-0.18.1-cp312-cp312-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:ee17cd26b97d537af8f33635ef38be873073d516fd425e80559f4585a7b90c43"},
-    {file = "rpds_py-0.18.1-cp312-cp312-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:b646bf655b135ccf4522ed43d6902af37d3f5dbcf0da66c769a2b3938b9d8184"},
-    {file = "rpds_py-0.18.1-cp312-cp312-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:19ba472b9606c36716062c023afa2484d1e4220548751bda14f725a7de17b4f6"},
-    {file = "rpds_py-0.18.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:6e30ac5e329098903262dc5bdd7e2086e0256aa762cc8b744f9e7bf2a427d3f8"},
-    {file = "rpds_py-0.18.1-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:d58ad6317d188c43750cb76e9deacf6051d0f884d87dc6518e0280438648a9ac"},
-    {file = "rpds_py-0.18.1-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:e1735502458621921cee039c47318cb90b51d532c2766593be6207eec53e5c4c"},
-    {file = "rpds_py-0.18.1-cp312-cp312-musllinux_1_2_i686.whl", hash = "sha256:f5bab211605d91db0e2995a17b5c6ee5edec1270e46223e513eaa20da20076ac"},
-    {file = "rpds_py-0.18.1-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:2fc24a329a717f9e2448f8cd1f960f9dac4e45b6224d60734edeb67499bab03a"},
-    {file = "rpds_py-0.18.1-cp312-none-win32.whl", hash = "sha256:1805d5901779662d599d0e2e4159d8a82c0b05faa86ef9222bf974572286b2b6"},
-    {file = "rpds_py-0.18.1-cp312-none-win_amd64.whl", hash = "sha256:720edcb916df872d80f80a1cc5ea9058300b97721efda8651efcd938a9c70a72"},
-    {file = "rpds_py-0.18.1-cp38-cp38-macosx_10_12_x86_64.whl", hash = "sha256:c827576e2fa017a081346dce87d532a5310241648eb3700af9a571a6e9fc7e74"},
-    {file = "rpds_py-0.18.1-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:aa3679e751408d75a0b4d8d26d6647b6d9326f5e35c00a7ccd82b78ef64f65f8"},
-    {file = "rpds_py-0.18.1-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:0abeee75434e2ee2d142d650d1e54ac1f8b01e6e6abdde8ffd6eeac6e9c38e20"},
-    {file = "rpds_py-0.18.1-cp38-cp38-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:ed402d6153c5d519a0faf1bb69898e97fb31613b49da27a84a13935ea9164dfc"},
-    {file = "rpds_py-0.18.1-cp38-cp38-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:338dee44b0cef8b70fd2ef54b4e09bb1b97fc6c3a58fea5db6cc083fd9fc2724"},
-    {file = "rpds_py-0.18.1-cp38-cp38-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:7750569d9526199c5b97e5a9f8d96a13300950d910cf04a861d96f4273d5b104"},
-    {file = "rpds_py-0.18.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:607345bd5912aacc0c5a63d45a1f73fef29e697884f7e861094e443187c02be5"},
-    {file = "rpds_py-0.18.1-cp38-cp38-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:207c82978115baa1fd8d706d720b4a4d2b0913df1c78c85ba73fe6c5804505f0"},
-    {file = "rpds_py-0.18.1-cp38-cp38-musllinux_1_2_aarch64.whl", hash = "sha256:6d1e42d2735d437e7e80bab4d78eb2e459af48c0a46e686ea35f690b93db792d"},
-    {file = "rpds_py-0.18.1-cp38-cp38-musllinux_1_2_i686.whl", hash = "sha256:5463c47c08630007dc0fe99fb480ea4f34a89712410592380425a9b4e1611d8e"},
-    {file = "rpds_py-0.18.1-cp38-cp38-musllinux_1_2_x86_64.whl", hash = "sha256:06d218939e1bf2ca50e6b0ec700ffe755e5216a8230ab3e87c059ebb4ea06afc"},
-    {file = "rpds_py-0.18.1-cp38-none-win32.whl", hash = "sha256:312fe69b4fe1ffbe76520a7676b1e5ac06ddf7826d764cc10265c3b53f96dbe9"},
-    {file = "rpds_py-0.18.1-cp38-none-win_amd64.whl", hash = "sha256:9437ca26784120a279f3137ee080b0e717012c42921eb07861b412340f85bae2"},
-    {file = "rpds_py-0.18.1-cp39-cp39-macosx_10_12_x86_64.whl", hash = "sha256:19e515b78c3fc1039dd7da0a33c28c3154458f947f4dc198d3c72db2b6b5dc93"},
-    {file = "rpds_py-0.18.1-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:a7b28c5b066bca9a4eb4e2f2663012debe680f097979d880657f00e1c30875a0"},
-    {file = "rpds_py-0.18.1-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:673fdbbf668dd958eff750e500495ef3f611e2ecc209464f661bc82e9838991e"},
-    {file = "rpds_py-0.18.1-cp39-cp39-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:d960de62227635d2e61068f42a6cb6aae91a7fe00fca0e3aeed17667c8a34611"},
-    {file = "rpds_py-0.18.1-cp39-cp39-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:352a88dc7892f1da66b6027af06a2e7e5d53fe05924cc2cfc56495b586a10b72"},
-    {file = "rpds_py-0.18.1-cp39-cp39-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:4e0ee01ad8260184db21468a6e1c37afa0529acc12c3a697ee498d3c2c4dcaf3"},
-    {file = "rpds_py-0.18.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e4c39ad2f512b4041343ea3c7894339e4ca7839ac38ca83d68a832fc8b3748ab"},
-    {file = "rpds_py-0.18.1-cp39-cp39-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:aaa71ee43a703c321906813bb252f69524f02aa05bf4eec85f0c41d5d62d0f4c"},
-    {file = "rpds_py-0.18.1-cp39-cp39-musllinux_1_2_aarch64.whl", hash = "sha256:6cd8098517c64a85e790657e7b1e509b9fe07487fd358e19431cb120f7d96338"},
-    {file = "rpds_py-0.18.1-cp39-cp39-musllinux_1_2_i686.whl", hash = "sha256:4adec039b8e2928983f885c53b7cc4cda8965b62b6596501a0308d2703f8af1b"},
-    {file = "rpds_py-0.18.1-cp39-cp39-musllinux_1_2_x86_64.whl", hash = "sha256:32b7daaa3e9389db3695964ce8e566e3413b0c43e3394c05e4b243a4cd7bef26"},
-    {file = "rpds_py-0.18.1-cp39-none-win32.whl", hash = "sha256:2625f03b105328729f9450c8badda34d5243231eef6535f80064d57035738360"},
-    {file = "rpds_py-0.18.1-cp39-none-win_amd64.whl", hash = "sha256:bf18932d0003c8c4d51a39f244231986ab23ee057d235a12b2684ea26a353590"},
-    {file = "rpds_py-0.18.1-pp310-pypy310_pp73-macosx_10_12_x86_64.whl", hash = "sha256:cbfbea39ba64f5e53ae2915de36f130588bba71245b418060ec3330ebf85678e"},
-    {file = "rpds_py-0.18.1-pp310-pypy310_pp73-macosx_11_0_arm64.whl", hash = "sha256:a3d456ff2a6a4d2adcdf3c1c960a36f4fd2fec6e3b4902a42a384d17cf4e7a65"},
-    {file = "rpds_py-0.18.1-pp310-pypy310_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:7700936ef9d006b7ef605dc53aa364da2de5a3aa65516a1f3ce73bf82ecfc7ae"},
-    {file = "rpds_py-0.18.1-pp310-pypy310_pp73-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:51584acc5916212e1bf45edd17f3a6b05fe0cbb40482d25e619f824dccb679de"},
-    {file = "rpds_py-0.18.1-pp310-pypy310_pp73-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:942695a206a58d2575033ff1e42b12b2aece98d6003c6bc739fbf33d1773b12f"},
-    {file = "rpds_py-0.18.1-pp310-pypy310_pp73-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:b906b5f58892813e5ba5c6056d6a5ad08f358ba49f046d910ad992196ea61397"},
-    {file = "rpds_py-0.18.1-pp310-pypy310_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f6f8e3fecca256fefc91bb6765a693d96692459d7d4c644660a9fff32e517843"},
-    {file = "rpds_py-0.18.1-pp310-pypy310_pp73-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:7732770412bab81c5a9f6d20aeb60ae943a9b36dcd990d876a773526468e7163"},
-    {file = "rpds_py-0.18.1-pp310-pypy310_pp73-musllinux_1_2_aarch64.whl", hash = "sha256:bd1105b50ede37461c1d51b9698c4f4be6e13e69a908ab7751e3807985fc0346"},
-    {file = "rpds_py-0.18.1-pp310-pypy310_pp73-musllinux_1_2_i686.whl", hash = "sha256:618916f5535784960f3ecf8111581f4ad31d347c3de66d02e728de460a46303c"},
-    {file = "rpds_py-0.18.1-pp310-pypy310_pp73-musllinux_1_2_x86_64.whl", hash = "sha256:17c6d2155e2423f7e79e3bb18151c686d40db42d8645e7977442170c360194d4"},
-    {file = "rpds_py-0.18.1-pp38-pypy38_pp73-macosx_10_12_x86_64.whl", hash = "sha256:6c4c4c3f878df21faf5fac86eda32671c27889e13570645a9eea0a1abdd50922"},
-    {file = "rpds_py-0.18.1-pp38-pypy38_pp73-macosx_11_0_arm64.whl", hash = "sha256:fab6ce90574645a0d6c58890e9bcaac8d94dff54fb51c69e5522a7358b80ab64"},
-    {file = "rpds_py-0.18.1-pp38-pypy38_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:531796fb842b53f2695e94dc338929e9f9dbf473b64710c28af5a160b2a8927d"},
-    {file = "rpds_py-0.18.1-pp38-pypy38_pp73-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:740884bc62a5e2bbb31e584f5d23b32320fd75d79f916f15a788d527a5e83644"},
-    {file = "rpds_py-0.18.1-pp38-pypy38_pp73-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:998125738de0158f088aef3cb264a34251908dd2e5d9966774fdab7402edfab7"},
-    {file = "rpds_py-0.18.1-pp38-pypy38_pp73-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:e2be6e9dd4111d5b31ba3b74d17da54a8319d8168890fbaea4b9e5c3de630ae5"},
-    {file = "rpds_py-0.18.1-pp38-pypy38_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:d0cee71bc618cd93716f3c1bf56653740d2d13ddbd47673efa8bf41435a60daa"},
-    {file = "rpds_py-0.18.1-pp38-pypy38_pp73-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:2c3caec4ec5cd1d18e5dd6ae5194d24ed12785212a90b37f5f7f06b8bedd7139"},
-    {file = "rpds_py-0.18.1-pp38-pypy38_pp73-musllinux_1_2_aarch64.whl", hash = "sha256:27bba383e8c5231cd559affe169ca0b96ec78d39909ffd817f28b166d7ddd4d8"},
-    {file = "rpds_py-0.18.1-pp38-pypy38_pp73-musllinux_1_2_i686.whl", hash = "sha256:a888e8bdb45916234b99da2d859566f1e8a1d2275a801bb8e4a9644e3c7e7909"},
-    {file = "rpds_py-0.18.1-pp38-pypy38_pp73-musllinux_1_2_x86_64.whl", hash = "sha256:6031b25fb1b06327b43d841f33842b383beba399884f8228a6bb3df3088485ff"},
-    {file = "rpds_py-0.18.1-pp39-pypy39_pp73-macosx_10_12_x86_64.whl", hash = "sha256:48c2faaa8adfacefcbfdb5f2e2e7bdad081e5ace8d182e5f4ade971f128e6bb3"},
-    {file = "rpds_py-0.18.1-pp39-pypy39_pp73-macosx_11_0_arm64.whl", hash = "sha256:d85164315bd68c0806768dc6bb0429c6f95c354f87485ee3593c4f6b14def2bd"},
-    {file = "rpds_py-0.18.1-pp39-pypy39_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:6afd80f6c79893cfc0574956f78a0add8c76e3696f2d6a15bca2c66c415cf2d4"},
-    {file = "rpds_py-0.18.1-pp39-pypy39_pp73-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:fa242ac1ff583e4ec7771141606aafc92b361cd90a05c30d93e343a0c2d82a89"},
-    {file = "rpds_py-0.18.1-pp39-pypy39_pp73-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:d21be4770ff4e08698e1e8e0bce06edb6ea0626e7c8f560bc08222880aca6a6f"},
-    {file = "rpds_py-0.18.1-pp39-pypy39_pp73-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:5c45a639e93a0c5d4b788b2613bd637468edd62f8f95ebc6fcc303d58ab3f0a8"},
-    {file = "rpds_py-0.18.1-pp39-pypy39_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:910e71711d1055b2768181efa0a17537b2622afeb0424116619817007f8a2b10"},
-    {file = "rpds_py-0.18.1-pp39-pypy39_pp73-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:b9bb1f182a97880f6078283b3505a707057c42bf55d8fca604f70dedfdc0772a"},
-    {file = "rpds_py-0.18.1-pp39-pypy39_pp73-musllinux_1_2_aarch64.whl", hash = "sha256:1d54f74f40b1f7aaa595a02ff42ef38ca654b1469bef7d52867da474243cc633"},
-    {file = "rpds_py-0.18.1-pp39-pypy39_pp73-musllinux_1_2_i686.whl", hash = "sha256:8d2e182c9ee01135e11e9676e9a62dfad791a7a467738f06726872374a83db49"},
-    {file = "rpds_py-0.18.1-pp39-pypy39_pp73-musllinux_1_2_x86_64.whl", hash = "sha256:636a15acc588f70fda1661234761f9ed9ad79ebed3f2125d44be0862708b666e"},
-    {file = "rpds_py-0.18.1.tar.gz", hash = "sha256:dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"},
+    {file = "rpds_py-0.19.0-cp310-cp310-macosx_10_12_x86_64.whl", hash = "sha256:fb37bd599f031f1a6fb9e58ec62864ccf3ad549cf14bac527dbfa97123edcca4"},
+    {file = "rpds_py-0.19.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:3384d278df99ec2c6acf701d067147320b864ef6727405d6470838476e44d9e8"},
+    {file = "rpds_py-0.19.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e54548e0be3ac117595408fd4ca0ac9278fde89829b0b518be92863b17ff67a2"},
+    {file = "rpds_py-0.19.0-cp310-cp310-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:8eb488ef928cdbc05a27245e52de73c0d7c72a34240ef4d9893fdf65a8c1a955"},
+    {file = "rpds_py-0.19.0-cp310-cp310-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:a5da93debdfe27b2bfc69eefb592e1831d957b9535e0943a0ee8b97996de21b5"},
+    {file = "rpds_py-0.19.0-cp310-cp310-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:79e205c70afddd41f6ee79a8656aec738492a550247a7af697d5bd1aee14f766"},
+    {file = "rpds_py-0.19.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:959179efb3e4a27610e8d54d667c02a9feaa86bbabaf63efa7faa4dfa780d4f1"},
+    {file = "rpds_py-0.19.0-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:a6e605bb9edcf010f54f8b6a590dd23a4b40a8cb141255eec2a03db249bc915b"},
+    {file = "rpds_py-0.19.0-cp310-cp310-musllinux_1_2_aarch64.whl", hash = "sha256:9133d75dc119a61d1a0ded38fb9ba40a00ef41697cc07adb6ae098c875195a3f"},
+    {file = "rpds_py-0.19.0-cp310-cp310-musllinux_1_2_i686.whl", hash = "sha256:dd36b712d35e757e28bf2f40a71e8f8a2d43c8b026d881aa0c617b450d6865c9"},
+    {file = "rpds_py-0.19.0-cp310-cp310-musllinux_1_2_x86_64.whl", hash = "sha256:354f3a91718489912f2e0fc331c24eaaf6a4565c080e00fbedb6015857c00582"},
+    {file = "rpds_py-0.19.0-cp310-none-win32.whl", hash = "sha256:ebcbf356bf5c51afc3290e491d3722b26aaf5b6af3c1c7f6a1b757828a46e336"},
+    {file = "rpds_py-0.19.0-cp310-none-win_amd64.whl", hash = "sha256:75a6076289b2df6c8ecb9d13ff79ae0cad1d5fb40af377a5021016d58cd691ec"},
+    {file = "rpds_py-0.19.0-cp311-cp311-macosx_10_12_x86_64.whl", hash = "sha256:6d45080095e585f8c5097897313def60caa2046da202cdb17a01f147fb263b81"},
+    {file = "rpds_py-0.19.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:c5c9581019c96f865483d031691a5ff1cc455feb4d84fc6920a5ffc48a794d8a"},
+    {file = "rpds_py-0.19.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:1540d807364c84516417115c38f0119dfec5ea5c0dd9a25332dea60b1d26fc4d"},
+    {file = "rpds_py-0.19.0-cp311-cp311-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:9e65489222b410f79711dc3d2d5003d2757e30874096b2008d50329ea4d0f88c"},
+    {file = "rpds_py-0.19.0-cp311-cp311-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:9da6f400eeb8c36f72ef6646ea530d6d175a4f77ff2ed8dfd6352842274c1d8b"},
+    {file = "rpds_py-0.19.0-cp311-cp311-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:37f46bb11858717e0efa7893c0f7055c43b44c103e40e69442db5061cb26ed34"},
+    {file = "rpds_py-0.19.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:071d4adc734de562bd11d43bd134330fb6249769b2f66b9310dab7460f4bf714"},
+    {file = "rpds_py-0.19.0-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:9625367c8955e4319049113ea4f8fee0c6c1145192d57946c6ffcd8fe8bf48dd"},
+    {file = "rpds_py-0.19.0-cp311-cp311-musllinux_1_2_aarch64.whl", hash = "sha256:e19509145275d46bc4d1e16af0b57a12d227c8253655a46bbd5ec317e941279d"},
+    {file = "rpds_py-0.19.0-cp311-cp311-musllinux_1_2_i686.whl", hash = "sha256:4d438e4c020d8c39961deaf58f6913b1bf8832d9b6f62ec35bd93e97807e9cbc"},
+    {file = "rpds_py-0.19.0-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:90bf55d9d139e5d127193170f38c584ed3c79e16638890d2e36f23aa1630b952"},
+    {file = "rpds_py-0.19.0-cp311-none-win32.whl", hash = "sha256:8d6ad132b1bc13d05ffe5b85e7a01a3998bf3a6302ba594b28d61b8c2cf13aaf"},
+    {file = "rpds_py-0.19.0-cp311-none-win_amd64.whl", hash = "sha256:7ec72df7354e6b7f6eb2a17fa6901350018c3a9ad78e48d7b2b54d0412539a67"},
+    {file = "rpds_py-0.19.0-cp312-cp312-macosx_10_12_x86_64.whl", hash = "sha256:5095a7c838a8647c32aa37c3a460d2c48debff7fc26e1136aee60100a8cd8f68"},
+    {file = "rpds_py-0.19.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:6f2f78ef14077e08856e788fa482107aa602636c16c25bdf59c22ea525a785e9"},
+    {file = "rpds_py-0.19.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:b7cc6cb44f8636fbf4a934ca72f3e786ba3c9f9ba4f4d74611e7da80684e48d2"},
+    {file = "rpds_py-0.19.0-cp312-cp312-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:cf902878b4af334a09de7a45badbff0389e7cf8dc2e4dcf5f07125d0b7c2656d"},
+    {file = "rpds_py-0.19.0-cp312-cp312-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:688aa6b8aa724db1596514751ffb767766e02e5c4a87486ab36b8e1ebc1aedac"},
+    {file = "rpds_py-0.19.0-cp312-cp312-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:57dbc9167d48e355e2569346b5aa4077f29bf86389c924df25c0a8b9124461fb"},
+    {file = "rpds_py-0.19.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:3b4cf5a9497874822341c2ebe0d5850fed392034caadc0bad134ab6822c0925b"},
+    {file = "rpds_py-0.19.0-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:8a790d235b9d39c70a466200d506bb33a98e2ee374a9b4eec7a8ac64c2c261fa"},
+    {file = "rpds_py-0.19.0-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:1d16089dfa58719c98a1c06f2daceba6d8e3fb9b5d7931af4a990a3c486241cb"},
+    {file = "rpds_py-0.19.0-cp312-cp312-musllinux_1_2_i686.whl", hash = "sha256:bc9128e74fe94650367fe23f37074f121b9f796cabbd2f928f13e9661837296d"},
+    {file = "rpds_py-0.19.0-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:c8f77e661ffd96ff104bebf7d0f3255b02aa5d5b28326f5408d6284c4a8b3248"},
+    {file = "rpds_py-0.19.0-cp312-none-win32.whl", hash = "sha256:5f83689a38e76969327e9b682be5521d87a0c9e5a2e187d2bc6be4765f0d4600"},
+    {file = "rpds_py-0.19.0-cp312-none-win_amd64.whl", hash = "sha256:06925c50f86da0596b9c3c64c3837b2481337b83ef3519e5db2701df695453a4"},
+    {file = "rpds_py-0.19.0-cp38-cp38-macosx_10_12_x86_64.whl", hash = "sha256:52e466bea6f8f3a44b1234570244b1cff45150f59a4acae3fcc5fd700c2993ca"},
+    {file = "rpds_py-0.19.0-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:e21cc693045fda7f745c790cb687958161ce172ffe3c5719ca1764e752237d16"},
+    {file = "rpds_py-0.19.0-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:6b31f059878eb1f5da8b2fd82480cc18bed8dcd7fb8fe68370e2e6285fa86da6"},
+    {file = "rpds_py-0.19.0-cp38-cp38-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:1dd46f309e953927dd018567d6a9e2fb84783963650171f6c5fe7e5c41fd5666"},
+    {file = "rpds_py-0.19.0-cp38-cp38-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:34a01a4490e170376cd79258b7f755fa13b1a6c3667e872c8e35051ae857a92b"},
+    {file = "rpds_py-0.19.0-cp38-cp38-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:bcf426a8c38eb57f7bf28932e68425ba86def6e756a5b8cb4731d8e62e4e0223"},
+    {file = "rpds_py-0.19.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f68eea5df6347d3f1378ce992d86b2af16ad7ff4dcb4a19ccdc23dea901b87fb"},
+    {file = "rpds_py-0.19.0-cp38-cp38-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:dab8d921b55a28287733263c0e4c7db11b3ee22aee158a4de09f13c93283c62d"},
+    {file = "rpds_py-0.19.0-cp38-cp38-musllinux_1_2_aarch64.whl", hash = "sha256:6fe87efd7f47266dfc42fe76dae89060038f1d9cb911f89ae7e5084148d1cc08"},
+    {file = "rpds_py-0.19.0-cp38-cp38-musllinux_1_2_i686.whl", hash = "sha256:535d4b52524a961d220875688159277f0e9eeeda0ac45e766092bfb54437543f"},
+    {file = "rpds_py-0.19.0-cp38-cp38-musllinux_1_2_x86_64.whl", hash = "sha256:8b1a94b8afc154fbe36978a511a1f155f9bd97664e4f1f7a374d72e180ceb0ae"},
+    {file = "rpds_py-0.19.0-cp38-none-win32.whl", hash = "sha256:7c98298a15d6b90c8f6e3caa6457f4f022423caa5fa1a1ca7a5e9e512bdb77a4"},
+    {file = "rpds_py-0.19.0-cp38-none-win_amd64.whl", hash = "sha256:b0da31853ab6e58a11db3205729133ce0df26e6804e93079dee095be3d681dc1"},
+    {file = "rpds_py-0.19.0-cp39-cp39-macosx_10_12_x86_64.whl", hash = "sha256:5039e3cef7b3e7a060de468a4a60a60a1f31786da94c6cb054e7a3c75906111c"},
+    {file = "rpds_py-0.19.0-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:ab1932ca6cb8c7499a4d87cb21ccc0d3326f172cfb6a64021a889b591bb3045c"},
+    {file = "rpds_py-0.19.0-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:f2afd2164a1e85226fcb6a1da77a5c8896c18bfe08e82e8ceced5181c42d2179"},
+    {file = "rpds_py-0.19.0-cp39-cp39-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:b1c30841f5040de47a0046c243fc1b44ddc87d1b12435a43b8edff7e7cb1e0d0"},
+    {file = "rpds_py-0.19.0-cp39-cp39-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:f757f359f30ec7dcebca662a6bd46d1098f8b9fb1fcd661a9e13f2e8ce343ba1"},
+    {file = "rpds_py-0.19.0-cp39-cp39-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:15e65395a59d2e0e96caf8ee5389ffb4604e980479c32742936ddd7ade914b22"},
+    {file = "rpds_py-0.19.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:cb0f6eb3a320f24b94d177e62f4074ff438f2ad9d27e75a46221904ef21a7b05"},
+    {file = "rpds_py-0.19.0-cp39-cp39-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:b228e693a2559888790936e20f5f88b6e9f8162c681830eda303bad7517b4d5a"},
+    {file = "rpds_py-0.19.0-cp39-cp39-musllinux_1_2_aarch64.whl", hash = "sha256:2575efaa5d949c9f4e2cdbe7d805d02122c16065bfb8d95c129372d65a291a0b"},
+    {file = "rpds_py-0.19.0-cp39-cp39-musllinux_1_2_i686.whl", hash = "sha256:5c872814b77a4e84afa293a1bee08c14daed1068b2bb1cc312edbf020bbbca2b"},
+    {file = "rpds_py-0.19.0-cp39-cp39-musllinux_1_2_x86_64.whl", hash = "sha256:850720e1b383df199b8433a20e02b25b72f0fded28bc03c5bd79e2ce7ef050be"},
+    {file = "rpds_py-0.19.0-cp39-none-win32.whl", hash = "sha256:ce84a7efa5af9f54c0aa7692c45861c1667080814286cacb9958c07fc50294fb"},
+    {file = "rpds_py-0.19.0-cp39-none-win_amd64.whl", hash = "sha256:1c26da90b8d06227d7769f34915913911222d24ce08c0ab2d60b354e2d9c7aff"},
+    {file = "rpds_py-0.19.0-pp310-pypy310_pp73-macosx_10_12_x86_64.whl", hash = "sha256:75969cf900d7be665ccb1622a9aba225cf386bbc9c3bcfeeab9f62b5048f4a07"},
+    {file = "rpds_py-0.19.0-pp310-pypy310_pp73-macosx_11_0_arm64.whl", hash = "sha256:8445f23f13339da640d1be8e44e5baf4af97e396882ebbf1692aecd67f67c479"},
+    {file = "rpds_py-0.19.0-pp310-pypy310_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:a5a7c1062ef8aea3eda149f08120f10795835fc1c8bc6ad948fb9652a113ca55"},
+    {file = "rpds_py-0.19.0-pp310-pypy310_pp73-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:462b0c18fbb48fdbf980914a02ee38c423a25fcc4cf40f66bacc95a2d2d73bc8"},
+    {file = "rpds_py-0.19.0-pp310-pypy310_pp73-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:3208f9aea18991ac7f2b39721e947bbd752a1abbe79ad90d9b6a84a74d44409b"},
+    {file = "rpds_py-0.19.0-pp310-pypy310_pp73-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:c3444fe52b82f122d8a99bf66777aed6b858d392b12f4c317da19f8234db4533"},
+    {file = "rpds_py-0.19.0-pp310-pypy310_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:88cb4bac7185a9f0168d38c01d7a00addece9822a52870eee26b8d5b61409213"},
+    {file = "rpds_py-0.19.0-pp310-pypy310_pp73-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:6b130bd4163c93798a6b9bb96be64a7c43e1cec81126ffa7ffaa106e1fc5cef5"},
+    {file = "rpds_py-0.19.0-pp310-pypy310_pp73-musllinux_1_2_aarch64.whl", hash = "sha256:a707b158b4410aefb6b054715545bbb21aaa5d5d0080217290131c49c2124a6e"},
+    {file = "rpds_py-0.19.0-pp310-pypy310_pp73-musllinux_1_2_i686.whl", hash = "sha256:dc9ac4659456bde7c567107556ab065801622396b435a3ff213daef27b495388"},
+    {file = "rpds_py-0.19.0-pp310-pypy310_pp73-musllinux_1_2_x86_64.whl", hash = "sha256:81ea573aa46d3b6b3d890cd3c0ad82105985e6058a4baed03cf92518081eec8c"},
+    {file = "rpds_py-0.19.0-pp38-pypy38_pp73-macosx_10_12_x86_64.whl", hash = "sha256:3f148c3f47f7f29a79c38cc5d020edcb5ca780020fab94dbc21f9af95c463581"},
+    {file = "rpds_py-0.19.0-pp38-pypy38_pp73-macosx_11_0_arm64.whl", hash = "sha256:b0906357f90784a66e89ae3eadc2654f36c580a7d65cf63e6a616e4aec3a81be"},
+    {file = "rpds_py-0.19.0-pp38-pypy38_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:f629ecc2db6a4736b5ba95a8347b0089240d69ad14ac364f557d52ad68cf94b0"},
+    {file = "rpds_py-0.19.0-pp38-pypy38_pp73-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:c6feacd1d178c30e5bc37184526e56740342fd2aa6371a28367bad7908d454fc"},
+    {file = "rpds_py-0.19.0-pp38-pypy38_pp73-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:ae8b6068ee374fdfab63689be0963333aa83b0815ead5d8648389a8ded593378"},
+    {file = "rpds_py-0.19.0-pp38-pypy38_pp73-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:78d57546bad81e0da13263e4c9ce30e96dcbe720dbff5ada08d2600a3502e526"},
+    {file = "rpds_py-0.19.0-pp38-pypy38_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a8b6683a37338818646af718c9ca2a07f89787551057fae57c4ec0446dc6224b"},
+    {file = "rpds_py-0.19.0-pp38-pypy38_pp73-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:e8481b946792415adc07410420d6fc65a352b45d347b78fec45d8f8f0d7496f0"},
+    {file = "rpds_py-0.19.0-pp38-pypy38_pp73-musllinux_1_2_aarch64.whl", hash = "sha256:bec35eb20792ea64c3c57891bc3ca0bedb2884fbac2c8249d9b731447ecde4fa"},
+    {file = "rpds_py-0.19.0-pp38-pypy38_pp73-musllinux_1_2_i686.whl", hash = "sha256:aa5476c3e3a402c37779e95f7b4048db2cb5b0ed0b9d006983965e93f40fe05a"},
+    {file = "rpds_py-0.19.0-pp38-pypy38_pp73-musllinux_1_2_x86_64.whl", hash = "sha256:19d02c45f2507b489fd4df7b827940f1420480b3e2e471e952af4d44a1ea8e34"},
+    {file = "rpds_py-0.19.0-pp39-pypy39_pp73-macosx_10_12_x86_64.whl", hash = "sha256:a3e2fd14c5d49ee1da322672375963f19f32b3d5953f0615b175ff7b9d38daed"},
+    {file = "rpds_py-0.19.0-pp39-pypy39_pp73-macosx_11_0_arm64.whl", hash = "sha256:93a91c2640645303e874eada51f4f33351b84b351a689d470f8108d0e0694210"},
+    {file = "rpds_py-0.19.0-pp39-pypy39_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e5b9fc03bf76a94065299d4a2ecd8dfbae4ae8e2e8098bbfa6ab6413ca267709"},
+    {file = "rpds_py-0.19.0-pp39-pypy39_pp73-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:5a4b07cdf3f84310c08c1de2c12ddadbb7a77568bcb16e95489f9c81074322ed"},
+    {file = "rpds_py-0.19.0-pp39-pypy39_pp73-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:ba0ed0dc6763d8bd6e5de5cf0d746d28e706a10b615ea382ac0ab17bb7388633"},
+    {file = "rpds_py-0.19.0-pp39-pypy39_pp73-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:474bc83233abdcf2124ed3f66230a1c8435896046caa4b0b5ab6013c640803cc"},
+    {file = "rpds_py-0.19.0-pp39-pypy39_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:329c719d31362355a96b435f4653e3b4b061fcc9eba9f91dd40804ca637d914e"},
+    {file = "rpds_py-0.19.0-pp39-pypy39_pp73-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:ef9101f3f7b59043a34f1dccbb385ca760467590951952d6701df0da9893ca0c"},
+    {file = "rpds_py-0.19.0-pp39-pypy39_pp73-musllinux_1_2_aarch64.whl", hash = "sha256:0121803b0f424ee2109d6e1f27db45b166ebaa4b32ff47d6aa225642636cd834"},
+    {file = "rpds_py-0.19.0-pp39-pypy39_pp73-musllinux_1_2_i686.whl", hash = "sha256:8344127403dea42f5970adccf6c5957a71a47f522171fafaf4c6ddb41b61703a"},
+    {file = "rpds_py-0.19.0-pp39-pypy39_pp73-musllinux_1_2_x86_64.whl", hash = "sha256:443cec402ddd650bb2b885113e1dcedb22b1175c6be223b14246a714b61cd521"},
+    {file = "rpds_py-0.19.0.tar.gz", hash = "sha256:4fdc9afadbeb393b4bbbad75481e0ea78e4469f2e1d713a90811700830b553a9"},
 ]
 
 [[package]]
@@ -5689,29 +5677,29 @@ files = [
 
 [[package]]
 name = "ruff"
-version = "0.5.1"
+version = "0.5.2"
 description = "An extremely fast Python linter and code formatter, written in Rust."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "ruff-0.5.1-py3-none-linux_armv6l.whl", hash = "sha256:6ecf968fcf94d942d42b700af18ede94b07521bd188aaf2cd7bc898dd8cb63b6"},
-    {file = "ruff-0.5.1-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:204fb0a472f00f2e6280a7c8c7c066e11e20e23a37557d63045bf27a616ba61c"},
-    {file = "ruff-0.5.1-py3-none-macosx_11_0_arm64.whl", hash = "sha256:d235968460e8758d1e1297e1de59a38d94102f60cafb4d5382033c324404ee9d"},
-    {file = "ruff-0.5.1-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:38beace10b8d5f9b6bdc91619310af6d63dd2019f3fb2d17a2da26360d7962fa"},
-    {file = "ruff-0.5.1-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:5e478d2f09cf06add143cf8c4540ef77b6599191e0c50ed976582f06e588c994"},
-    {file = "ruff-0.5.1-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:f0368d765eec8247b8550251c49ebb20554cc4e812f383ff9f5bf0d5d94190b0"},
-    {file = "ruff-0.5.1-py3-none-manylinux_2_17_ppc64.manylinux2014_ppc64.whl", hash = "sha256:3a9a9a1b582e37669b0138b7c1d9d60b9edac880b80eb2baba6d0e566bdeca4d"},
-    {file = "ruff-0.5.1-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:bdd9f723e16003623423affabcc0a807a66552ee6a29f90eddad87a40c750b78"},
-    {file = "ruff-0.5.1-py3-none-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:be9fd62c1e99539da05fcdc1e90d20f74aec1b7a1613463ed77870057cd6bd96"},
-    {file = "ruff-0.5.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e216fc75a80ea1fbd96af94a6233d90190d5b65cc3d5dfacf2bd48c3e067d3e1"},
-    {file = "ruff-0.5.1-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:c4c2112e9883a40967827d5c24803525145e7dab315497fae149764979ac7929"},
-    {file = "ruff-0.5.1-py3-none-musllinux_1_2_armv7l.whl", hash = "sha256:dfaf11c8a116394da3b65cd4b36de30d8552fa45b8119b9ef5ca6638ab964fa3"},
-    {file = "ruff-0.5.1-py3-none-musllinux_1_2_i686.whl", hash = "sha256:d7ceb9b2fe700ee09a0c6b192c5ef03c56eb82a0514218d8ff700f6ade004108"},
-    {file = "ruff-0.5.1-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:bac6288e82f6296f82ed5285f597713acb2a6ae26618ffc6b429c597b392535c"},
-    {file = "ruff-0.5.1-py3-none-win32.whl", hash = "sha256:5c441d9c24ec09e1cb190a04535c5379b36b73c4bc20aa180c54812c27d1cca4"},
-    {file = "ruff-0.5.1-py3-none-win_amd64.whl", hash = "sha256:b1789bf2cd3d1b5a7d38397cac1398ddf3ad7f73f4de01b1e913e2abc7dfc51d"},
-    {file = "ruff-0.5.1-py3-none-win_arm64.whl", hash = "sha256:2875b7596a740cbbd492f32d24be73e545a4ce0a3daf51e4f4e609962bfd3cd2"},
-    {file = "ruff-0.5.1.tar.gz", hash = "sha256:3164488aebd89b1745b47fd00604fb4358d774465f20d1fcd907f9c0fc1b0655"},
+    {file = "ruff-0.5.2-py3-none-linux_armv6l.whl", hash = "sha256:7bab8345df60f9368d5f4594bfb8b71157496b44c30ff035d1d01972e764d3be"},
+    {file = "ruff-0.5.2-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:1aa7acad382ada0189dbe76095cf0a36cd0036779607c397ffdea16517f535b1"},
+    {file = "ruff-0.5.2-py3-none-macosx_11_0_arm64.whl", hash = "sha256:aec618d5a0cdba5592c60c2dee7d9c865180627f1a4a691257dea14ac1aa264d"},
+    {file = "ruff-0.5.2-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:a0b62adc5ce81780ff04077e88bac0986363e4a3260ad3ef11ae9c14aa0e67ef"},
+    {file = "ruff-0.5.2-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:dc42ebf56ede83cb080a50eba35a06e636775649a1ffd03dc986533f878702a3"},
+    {file = "ruff-0.5.2-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:c15c6e9f88c67ffa442681365d11df38afb11059fc44238e71a9d9f1fd51de70"},
+    {file = "ruff-0.5.2-py3-none-manylinux_2_17_ppc64.manylinux2014_ppc64.whl", hash = "sha256:d3de9a5960f72c335ef00763d861fc5005ef0644cb260ba1b5a115a102157251"},
+    {file = "ruff-0.5.2-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:fe5a968ae933e8f7627a7b2fc8893336ac2be0eb0aace762d3421f6e8f7b7f83"},
+    {file = "ruff-0.5.2-py3-none-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:a04f54a9018f75615ae52f36ea1c5515e356e5d5e214b22609ddb546baef7132"},
+    {file = "ruff-0.5.2-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:1ed02fb52e3741f0738db5f93e10ae0fb5c71eb33a4f2ba87c9a2fa97462a649"},
+    {file = "ruff-0.5.2-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:3cf8fe659f6362530435d97d738eb413e9f090e7e993f88711b0377fbdc99f60"},
+    {file = "ruff-0.5.2-py3-none-musllinux_1_2_armv7l.whl", hash = "sha256:237a37e673e9f3cbfff0d2243e797c4862a44c93d2f52a52021c1a1b0899f846"},
+    {file = "ruff-0.5.2-py3-none-musllinux_1_2_i686.whl", hash = "sha256:2a2949ce7c1cbd8317432ada80fe32156df825b2fd611688814c8557824ef060"},
+    {file = "ruff-0.5.2-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:481af57c8e99da92ad168924fd82220266043c8255942a1cb87958b108ac9335"},
+    {file = "ruff-0.5.2-py3-none-win32.whl", hash = "sha256:f1aea290c56d913e363066d83d3fc26848814a1fed3d72144ff9c930e8c7c718"},
+    {file = "ruff-0.5.2-py3-none-win_amd64.whl", hash = "sha256:8532660b72b5d94d2a0a7a27ae7b9b40053662d00357bb2a6864dd7e38819084"},
+    {file = "ruff-0.5.2-py3-none-win_arm64.whl", hash = "sha256:73439805c5cb68f364d826a5c5c4b6c798ded6b7ebaa4011f01ce6c94e4d5583"},
+    {file = "ruff-0.5.2.tar.gz", hash = "sha256:2c0df2d2de685433794a14d8d2e240df619b748fbe3367346baa519d8e6f1ca2"},
 ]
 
 [[package]]
@@ -5986,18 +5974,38 @@ test = ["pytest"]
 
 [[package]]
 name = "setuptools"
-version = "70.2.0"
+version = "70.3.0"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "setuptools-70.2.0-py3-none-any.whl", hash = "sha256:b8b8060bb426838fbe942479c90296ce976249451118ef566a5a0b7d8b78fb05"},
-    {file = "setuptools-70.2.0.tar.gz", hash = "sha256:bd63e505105011b25c3c11f753f7e3b8465ea739efddaccef8f0efac2137bac1"},
+    {file = "setuptools-70.3.0-py3-none-any.whl", hash = "sha256:fe384da74336c398e0d956d1cae0669bc02eed936cdb1d49b57de1990dc11ffc"},
+    {file = "setuptools-70.3.0.tar.gz", hash = "sha256:f171bab1dfbc86b132997f26a119f6056a57950d058587841a0082e8830f9dc5"},
 ]
 
 [package.extras]
 doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "pyproject-hooks (!=1.1)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (>=1,<2)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
 test = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "importlib-metadata", "ini2toml[lite] (>=0.14)", "jaraco.develop (>=7.21)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "jaraco.test", "mypy (==1.10.0)", "packaging (>=23.2)", "pip (>=19.1)", "pyproject-hooks (!=1.1)", "pytest (>=6,!=8.1.*)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-home (>=0.5)", "pytest-mypy", "pytest-perf", "pytest-ruff (>=0.3.2)", "pytest-subprocess", "pytest-timeout", "pytest-xdist (>=3)", "tomli", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel"]
+
+[[package]]
+name = "setuptools-scm"
+version = "8.1.0"
+description = "the blessed package to manage your versions by scm tags"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "setuptools_scm-8.1.0-py3-none-any.whl", hash = "sha256:897a3226a6fd4a6eb2f068745e49733261a21f70b1bb28fce0339feb978d9af3"},
+    {file = "setuptools_scm-8.1.0.tar.gz", hash = "sha256:42dea1b65771cba93b7a515d65a65d8246e560768a66b9106a592c8e7f26c8a7"},
+]
+
+[package.dependencies]
+packaging = ">=20"
+setuptools = "*"
+
+[package.extras]
+docs = ["entangled-cli (>=2.0,<3.0)", "mkdocs", "mkdocs-entangled-plugin", "mkdocs-material", "mkdocstrings[python]", "pygments"]
+rich = ["rich"]
+test = ["build", "pytest", "rich", "typing-extensions", "wheel"]
 
 [[package]]
 name = "shellcheck-py"
@@ -6252,13 +6260,13 @@ files = [
 
 [[package]]
 name = "tomlkit"
-version = "0.12.5"
+version = "0.13.0"
 description = "Style preserving TOML library"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "tomlkit-0.12.5-py3-none-any.whl", hash = "sha256:af914f5a9c59ed9d0762c7b64d3b5d5df007448eb9cd2edc8a46b1eafead172f"},
-    {file = "tomlkit-0.12.5.tar.gz", hash = "sha256:eef34fba39834d4d6b73c9ba7f3e4d1c417a4e56f89a7e96e090dd0d24b8fb3c"},
+    {file = "tomlkit-0.13.0-py3-none-any.whl", hash = "sha256:7075d3042d03b80f603482d69bf0c8f345c2b30e41699fd8883227f89972b264"},
+    {file = "tomlkit-0.13.0.tar.gz", hash = "sha256:08ad192699734149f5b97b45f1f18dad7eb1b6d16bc72ad0c2335772650d7b72"},
 ]
 
 [[package]]
@@ -7163,60 +7171,7 @@ files = [
 doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-lint"]
 test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", "jaraco.test", "more-itertools", "pytest (>=6,!=8.1.*)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-ignore-flaky", "pytest-mypy", "pytest-ruff (>=0.2.1)"]
 
-[[package]]
-name = "zope-interface"
-version = "6.4.post2"
-description = "Interfaces for Python"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "zope.interface-6.4.post2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:2eccd5bef45883802848f821d940367c1d0ad588de71e5cabe3813175444202c"},
-    {file = "zope.interface-6.4.post2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:762e616199f6319bb98e7f4f27d254c84c5fb1c25c908c2a9d0f92b92fb27530"},
-    {file = "zope.interface-6.4.post2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:5ef8356f16b1a83609f7a992a6e33d792bb5eff2370712c9eaae0d02e1924341"},
-    {file = "zope.interface-6.4.post2-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:0e4fa5d34d7973e6b0efa46fe4405090f3b406f64b6290facbb19dcbf642ad6b"},
-    {file = "zope.interface-6.4.post2-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:d22fce0b0f5715cdac082e35a9e735a1752dc8585f005d045abb1a7c20e197f9"},
-    {file = "zope.interface-6.4.post2-cp310-cp310-win_amd64.whl", hash = "sha256:97e615eab34bd8477c3f34197a17ce08c648d38467489359cb9eb7394f1083f7"},
-    {file = "zope.interface-6.4.post2-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:599f3b07bde2627e163ce484d5497a54a0a8437779362395c6b25e68c6590ede"},
-    {file = "zope.interface-6.4.post2-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:136cacdde1a2c5e5bc3d0b2a1beed733f97e2dad8c2ad3c2e17116f6590a3827"},
-    {file = "zope.interface-6.4.post2-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:47937cf2e7ed4e0e37f7851c76edeb8543ec9b0eae149b36ecd26176ff1ca874"},
-    {file = "zope.interface-6.4.post2-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:6f0a6be264afb094975b5ef55c911379d6989caa87c4e558814ec4f5125cfa2e"},
-    {file = "zope.interface-6.4.post2-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:47654177e675bafdf4e4738ce58cdc5c6d6ee2157ac0a78a3fa460942b9d64a8"},
-    {file = "zope.interface-6.4.post2-cp311-cp311-win_amd64.whl", hash = "sha256:e2fb8e8158306567a3a9a41670c1ff99d0567d7fc96fa93b7abf8b519a46b250"},
-    {file = "zope.interface-6.4.post2-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:b912750b13d76af8aac45ddf4679535def304b2a48a07989ec736508d0bbfbde"},
-    {file = "zope.interface-6.4.post2-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:4ac46298e0143d91e4644a27a769d1388d5d89e82ee0cf37bf2b0b001b9712a4"},
-    {file = "zope.interface-6.4.post2-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:86a94af4a88110ed4bb8961f5ac72edf782958e665d5bfceaab6bf388420a78b"},
-    {file = "zope.interface-6.4.post2-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:73f9752cf3596771c7726f7eea5b9e634ad47c6d863043589a1c3bb31325c7eb"},
-    {file = "zope.interface-6.4.post2-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:00b5c3e9744dcdc9e84c24ed6646d5cf0cf66551347b310b3ffd70f056535854"},
-    {file = "zope.interface-6.4.post2-cp312-cp312-win_amd64.whl", hash = "sha256:551db2fe892fcbefb38f6f81ffa62de11090c8119fd4e66a60f3adff70751ec7"},
-    {file = "zope.interface-6.4.post2-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e96ac6b3169940a8cd57b4f2b8edcad8f5213b60efcd197d59fbe52f0accd66e"},
-    {file = "zope.interface-6.4.post2-cp313-cp313-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:cebff2fe5dc82cb22122e4e1225e00a4a506b1a16fafa911142ee124febf2c9e"},
-    {file = "zope.interface-6.4.post2-cp313-cp313-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:33ee982237cffaf946db365c3a6ebaa37855d8e3ca5800f6f48890209c1cfefc"},
-    {file = "zope.interface-6.4.post2-cp37-cp37m-macosx_11_0_x86_64.whl", hash = "sha256:fbf649bc77510ef2521cf797700b96167bb77838c40780da7ea3edd8b78044d1"},
-    {file = "zope.interface-6.4.post2-cp37-cp37m-win_amd64.whl", hash = "sha256:4c0b208a5d6c81434bdfa0f06d9b667e5de15af84d8cae5723c3a33ba6611b82"},
-    {file = "zope.interface-6.4.post2-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:d3fe667935e9562407c2511570dca14604a654988a13d8725667e95161d92e9b"},
-    {file = "zope.interface-6.4.post2-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:a96e6d4074db29b152222c34d7eec2e2db2f92638d2b2b2c704f9e8db3ae0edc"},
-    {file = "zope.interface-6.4.post2-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:866a0f583be79f0def667a5d2c60b7b4cc68f0c0a470f227e1122691b443c934"},
-    {file = "zope.interface-6.4.post2-cp38-cp38-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:5fe919027f29b12f7a2562ba0daf3e045cb388f844e022552a5674fcdf5d21f1"},
-    {file = "zope.interface-6.4.post2-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:8e0343a6e06d94f6b6ac52fbc75269b41dd3c57066541a6c76517f69fe67cb43"},
-    {file = "zope.interface-6.4.post2-cp38-cp38-win_amd64.whl", hash = "sha256:dabb70a6e3d9c22df50e08dc55b14ca2a99da95a2d941954255ac76fd6982bc5"},
-    {file = "zope.interface-6.4.post2-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:706efc19f9679a1b425d6fa2b4bc770d976d0984335eaea0869bd32f627591d2"},
-    {file = "zope.interface-6.4.post2-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:3d136e5b8821073e1a09dde3eb076ea9988e7010c54ffe4d39701adf0c303438"},
-    {file = "zope.interface-6.4.post2-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:1730c93a38b5a18d24549bc81613223962a19d457cfda9bdc66e542f475a36f4"},
-    {file = "zope.interface-6.4.post2-cp39-cp39-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:bc2676312cc3468a25aac001ec727168994ea3b69b48914944a44c6a0b251e79"},
-    {file = "zope.interface-6.4.post2-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:1a62fd6cd518693568e23e02f41816adedfca637f26716837681c90b36af3671"},
-    {file = "zope.interface-6.4.post2-cp39-cp39-win_amd64.whl", hash = "sha256:d3f7e001328bd6466b3414215f66dde3c7c13d8025a9c160a75d7b2687090d15"},
-    {file = "zope.interface-6.4.post2.tar.gz", hash = "sha256:1c207e6f6dfd5749a26f5a5fd966602d6b824ec00d2df84a7e9a924e8933654e"},
-]
-
-[package.dependencies]
-setuptools = "*"
-
-[package.extras]
-docs = ["Sphinx", "repoze.sphinx.autointerface", "sphinx-rtd-theme"]
-test = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
-testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
-
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.11,<3.12"
-content-hash = "e26cb7448c1e0e45af9f6d8eb57a17c3ea54861cf08026472d404d080494330c"
+content-hash = "0f89c93867481cd5a33c98a06fdb5e2104b33fd2f97787b6e0180febdc3e3861"
