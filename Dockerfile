@@ -1,4 +1,4 @@
-FROM python:3.11 as build
+FROM python:3.12 as build
 
 WORKDIR /build
 
@@ -31,7 +31,7 @@ RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
 RUN poetry run pip wheel -w wheels -r requirements.txt
 RUN mv dist/* wheels
 
-FROM python:3.11-slim
+FROM python:3.12-slim
 
 WORKDIR /app
 

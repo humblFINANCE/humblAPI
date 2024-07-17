@@ -1090,6 +1090,7 @@ files = [
 [package.dependencies]
 attrs = ">=23.1.0,<24.0.0"
 commitizen = ">=3.2.2,<4.0.0"
+setuptools = {version = "*", markers = "python_version >= \"3.12\""}
 
 [[package]]
 name = "debugpy"
@@ -1823,19 +1824,19 @@ pyreadline3 = {version = "*", markers = "sys_platform == \"win32\" and python_ve
 
 [[package]]
 name = "humbldata"
-version = "1.6.2"
+version = "1.6.4"
 description = "open-sourcing the math behind major financial institutional investors/banks. this package connects data analysis to the humblFINANCE website."
 optional = false
-python-versions = "<3.12,>=3.11"
+python-versions = "<3.13,>=3.11"
 files = [
-    {file = "humbldata-1.6.2-py3-none-any.whl", hash = "sha256:fd857d73aeffbeac08fc1ccce1c58158c9790415fb0c7258f91e9f3aa041c998"},
-    {file = "humbldata-1.6.2.tar.gz", hash = "sha256:06521439da165ef18492c17cd4b191a828e1569c11ab73943d79a2f1f1903cf6"},
+    {file = "humbldata-1.6.4-py3-none-any.whl", hash = "sha256:f3dac4cc9914cad9ede401345a18a8710215a63820e64bec45057f050486ee70"},
+    {file = "humbldata-1.6.4.tar.gz", hash = "sha256:784ee3828eb346ee6e992919389f7af42900c12078bdffca671b1e29cef800f3"},
 ]
 
 [package.dependencies]
-openbb = {version = ">=4.1.4,<5.0.0", extras = ["all"]}
-pandera = ">=0.19.0,<0.20.0"
-polars = ">=0.20.14,<0.21.0"
+openbb = {version = ">=4.3.0,<5.0.0", extras = ["all"]}
+pandera = ">=0.20.2,<0.21.0"
+polars = ">=1.1.0,<2.0.0"
 pyarrow = ">=15.0.0,<16.0.0"
 pydantic = ">=2.5"
 uuid7 = ">=0.1.0"
@@ -2348,13 +2349,13 @@ files = [
 
 [[package]]
 name = "jupyterlab-server"
-version = "2.27.2"
+version = "2.27.3"
 description = "A set of server components for JupyterLab and JupyterLab like applications."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "jupyterlab_server-2.27.2-py3-none-any.whl", hash = "sha256:54aa2d64fd86383b5438d9f0c032f043c4d8c0264b8af9f60bd061157466ea43"},
-    {file = "jupyterlab_server-2.27.2.tar.gz", hash = "sha256:15cbb349dc45e954e09bacf81b9f9bcb10815ff660fb2034ecd7417db3a7ea27"},
+    {file = "jupyterlab_server-2.27.3-py3-none-any.whl", hash = "sha256:e697488f66c3db49df675158a77b3b017520d772c6e1548c7d9bcc5df7944ee4"},
+    {file = "jupyterlab_server-2.27.3.tar.gz", hash = "sha256:eb36caca59e74471988f0ae25c77945610b887f777255aa21f8065def9e51ed4"},
 ]
 
 [package.dependencies]
@@ -4030,7 +4031,10 @@ files = [
 ]
 
 [package.dependencies]
-numpy = {version = ">=1.23.2", markers = "python_version == \"3.11\""}
+numpy = [
+    {version = ">=1.23.2", markers = "python_version == \"3.11\""},
+    {version = ">=1.26.0", markers = "python_version >= \"3.12\""},
+]
 python-dateutil = ">=2.8.2"
 pytz = ">=2020.1"
 tzdata = ">=2022.7"
@@ -4079,13 +4083,13 @@ test = ["ta-lib"]
 
 [[package]]
 name = "pandera"
-version = "0.19.3"
+version = "0.20.2"
 description = "A light-weight and flexible data validation and testing tool for statistical data objects."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pandera-0.19.3-py3-none-any.whl", hash = "sha256:4ff2f0446f4b8dd7c2fa2aac547044911f4957d137456bfe2b281ccd02cc5ff5"},
-    {file = "pandera-0.19.3.tar.gz", hash = "sha256:1bf9dc8a30525cb5bc77edb7d6a044cc59d59c3ef405517825cf6b04c6160c07"},
+    {file = "pandera-0.20.2-py3-none-any.whl", hash = "sha256:40df89ab60154a7204115217f3c8568eddb905b5f5580062d50b7d9b5db6ee34"},
+    {file = "pandera-0.20.2.tar.gz", hash = "sha256:920a55a79db95c13c285c29131695acabb4c5ced1df9caec25bf1f82daf75dde"},
 ]
 
 [package.dependencies]
@@ -4352,39 +4356,40 @@ poetry-core = ">=1.7.0,<3.0.0"
 
 [[package]]
 name = "polars"
-version = "0.20.31"
+version = "1.2.0"
 description = "Blazingly fast DataFrame library"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "polars-0.20.31-cp38-abi3-macosx_10_12_x86_64.whl", hash = "sha256:86454ade5ed302bbf87f145cfcb1b14f7a5765a9440e448659e1f3dba6ac4e79"},
-    {file = "polars-0.20.31-cp38-abi3-macosx_11_0_arm64.whl", hash = "sha256:67f2fe842262b7e1b9371edad21b760f6734d28b74c78dda88dff1bf031b9499"},
-    {file = "polars-0.20.31-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:24b82441f93409e0e8abd6f427b029db102f02b8de328cee9a680f84b84e3736"},
-    {file = "polars-0.20.31-cp38-abi3-manylinux_2_24_aarch64.whl", hash = "sha256:87f43bce4d41abf8c8c5658d881e4b8378e5c61010a696bfea8b4106b908e916"},
-    {file = "polars-0.20.31-cp38-abi3-win_amd64.whl", hash = "sha256:2d7567c9fd9d3b9aa93387ca9880d9e8f7acea3c0a0555c03d8c0c2f0715d43c"},
-    {file = "polars-0.20.31.tar.gz", hash = "sha256:00f62dec6bf43a4e2a5db58b99bf0e79699fe761c80ae665868eaea5168f3bbb"},
+    {file = "polars-1.2.0-cp38-abi3-macosx_10_12_x86_64.whl", hash = "sha256:a6cea3aa0cb4a0cf1c4c4aa00c389d483072f347ef03c98c484d5c515da489f3"},
+    {file = "polars-1.2.0-cp38-abi3-macosx_11_0_arm64.whl", hash = "sha256:8ebccbc9211453785c90efee8fd9407d316343492b384ce2882b431a2090613a"},
+    {file = "polars-1.2.0-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e0f5cff9d3dc96bdde914290df5f80768aaf881b4612c83ad1d9afd05c5934f2"},
+    {file = "polars-1.2.0-cp38-abi3-manylinux_2_24_aarch64.whl", hash = "sha256:4125b1c44773a30e388be734adf25b1979d7ded17801aceca3b62e85cd057364"},
+    {file = "polars-1.2.0-cp38-abi3-win_amd64.whl", hash = "sha256:df5cd43fdc6fb0b4e25987c1178633511e56dc5ee38afe0215daccf690bfe5ba"},
+    {file = "polars-1.2.0.tar.gz", hash = "sha256:d475f60a57d48b7737ef165f1bb145a1d506f784948aad1de284f359a61cf147"},
 ]
 
 [package.extras]
-adbc = ["adbc-driver-manager", "adbc-driver-sqlite"]
-all = ["polars[adbc,async,cloudpickle,connectorx,deltalake,fastexcel,fsspec,gevent,iceberg,numpy,pandas,plot,pyarrow,pydantic,sqlalchemy,timezone,xlsx2csv,xlsxwriter]"]
-async = ["nest-asyncio"]
+adbc = ["adbc-driver-manager[dbapi]", "adbc-driver-sqlite[dbapi]"]
+all = ["polars[async,cloudpickle,database,deltalake,excel,fsspec,graph,iceberg,numpy,pandas,plot,pyarrow,pydantic,style,timezone]"]
+async = ["gevent"]
+calamine = ["fastexcel (>=0.9)"]
 cloudpickle = ["cloudpickle"]
 connectorx = ["connectorx (>=0.3.2)"]
+database = ["nest-asyncio", "polars[adbc,connectorx,sqlalchemy]"]
 deltalake = ["deltalake (>=0.15.0)"]
-fastexcel = ["fastexcel (>=0.9)"]
+excel = ["polars[calamine,openpyxl,xlsx2csv,xlsxwriter]"]
 fsspec = ["fsspec"]
-gevent = ["gevent"]
+graph = ["matplotlib"]
 iceberg = ["pyiceberg (>=0.5.0)"]
-matplotlib = ["matplotlib"]
 numpy = ["numpy (>=1.16.0)"]
 openpyxl = ["openpyxl (>=3.0.0)"]
-pandas = ["pandas", "pyarrow (>=7.0.0)"]
-plot = ["hvplot (>=0.9.1)"]
+pandas = ["pandas", "polars[pyarrow]"]
+plot = ["hvplot (>=0.9.1)", "polars[pandas]"]
 pyarrow = ["pyarrow (>=7.0.0)"]
 pydantic = ["pydantic"]
-pyxlsb = ["pyxlsb (>=1.0)"]
-sqlalchemy = ["pandas", "sqlalchemy"]
+sqlalchemy = ["polars[pandas]", "sqlalchemy"]
+style = ["great-tables (>=0.8.0)"]
 timezone = ["backports-zoneinfo", "tzdata"]
 xlsx2csv = ["xlsx2csv (>=0.8.0)"]
 xlsxwriter = ["xlsxwriter"]
@@ -7173,5 +7178,5 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 
 [metadata]
 lock-version = "2.0"
-python-versions = ">=3.11,<3.12"
-content-hash = "0f89c93867481cd5a33c98a06fdb5e2104b33fd2f97787b6e0180febdc3e3861"
+python-versions = ">=3.11,<3.13"
+content-hash = "55cf7df7e1b6bdbe21368c4ba421a007c709f4e2a000d7890cb274a6b7a511e2"
