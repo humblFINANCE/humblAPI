@@ -8,7 +8,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.base import BaseHTTPMiddleware
 
-from humblapi.api.v1.routers import user_table
+from humblapi.api.v1.routers import mandelbrot_channel, user_table
 from humblapi.core.config import Config
 from humblapi.core.middleware import TimeLogMiddleware
 
@@ -59,6 +59,7 @@ app.add_middleware(
 
 # Add Routers
 app.include_router(user_table.router)
+app.include_router(mandelbrot_channel.router)
 
 
 @app.get("/")
