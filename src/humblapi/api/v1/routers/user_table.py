@@ -55,7 +55,7 @@ async def user_table_route(
     # Split the symbols string into a list
     symbol_list = symbols.split(",")
 
-    portfolio = Portfolio(symbols=symbol_list, user_role=membership)
+    portfolio = Portfolio(symbols=symbol_list, membership=membership)
 
     user_table_data = (await portfolio.analytics.user_table()).to_dict(
         row_wise=True, as_series=False
