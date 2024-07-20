@@ -1,8 +1,7 @@
-from fastapi import APIRouter, Depends
-from humbldata.core.standard_models.portfolio.analytics.user_table import (
-    UserTableData,
-    UserTableQueryParams,
-)
+from typing import Annotated, Literal
+
+from fastapi import APIRouter, Query
+from humbldata.core.utils.descriptions import QUERY_DESCRIPTIONS
 from humbldata.portfolio.portfolio_controller import Portfolio
 
 from humblapi.core.config import Config
@@ -16,7 +15,13 @@ router = APIRouter(
 
 @router.get("/user-table")
 async def user_table_route(
-    symbols: str = "AAPL,NVDA,TSLA", membership: str = "peon"
+    symbols: Annotated[
+        str, Query(description=QUERY_DESCRIPTIONS.get("symbols", ""))
+    ] = "AAPL,NVDA,TSLA",
+    membership: Annotated[
+        Literal["anonymous", "peon", "premium", "power", "permanent", "admin"],
+        Query(description=QUERY_DESCRIPTIONS.get("membership", "")),
+    ] = "peon",
 ):
     """
     Retrieve user table data for the specified portfolio symbols.
@@ -29,7 +34,8 @@ async def user_table_route(
     symbols : str, optional
         A comma-separated string of stock symbols (e.g., "AAPL,MSFT,NVDA").
         Default is "AAPL,NVDA,TSLA" if no symbols are provided.
-    membership : str, optional
+
+    membership : Literal["anonymous", "peon", "premium", "power", "permanent", "admin"], optional
         The user role or membership level. Default is "peon".
 
     Returns
@@ -49,7 +55,7 @@ async def user_table_route(
     # Split the symbols string into a list
     symbol_list = symbols.split(",")
 
-    portfolio = Portfolio(symbols=symbol_list, user_role=membership)
+    portfolio = Portfolio(symbols=symbol_list, membership=membership)
 
     user_table_data = (await portfolio.analytics.user_table()).to_dict(
         row_wise=True, as_series=False
