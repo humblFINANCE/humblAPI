@@ -1,3 +1,22 @@
+## v0.3.1 (2024-07-20)
+
+### 🐛🚑️ Fixes
+
+- **deps**: removed deps controlled in humbldata
+- **user_table**: changed param froom  -->
+- **user_table**: using  or route queries as suggested in FastAPI docs
+
+### ✅🤡🧪 Tests
+
+- **routers**: add simple router root tests
+- **app**: adding health endpoint test
+
+### 📌➕⬇️ ➖⬆️  Dependencies
+
+- **poetry**: update
+- **update**: humbldata=1.6.4, polars=1.1.0, python=3.12.4, openbb=4.3
+- **upgrade**: fastAPI
+
 ## v0.3.0 (2024-07-09)
 
 ### ✨ Features
