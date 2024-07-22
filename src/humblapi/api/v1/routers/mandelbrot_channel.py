@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Query
 from humbldata.toolbox.toolbox_controller import Toolbox
+from typing import Literal
 
 from humblapi.core.config import Config
 
@@ -23,15 +24,61 @@ async def mandelbrot_channel_route(
     end_date: str = Query(
         "2000-01-01", description="The end date for the data range"
     ),
-    window: str = Query("1m", description="The window size for calculations"),
     provider: str = Query("yfinance", description="The data provider to use"),
-    historical: bool = Query(
-        False, description="Whether to include historical data"
+    window: str = Query("1mo", description="The window size for calculations"),
+    rv_adjustment: bool = Query(
+        True,
+        description="Whether to adjust the calculation for realized volatility",
     ),
-    boundary_group_down: bool = Query(
-        False, description="Whether to group down the boundary"
+    rv_method: Literal[
+        "std",
+        "parkinson",
+        "garman_klass",
+        "gk",
+        "hodges_tompkins",
+        "ht",
+        "rogers_satchell",
+        "rs",
+        "yang_zhang",
+        "yz",
+        "squared_returns",
+        "sq",
+    ] = Query(
+        "std", description="The method to calculate the realized volatility"
+    ),
+    rs_method: Literal["RS", "RS_min", "RS_max", "RS_mean"] = Query(
+        "RS", description="The method to use for Range/STD calculation"
+    ),
+    rv_grouped_mean: bool = Query(
+        False,
+        description="Whether to calculate the mean value of realized volatility over multiple window lengths",
+    ),
+    live_price: bool = Query(
+        False,
+        description="Whether to calculate the ranges using the current live price",
+    ),
+    historical: bool = Query(
+        False,
+        description="Whether to calculate the Historical Mandelbrot Channel",
     ),
     chart: bool = Query(False, description="Whether to include chart data"),
+    template: Literal[
+        "humbl_dark",
+        "humbl_light",
+        "ggplot2",
+        "seaborn",
+        "simple_white",
+        "plotly",
+        "plotly_white",
+        "plotly_dark",
+        "presentation",
+        "xgridoff",
+        "ygridoff",
+        "gridon",
+        "none",
+    ] = Query(
+        "humbl_dark", description="The Plotly template to use for charts"
+    ),
 ):
     """
     Retrieve Mandelbrot Channel data for the specified symbols.
@@ -48,25 +95,40 @@ async def mandelbrot_channel_route(
         The interval for data points. Default is "1d".
 
     start_date : str, optional
-        The start date for the data range. Default is "2020-01-01".
+        The start date for the data range. Default is "2000-01-01".
 
     end_date : str, optional
-        The end date for the data range. Default is "2020-08-01".
-
-    historical : bool, optional
-        Whether to include historical data. Default is False.
-
-    window : str, optional
-        The window size for calculations. Default is "1m".
-
-    boundary_group_down : bool, optional
-        Whether to group down the boundary. Default is False.
+        The end date for the data range. Default is "2000-01-01".
 
     provider : str, optional
         The data provider to use. Default is "yfinance".
 
+    window : str, optional
+        The width of the window used for splitting the data into sections for detrending. Default is "1mo".
+
+    rv_adjustment : bool, optional
+        Whether to adjust the calculation for realized volatility. Default is True.
+
+    rv_method : str, optional
+        The method to calculate the realized volatility. Default is "std".
+
+    rs_method : str, optional
+        The method to use for Range/STD calculation. Default is "RS".
+
+    rv_grouped_mean : bool, optional
+        Whether to calculate the mean value of realized volatility over multiple window lengths. Default is False.
+
+    live_price : bool, optional
+        Whether to calculate the ranges using the current live price. Default is False.
+
+    historical : bool, optional
+        Whether to calculate the Historical Mandelbrot Channel. Default is False.
+
     chart : bool, optional
         Whether to include chart data. Default is False.
+
+    template : str, optional
+        The Plotly template to use for charts. Default is "humbl_dark".
 
     Returns
     -------
@@ -85,10 +147,15 @@ async def mandelbrot_channel_route(
     )
 
     result = toolbox.technical.mandelbrot_channel(
-        historical=historical,
         window=window,
-        _boundary_group_down=boundary_group_down,
+        rv_adjustment=rv_adjustment,
+        rv_method=rv_method,
+        rs_method=rs_method,
+        rv_grouped_mean=rv_grouped_mean,
+        live_price=live_price,
+        historical=historical,
         chart=chart,
+        template=template,
     )
 
     return result.to_dict(row_wise=True, as_series=False)
