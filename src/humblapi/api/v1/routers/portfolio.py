@@ -1,3 +1,9 @@
+"""
+Portfolio API router.
+
+This router is used to handle requests for the humblAPI
+"""
+
 from typing import Annotated, Literal
 
 from fastapi import APIRouter, Query
