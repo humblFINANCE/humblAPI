@@ -11,6 +11,7 @@ from humbldata.core.utils.descriptions import QUERY_DESCRIPTIONS
 from humbldata.portfolio.portfolio_controller import Portfolio
 
 from humblapi.core.config import Config
+from fastapi_cache.decorator import cache
 
 config = Config()
 router = APIRouter(
@@ -20,6 +21,7 @@ router = APIRouter(
 
 
 @router.get("/user-table")
+@cache(expire=86000, namespace="user_table")
 async def user_table_route(
     symbols: Annotated[
         str, Query(description=QUERY_DESCRIPTIONS.get("symbols", ""))
