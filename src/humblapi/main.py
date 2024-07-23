@@ -6,6 +6,10 @@ from contextlib import asynccontextmanager
 import coloredlogs
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi_cache import FastAPICache
+from fastapi_cache.backends.redis import RedisBackend
+from fastapi_cache.decorator import cache
+from redis import asyncio as aioredis
 from starlette.middleware.base import BaseHTTPMiddleware
 
 from humblapi.api.v1.routers import openbb, portfolio, toolbox
@@ -30,6 +34,8 @@ async def lifespan(app: FastAPI):
 
     The code before 'yield' runs at startup, after 'yield' at shutdown.
     """
+    redis = aioredis.from_url("redis://localhost")
+    FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache")
     # Load the ML model
     ml_models["answer_to_everything"] = fake_answer_to_everything_ml_model
     # Remove all handlers associated with the root logger object.
@@ -64,12 +70,14 @@ app.include_router(openbb.router)
 
 
 @app.get("/")
-def read_root() -> dict:
+@cache(expire=60)
+async def read_root() -> dict:
     """Read root."""
     return {"message": "Welcome to the humblapi API"}
 
 
 @app.get("/health")
+@cache(expire=60)
 async def health_check():
     """
     Health check endpoint.

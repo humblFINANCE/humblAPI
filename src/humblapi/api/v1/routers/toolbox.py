@@ -12,6 +12,7 @@ from fastapi import APIRouter, Query
 from humbldata.toolbox.toolbox_controller import Toolbox
 
 from humblapi.core.config import Config
+from fastapi_cache.decorator import cache
 
 config = Config()
 router = APIRouter(
@@ -21,6 +22,7 @@ router = APIRouter(
 
 
 @router.get("/mandelbrot-channel")
+@cache(expire=86000, namespace="mandelbrot_channel")
 async def mandelbrot_channel_route(
     symbols: str = Query(
         "AAPL,NVDA,TSLA",
