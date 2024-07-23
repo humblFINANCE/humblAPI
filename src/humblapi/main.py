@@ -8,7 +8,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.base import BaseHTTPMiddleware
 
-from humblapi.api.v1.routers import portfolio, toolbox
+from humblapi.api.v1.routers import openbb, portfolio, toolbox
 from humblapi.core.config import Config
 from humblapi.core.middleware import TimeLogMiddleware
 
@@ -60,6 +60,7 @@ app.add_middleware(
 # Add Routers
 app.include_router(portfolio.router)
 app.include_router(toolbox.router)
+app.include_router(openbb.router)
 
 
 @app.get("/")
