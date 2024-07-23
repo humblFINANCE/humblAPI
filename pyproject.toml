@@ -58,9 +58,8 @@ gunicorn = ">=20.1.0"
 poethepoet = ">=0.20.0"
 python = ">=3.11,<3.13"
 uvicorn = { extras = ["standard"], version = ">=0.20.0" }
-nest-asyncio = "^1.6.0"
 poetry = "^1.8.3"
-humbldata = "^1.7.1"
+humbldata = "^1.8.0"
 
 [tool.poetry.group.test.dependencies]  # https://python-poetry.org/docs/master/managing-dependencies/
 commitizen = ">=3.2.1"

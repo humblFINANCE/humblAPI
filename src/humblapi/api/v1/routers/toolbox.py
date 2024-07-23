@@ -4,9 +4,12 @@ Toolbox API router.
 This router is used to handle requests for the humblAPI Toolbox <context>
 """
 
+import datetime as dt
+from typing import Literal
+
+import pytz
 from fastapi import APIRouter, Query
 from humbldata.toolbox.toolbox_controller import Toolbox
-from typing import Literal
 
 from humblapi.core.config import Config
 
@@ -28,7 +31,10 @@ async def mandelbrot_channel_route(
         "2000-01-01", description="The start date for the data range"
     ),
     end_date: str = Query(
-        "2000-01-01", description="The end date for the data range"
+        default_factory=lambda: dt.datetime.now(
+            tz=pytz.timezone("America/New_York")
+        ).date(),
+        description="The end date for the data range",
     ),
     provider: str = Query("yfinance", description="The data provider to use"),
     window: str = Query("1mo", description="The window size for calculations"),
