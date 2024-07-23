@@ -1,7 +1,7 @@
 """
 Portfolio API router.
 
-This router is used to handle requests for the humblAPI
+This router is used to handle requests for the humblAPI Portfolio <context>
 """
 
 from typing import Annotated, Literal
@@ -15,7 +15,7 @@ from humblapi.core.config import Config
 config = Config()
 router = APIRouter(
     prefix=config.API_V1_STR,
-    tags=["user"],
+    tags=["portfolio"],
 )
 
 

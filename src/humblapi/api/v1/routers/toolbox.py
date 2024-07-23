@@ -1,3 +1,9 @@
+"""
+Toolbox API router.
+
+This router is used to handle requests for the humblAPI Toolbox <context>
+"""
+
 from fastapi import APIRouter, Query
 from humbldata.toolbox.toolbox_controller import Toolbox
 from typing import Literal
@@ -7,7 +13,7 @@ from humblapi.core.config import Config
 config = Config()
 router = APIRouter(
     prefix=config.API_V1_STR,
-    tags=["mandelbrot_channel"],
+    tags=["toolbox"],
 )
 
 
