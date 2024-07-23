@@ -1,3 +1,14 @@
+## v0.4.0 (2024-07-23)
+
+### ✨ Features
+
+- **openbb**: added /last-close/ route to get yesterdays close price
+- **openbb**: added /latest-price/ route to collect an assets most recent price
+
+### 🐛🚑️ Fixes
+
+- **mandelbro_channel**: added all parameters to the function, same access as
+
 ## v0.3.1 (2024-07-20)
 
 ### 🐛🚑️ Fixes
