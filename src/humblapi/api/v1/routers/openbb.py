@@ -6,7 +6,8 @@ This router is used to handle requests for the humblAPI OpenBB Data<context>
 
 from typing import Annotated
 
-from fastapi import APIRouter, Query
+from fastapi import APIRouter, Query, HTTPException
+
 from humbldata.core.utils.constants import (
     OBB_EQUITY_PRICE_QUOTE_PROVIDERS,
 )
@@ -55,11 +56,21 @@ async def latest_price(
         A dictionary containing the latest price data for the specified symbols.
         The dictionary includes 'symbol' and 'last_price' for each queried symbol.
 
+    Raises
+    ------
+    HTTPException
+        If the symbols parameter is an empty string.
+
     Notes
     -----
     This function uses the `aget_latest_price` function from humblDATA to fetch the data.
     The function handles both ETFs and Equities, but not futures or options.
     """
+    if symbols == "":
+        raise HTTPException(
+            status_code=400, detail="Symbols parameter cannot be empty"
+        )
+
     # Convert the comma-separated string to a list of symbols
     symbol_list = symbols.split(",")
 
@@ -102,11 +113,21 @@ async def last_close(
         A dictionary containing the last closing price data for the specified symbols.
         The dictionary includes 'symbol' and 'prev_close' for each queried symbol.
 
+    Raises
+    ------
+    HTTPException
+        If the symbols parameter is an empty string.
+
     Notes
     -----
     This function uses the `aget_last_close` function to fetch the data.
     The function handles both ETFs and Equities, but not futures or options.
     """
+    if symbols == "":
+        raise HTTPException(
+            status_code=400, detail="Symbols parameter cannot be empty"
+        )
+
     # Convert the comma-separated string to a list of symbols
     symbol_list = symbols.split(",")
 

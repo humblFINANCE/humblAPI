@@ -36,6 +36,7 @@ async def lifespan(app: FastAPI):
     """
     redis = aioredis.from_url("redis://localhost")
     FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache")
+
     # Load the ML model
     ml_models["answer_to_everything"] = fake_answer_to_everything_ml_model
     # Remove all handlers associated with the root logger object.
