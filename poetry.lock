@@ -1691,27 +1691,6 @@ doc = ["sphinx (==4.3.2)", "sphinx-autodoc-typehints", "sphinx-rtd-theme", "sphi
 test = ["coverage[toml]", "ddt (>=1.1.1,!=1.4.3)", "mock", "mypy", "pre-commit", "pytest (>=7.3.1)", "pytest-cov", "pytest-instafail", "pytest-mock", "pytest-sugar", "typing-extensions"]
 
 [[package]]
-name = "gunicorn"
-version = "22.0.0"
-description = "WSGI HTTP Server for UNIX"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "gunicorn-22.0.0-py3-none-any.whl", hash = "sha256:350679f91b24062c86e386e198a15438d53a7a8207235a78ba1b53df4c4378d9"},
-    {file = "gunicorn-22.0.0.tar.gz", hash = "sha256:4a0b436239ff76fb33f11c07a16482c521a7e09c1ce3cc293c2330afe01bec63"},
-]
-
-[package.dependencies]
-packaging = "*"
-
-[package.extras]
-eventlet = ["eventlet (>=0.24.1,!=0.36.0)"]
-gevent = ["gevent (>=1.4.0)"]
-setproctitle = ["setproctitle"]
-testing = ["coverage", "eventlet", "gevent", "pytest", "pytest-cov"]
-tornado = ["tornado (>=0.2)"]
-
-[[package]]
 name = "h11"
 version = "0.14.0"
 description = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
@@ -1852,13 +1831,13 @@ pyreadline3 = {version = "*", markers = "sys_platform == \"win32\" and python_ve
 
 [[package]]
 name = "humbldata"
-version = "1.8.0"
+version = "1.8.1"
 description = "open-sourcing the math behind major financial institutional investors/banks. this package connects data analysis to the humblFINANCE website."
 optional = false
 python-versions = "<3.13,>=3.11"
 files = [
-    {file = "humbldata-1.8.0-py3-none-any.whl", hash = "sha256:3cdf205bf4bebc0b726953f2cb548c4235192a6ae673752a29c716a32698a3a2"},
-    {file = "humbldata-1.8.0.tar.gz", hash = "sha256:ad393f22e050f6568bd94ed006ac20facdda28ca9100c135c9ef1ff3967732e7"},
+    {file = "humbldata-1.8.1-py3-none-any.whl", hash = "sha256:a9a1bf07774c876cd4b864c71d2204887811e983e24c69774ff682b935a116fc"},
+    {file = "humbldata-1.8.1.tar.gz", hash = "sha256:b7af1a3200afe15fb54e33ec88c6cf9af5d19db655e099d823ff6bf75b5e1506"},
 ]
 
 [package.dependencies]
@@ -7344,4 +7323,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.11,<3.13"
-content-hash = "96e05fa0f6d1e97fe350b0e92452b441deae1c2729263c7b77a94e9bd6ac3683"
+content-hash = "35da210888611c3e49bc56c818beab16b7085ba2a26f042cb0203aca6fe5bd60"
