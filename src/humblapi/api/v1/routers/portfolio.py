@@ -6,7 +6,7 @@ This router is used to handle requests for the humblAPI Portfolio <context>
 
 from typing import Annotated, Literal
 
-from fastapi import APIRouter, Query, HTTPException
+from fastapi import APIRouter, HTTPException, Query
 from fastapi_cache.decorator import cache
 from humbldata.core.utils.descriptions import QUERY_DESCRIPTIONS
 from humbldata.portfolio.portfolio_controller import Portfolio
