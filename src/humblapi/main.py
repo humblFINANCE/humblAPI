@@ -6,6 +6,7 @@ from contextlib import asynccontextmanager
 import coloredlogs
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.gzip import GZipMiddleware
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 from fastapi_cache.decorator import cache
@@ -63,6 +64,7 @@ app.add_middleware(
     allow_methods=["*"],  # Allows all methods
     allow_headers=["*"],  # Allows all headers
 )
+app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 # Add Routers
 app.include_router(portfolio.router)
