@@ -7,11 +7,13 @@ This router is used to handle requests for the humblAPI Portfolio <context>
 from typing import Annotated, Literal
 
 from fastapi import APIRouter, HTTPException, Query
+from fastapi.responses import ORJSONResponse
 from fastapi_cache.decorator import cache
 from humbldata.core.utils.descriptions import QUERY_DESCRIPTIONS
 from humbldata.portfolio.portfolio_controller import Portfolio
 
 from humblapi.core.config import Config
+from humblapi.core.utils import ORJsonCoder
 
 config = Config()
 router = APIRouter(
@@ -21,7 +23,7 @@ router = APIRouter(
 
 
 @router.get("/user-table")
-@cache(expire=86000, namespace="user_table")
+@cache(expire=86000, namespace="user_table2", coder=ORJsonCoder)
 async def user_table_route(
     symbols: Annotated[
         str, Query(description=QUERY_DESCRIPTIONS.get("symbols", ""))
@@ -78,7 +80,7 @@ async def user_table_route(
     user_table_data = (await portfolio.analytics.user_table()).to_dict(
         row_wise=True, as_series=False
     )
-    return user_table_data
+    return ORJSONResponse(content=user_table_data)
 
 
 # Add more routes as needed

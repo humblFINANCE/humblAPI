@@ -35,7 +35,12 @@ async def lifespan(app: FastAPI):
 
     The code before 'yield' runs at startup, after 'yield' at shutdown.
     """
-    redis = aioredis.from_url("redis://localhost")
+    redis = await aioredis.Redis(
+        host="localhost",
+        port=6379,
+        db=1,
+        decode_responses=False,
+    )
     FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache")
 
     # Load the ML model

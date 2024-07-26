@@ -47,6 +47,8 @@ class Config(BaseSettings):
     API_V1_STR: str = "/api/v1"
     PROJECT_NAME: str = "humblFINANCE FastAPI Backend"
 
+    REDIS_URL: str = "redis://localhost"
+
 
 class ProductionConfig(Config):
     """

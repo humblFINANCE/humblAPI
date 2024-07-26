@@ -8,6 +8,7 @@ from typing import Annotated
 
 from fastapi import APIRouter, HTTPException, Query
 from fastapi.responses import ORJSONResponse
+from fastapi_cache.decorator import cache
 from humbldata.core.utils.constants import (
     OBB_EQUITY_PRICE_QUOTE_PROVIDERS,
 )
@@ -18,6 +19,7 @@ from humbldata.core.utils.openbb_helpers import (
 )
 
 from humblapi.core.config import Config
+from humblapi.core.utils import ORJsonCoder
 
 config = Config()
 router = APIRouter(
@@ -84,6 +86,7 @@ async def latest_price(
 
 
 @router.get("/last-close")
+@cache(expire=86000, namespace="last_close", coder=ORJsonCoder)
 async def last_close(
     symbols: Annotated[
         str, Query(description=QUERY_DESCRIPTIONS.get("symbols", ""))
