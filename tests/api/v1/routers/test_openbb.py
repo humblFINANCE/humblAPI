@@ -1,4 +1,4 @@
-"""Test humblapi REST API - `/openbb` router"""
+"""Test humblapi REST API - `/openbb` router."""
 
 import pytest
 from httpx import AsyncClient
