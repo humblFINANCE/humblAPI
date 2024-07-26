@@ -6,8 +6,8 @@ This router is used to handle requests for the humblAPI OpenBB Data<context>
 
 from typing import Annotated
 
-from fastapi import APIRouter, Query, HTTPException
-
+from fastapi import APIRouter, HTTPException, Query
+from fastapi.responses import ORJSONResponse
 from humbldata.core.utils.constants import (
     OBB_EQUITY_PRICE_QUOTE_PROVIDERS,
 )
@@ -80,7 +80,7 @@ async def latest_price(
     # Convert the LazyFrame to a dictionary
     result = lf.collect().to_dicts()
 
-    return result
+    return ORJSONResponse(content=result)
 
 
 @router.get("/last-close")
@@ -137,4 +137,4 @@ async def last_close(
     # Convert the LazyFrame to a dictionary
     result = lf.collect().to_dicts()
 
-    return result
+    return ORJSONResponse(content=result)
