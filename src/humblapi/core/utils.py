@@ -3,6 +3,7 @@ from typing import Any
 import orjson
 from fastapi import Request, Response
 from fastapi.encoders import jsonable_encoder
+from fastapi.responses import ORJSONResponse
 from fastapi_cache import Coder
 
 
@@ -16,16 +17,16 @@ class ORJsonCoder(Coder):
 
     Methods
     -------
-    encode(value: Any) -> bytes
-        Encode a Python object to JSON bytes.
+    encode(value: Any) -> bytes | Any
+        Encode a Python object to JSON bytes or return ORJSONResponse as is.
     decode(value: bytes) -> Any
         Decode JSON bytes to a Python object.
     """
 
     @classmethod
-    def encode(cls, value: Any) -> bytes:
+    def encode(cls, value: Any) -> bytes | Any:
         """
-        Encode a Python object to JSON bytes.
+        Encode a Python object to JSON bytes or return ORJSONResponse as is.
 
         Parameters
         ----------
@@ -34,8 +35,8 @@ class ORJsonCoder(Coder):
 
         Returns
         -------
-        bytes
-            The encoded JSON as bytes.
+        bytes | Any
+            The encoded JSON as bytes or the original ORJSONResponse object.
         """
         return orjson.dumps(
             value,

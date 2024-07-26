@@ -191,11 +191,9 @@ async def mandelbrot_channel_route(
                 if isinstance(json_data, str)
                 else [orjson.loads(item) for item in json_data]
             )
-            return ORJSONResponse(content=parsed_json)
+            return parsed_json
         else:
-            return ORJSONResponse(
-                content=result.to_dict(row_wise=True, as_series=False)
-            )
+            return result.to_dict(row_wise=True, as_series=False)
 
     except Exception as e:
         error_message = f"Error in mandelbrot_channel_route: {e!s}"

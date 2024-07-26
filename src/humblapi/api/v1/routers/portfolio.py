@@ -80,7 +80,7 @@ async def user_table_route(
     user_table_data = (await portfolio.analytics.user_table()).to_dict(
         row_wise=True, as_series=False
     )
-    return ORJSONResponse(content=user_table_data)
+    return user_table_data
 
 
 # Add more routes as needed

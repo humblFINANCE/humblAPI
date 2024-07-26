@@ -82,10 +82,10 @@ async def latest_price(
     # Convert the LazyFrame to a dictionary
     result = lf.collect().to_dicts()
 
-    return ORJSONResponse(content=result)
+    return result
 
 
-@router.get("/last-close")
+@router.get("/last-close", response_class=ORJSONResponse)
 @cache(expire=86000, namespace="last_close", coder=ORJsonCoder)
 async def last_close(
     symbols: Annotated[
@@ -140,4 +140,4 @@ async def last_close(
     # Convert the LazyFrame to a dictionary
     result = lf.collect().to_dicts()
 
-    return ORJSONResponse(content=result)
+    return result
