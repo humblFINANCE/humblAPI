@@ -7,6 +7,7 @@ import coloredlogs
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
+from fastapi.responses import ORJSONResponse
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 from fastapi_cache.decorator import cache
@@ -57,7 +58,11 @@ async def lifespan(app: FastAPI):
 
 # Setup App
 config = Config()
-app = FastAPI(title=config.PROJECT_NAME, lifespan=lifespan)
+app = FastAPI(
+    title=config.PROJECT_NAME,
+    lifespan=lifespan,
+    default_response_class=ORJSONResponse,
+)
 
 # Add Middleware
 middleware = TimeLogMiddleware(some_attribute="some_attribute_here_if_needed")
