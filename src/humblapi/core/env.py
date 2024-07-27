@@ -4,7 +4,7 @@ from typing import Dict, Optional
 
 import dotenv
 
-from humblapi.core.models.abstract.singleton import SingletonMeta
+from humblapi.core.standard_models.abstract.singleton import SingletonMeta
 
 
 class Env(metaclass=SingletonMeta):
