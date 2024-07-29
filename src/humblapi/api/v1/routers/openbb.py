@@ -85,7 +85,21 @@ async def latest_price(
     return result
 
 
-@router.get("/last-close", response_class=ORJSONResponse)
+from pydantic import BaseModel, Field
+
+
+class LastCloseData(BaseModel):
+    symbol: str = Field(description="The stock symbol")
+    prev_close: float = Field(
+        description="The previous closing price of the stock"
+    )
+
+
+@router.get(
+    "/last-close",
+    response_class=ORJSONResponse,
+    response_model=list[LastCloseData],
+)
 @cache(expire=86000, namespace="last_close", coder=ORJsonCoder)
 async def last_close(
     symbols: Annotated[
@@ -95,7 +109,7 @@ async def last_close(
         OBB_EQUITY_PRICE_QUOTE_PROVIDERS,
         Query(description="The data provider for fetching stock prices."),
     ] = "yfinance",
-):
+) -> list[LastCloseData]:
     """
     Retrieve the last closing price for the specified symbols using OpenBB.
 
