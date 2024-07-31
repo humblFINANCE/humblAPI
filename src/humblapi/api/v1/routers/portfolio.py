@@ -23,7 +23,7 @@ router = APIRouter(
 
 
 @router.get("/user-table")
-@cache(expire=86000, namespace="user_table2", coder=ORJsonCoder)
+@cache(expire=86000, namespace="user_table", coder=ORJsonCoder)
 async def user_table_route(
     symbols: Annotated[
         str, Query(description=QUERY_DESCRIPTIONS.get("symbols", ""))
