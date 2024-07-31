@@ -18,7 +18,7 @@ from humblapi.api.v1.routers import openbb, portfolio, toolbox
 from humblapi.core.config import config
 from humblapi.core.env import Env
 from humblapi.core.middleware import TimeLogMiddleware
-from humblapi.core.utils import raise_http_exception
+from humblapi.core.utils import raise_http_exception, redis_delete_pattern
 
 env = Env()
 
@@ -78,7 +78,11 @@ app.include_router(openbb.router)
 @cache(expire=60)
 async def read_root() -> dict:
     """Read root."""
-    return {"message": "Welcome to the humblapi API"}
+    return {
+        "data": {
+            "message": "Welcome to the humblapi API",
+        }
+    }
 
 
 @app.get("/health")
@@ -91,7 +95,7 @@ async def health_check():
     -------
         dict: A JSON response indicating the API's health status and HTTP status code.
     """
-    return {"data": {"message": "API is healthy"}, "status_code": 200}
+    return {"data": {"message": "API is healthy", "status": 200}}
 
 
 @app.get("/redis-health")
@@ -109,7 +113,7 @@ async def redis_health_check():
         if isinstance(redis_backend, RedisBackend):
             redis = redis_backend.redis
             if await redis.ping():
-                return {"data": {"message": "PONG"}, "status_code": 200}
+                return {"data": {"message": "PONG", "status_code": 200}}
         raise_http_exception(500, "Redis connection failed")
     except Exception as e:
         raise_http_exception(500, f"Redis connection error: {e!s}")
@@ -118,14 +122,20 @@ async def redis_health_check():
 @app.get("/flush-redis")
 async def flush_redis(
     token: str = Query(description="Secret API token for flushing Redis"),
+    fastapi_cache_only: bool = Query(
+        description="If true, ONLY flush the FastAPI cache. This removes all keys with the 'fastapi-cache:' prefix.",
+        default=False,
+    ),
 ):
     """
-    Flush the Redis database.
+    Flush the Redis database or only the FastAPI cache.
 
     Parameters
     ----------
     token : str
         Secret API token for authentication.
+    fastapi_cache_only : bool
+        If true, only flush the FastAPI cache.
 
     Returns
     -------
@@ -144,11 +154,27 @@ async def flush_redis(
         redis_backend = FastAPICache.get_backend()
         if isinstance(redis_backend, RedisBackend):
             redis = redis_backend.redis
-            await redis.flushdb()
-            return {
-                "data": {"message": "Redis database flushed successfully"},
-                "status_code": 200,
-            }
+            if fastapi_cache_only:
+                records_deleted = await redis_delete_pattern(
+                    redis, "fastapi-cache:*"
+                )
+                return {
+                    "data": {
+                        "message": "FastAPI cache was flushed successfully.",
+                        "status_code": 200,
+                        "records_deleted": records_deleted,
+                    }
+                }
+            else:
+                records = await redis.dbsize()
+                await redis.flushdb()
+                return {
+                    "data": {
+                        "message": "Redis database flushed successfully.",
+                        "status_code": 200,
+                        "records_deleted": records,
+                    }
+                }
         raise_http_exception(500, "Redis backend not found")
     except Exception as e:
         raise_http_exception(500, f"Error flushing Redis: {e!s}")
