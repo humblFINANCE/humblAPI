@@ -7,20 +7,34 @@ This router is used to handle requests for the humblAPI Toolbox <context>
 import datetime as dt
 from typing import Literal
 
+import orjson
 import pytz
-from fastapi import APIRouter, Query
+from fastapi import APIRouter, HTTPException, Query
+from fastapi.responses import ORJSONResponse
+from fastapi_cache.decorator import cache
 from humbldata.toolbox.toolbox_controller import Toolbox
 
 from humblapi.core.config import Config
+from humblapi.core.logger import setup_logger
+from humblapi.core.utils import ORJsonCoder
 
 config = Config()
 router = APIRouter(
     prefix=config.API_V1_STR,
     tags=["toolbox"],
 )
+logger = setup_logger(name="humblapi.api.v1.routers.toolbox")
 
 
-@router.get("/mandelbrot-channel")
+def validate_symbols(symbols):
+    if not symbols:
+        msg = "No symbols provided"
+        raise ValueError(msg)
+    return symbols
+
+
+@router.get("/mandelbrot-channel", response_class=ORJSONResponse)
+@cache(expire=86000, namespace="mandelbrot_channel", coder=ORJsonCoder)
 async def mandelbrot_channel_route(
     symbols: str = Query(
         "AAPL,NVDA,TSLA",
@@ -148,26 +162,40 @@ async def mandelbrot_channel_route(
         A dictionary containing the Mandelbrot Channel data for the
         specified symbols.
     """
-    symbol_list = symbols.split(",")
+    try:
+        symbol_list = validate_symbols(symbols.split(","))
+        toolbox = Toolbox(
+            symbols=symbol_list,
+            interval=interval,
+            start_date=start_date,
+            end_date=end_date,
+            provider=provider,
+        )
 
-    toolbox = Toolbox(
-        symbols=symbol_list,
-        interval=interval,
-        start_date=start_date,
-        end_date=end_date,
-        provider=provider,
-    )
+        result = toolbox.technical.mandelbrot_channel(
+            window=window,
+            rv_adjustment=rv_adjustment,
+            rv_method=rv_method,
+            rs_method=rs_method,
+            rv_grouped_mean=rv_grouped_mean,
+            live_price=live_price,
+            historical=historical,
+            chart=chart,
+            template=template,
+        )
 
-    result = toolbox.technical.mandelbrot_channel(
-        window=window,
-        rv_adjustment=rv_adjustment,
-        rv_method=rv_method,
-        rs_method=rs_method,
-        rv_grouped_mean=rv_grouped_mean,
-        live_price=live_price,
-        historical=historical,
-        chart=chart,
-        template=template,
-    )
+        if chart:
+            json_data = result.to_json(chart=True)
+            parsed_json = (
+                orjson.loads(json_data)
+                if isinstance(json_data, str)
+                else [orjson.loads(item) for item in json_data]
+            )
+            return parsed_json
+        else:
+            return result.to_dict(row_wise=True, as_series=False)
 
-    return result.to_dict(row_wise=True, as_series=False)
+    except Exception as e:
+        error_message = f"Error in mandelbrot_channel_route: {e!s}"
+        logger.exception(error_message)
+        raise HTTPException(status_code=400, detail=error_message) from e

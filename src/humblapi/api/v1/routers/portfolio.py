@@ -6,11 +6,14 @@ This router is used to handle requests for the humblAPI Portfolio <context>
 
 from typing import Annotated, Literal
 
-from fastapi import APIRouter, Query
+from fastapi import APIRouter, HTTPException, Query
+from fastapi.responses import ORJSONResponse
+from fastapi_cache.decorator import cache
 from humbldata.core.utils.descriptions import QUERY_DESCRIPTIONS
 from humbldata.portfolio.portfolio_controller import Portfolio
 
 from humblapi.core.config import Config
+from humblapi.core.utils import ORJsonCoder
 
 config = Config()
 router = APIRouter(
@@ -20,6 +23,7 @@ router = APIRouter(
 
 
 @router.get("/user-table")
+@cache(expire=86000, namespace="user_table", coder=ORJsonCoder)
 async def user_table_route(
     symbols: Annotated[
         str, Query(description=QUERY_DESCRIPTIONS.get("symbols", ""))
@@ -53,11 +57,21 @@ async def user_table_route(
         UserTableData is a pandera.polars model that is used to validate the
         output from humblDATA.
 
+    Raises
+    ------
+    HTTPException
+        If the symbols parameter is an empty string.
+
     Notes
     -----
     The function uses the `Portfolio` class from humblDATA to perform
     the data aggregation.
     """
+    if symbols == "":
+        raise HTTPException(
+            status_code=400, detail="Symbols parameter cannot be empty"
+        )
+
     # Split the symbols string into a list
     symbol_list = symbols.split(",")
 
