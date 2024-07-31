@@ -1,3 +1,30 @@
+## v0.5.0 (2024-07-31)
+
+### ✨ Features
+
+- **utils**: function to delete all REDIS keys that match a pattern
+- **redis-routes**: added redis DB routes: flushing and health test
+- **env**: added properties to control the prod.dev environment and flags
+- **last-close**: added Pydantic Response Model
+- **default_response_model**: now using  as default response class
+- **middleware**: adding gzip middleware compression
+- **fastapi-cache**: user-table/ route cached
+- **fastapt-cache**: mandelbro-channel/ route is caching successfully
+
+### 🐛🚑️ Fixes
+
+- **user-table**: fixing namespace cache name
+- **returning raw dicts to work with **: ...
+- **import**: HTTPException from FastAPI
+
+### ✅🤡🧪 Tests
+
+- **openbb**: added test for openbb endpoints
+
+### 📌➕⬇️ ➖⬆️  Dependencies
+
+- **add**: orjson
+
 ## v0.4.0 (2024-07-23)
 
 ### ✨ Features
