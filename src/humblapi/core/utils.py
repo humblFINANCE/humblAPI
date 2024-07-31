@@ -1,4 +1,5 @@
 from typing import Any
+from fastapi.exceptions import HTTPException
 
 import orjson
 from fastapi import Request, Response
@@ -78,3 +79,22 @@ def request_key_builder(
             repr(sorted(request.query_params.items())),
         ]
     )
+
+
+def raise_http_exception(status_code: int, detail: str):
+    """
+    Raise an HTTPException with the given status code and detail.
+
+    Parameters
+    ----------
+    status_code : int
+        The HTTP status code for the exception.
+    detail : str
+        The detail message for the exception.
+
+    Raises
+    ------
+    HTTPException
+        An exception with the specified status code and detail.
+    """
+    raise HTTPException(status_code=status_code, detail=detail)
