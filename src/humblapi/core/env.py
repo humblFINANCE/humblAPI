@@ -49,6 +49,30 @@ class Env(metaclass=SingletonMeta):
             self._environ.get("LOGGER_LEVEL", "INFO").upper(), 20
         )
 
+    @property
+    def ENV(self) -> str:
+        """
+        Check if the environment is development.
+
+        Returns
+        -------
+        str
+            The environment; either 'dev' or 'prod'.
+        """
+        return self._environ.get("ENV", "dev")
+
+    @property
+    def DEVELOPMENT(self) -> bool:
+        """
+        Check if the environment is development.
+
+        Returns
+        -------
+        bool
+            True if the environment is development, False otherwise.
+        """
+        return self.ENV.lower() == "dev"
+
     # Use this when you want a variable to return a bool
     @staticmethod
     def str2bool(value) -> bool:

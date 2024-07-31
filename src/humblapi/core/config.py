@@ -35,7 +35,13 @@ class Config(BaseSettings):
         The base path for API version 1 endpoints.
     PROJECT_NAME : str
         The name of the project.
+    REDIS_HOST : str
+        The host address of the Redis server.
+    REDIS_PORT : int
+        The port number for the Redis connection.
     """
+
+    PROJECT_NAME: str = "humblFINANCE FastAPI Backend"
 
     DB_ENGINE: str | None = os.getenv("DB_ENGINE", None)
     DB_USERNAME: str | None = os.getenv("DB_USERNAME", None)
@@ -45,9 +51,8 @@ class Config(BaseSettings):
     DB_NAME: str | None = os.getenv("DB_NAME", None)
 
     API_V1_STR: str = "/api/v1"
-    PROJECT_NAME: str = "humblFINANCE FastAPI Backend"
 
-    REDIS_URL: str = "redis://localhost"
+    FLUSH_API_TOKEN: str | None = os.getenv("FLUSH_API_TOKEN", None)
 
 
 class ProductionConfig(Config):
@@ -63,6 +68,10 @@ class ProductionConfig(Config):
     """
 
     DEBUG: bool = False
+    DEVELOPMENT: bool = False
+
+    REDIS_API_TOKEN: str | None = os.getenv("REDIS_API_TOKEN", None)
+    REDIS_URL: str = f"rediss://default:{REDIS_API_TOKEN}@composed-bluegill-57562.upstash.io:6379"
 
 
 class DevelopmentConfig(Config):
@@ -78,6 +87,11 @@ class DevelopmentConfig(Config):
     """
 
     DEBUG: bool = True
+    DEVELOPMENT: bool = True
+
+    REDIS_URL: str = "redis://localhost"
+    REDIS_HOST: str = "localhost"
+    REDIS_PORT: int = 6379
 
 
 def get_config():
@@ -91,19 +105,13 @@ def get_config():
     -------
     Config
         The configuration object for the current environment.
-
-    Notes
-    -----
-    The function prints the DB_ENGINE value for debugging purposes.
     """
-    print(os.getenv("DB_ENGINE", None))
-    env = os.getenv("ENV", "test")
+    env = os.getenv("ENV", "dev")
     config_type = {
-        "test": DevelopmentConfig(),
+        "dev": DevelopmentConfig(),
         "prod": ProductionConfig(),
     }
-    print(config_type["test"].DB_ENGINE)
     return config_type[env]
 
 
-config: Config = get_config()
+config: Config | DevelopmentConfig | ProductionConfig = get_config()
