@@ -54,12 +54,14 @@ change_type_map = {"🏗️ build" = "Build", "👷 ci" = "CI", "📚 docs" = "D
 uuid7 = ">=0.1.0"
 coloredlogs = ">=15.0.1"
 fastapi = { extras = ["all"], version = ">=0.111.0" }
-gunicorn = ">=20.1.0"
 poethepoet = ">=0.20.0"
 python = ">=3.11,<3.13"
 uvicorn = { extras = ["standard"], version = ">=0.20.0" }
 poetry = "^1.8.3"
-humbldata = "^1.8.0"
+humbldata = "^1.8.1"
+fastapi-cache2 = "^0.2.2"
+redis = "^5.0.7"
+orjson = "^3.10.6"
 
 [tool.poetry.group.test.dependencies]  # https://python-poetry.org/docs/master/managing-dependencies/
 commitizen = ">=3.2.1"
@@ -75,6 +77,7 @@ ruff = ">=0.1.3"
 safety = ">=2.3.4,!=2.3.5"
 shellcheck-py = ">=0.9.0"
 typeguard = ">=3.0.2"
+pytest-asyncio = "^0.23.8"
 
 [tool.poetry.group.dev.dependencies]  # https://python-poetry.org/docs/master/managing-dependencies/
 cruft = ">=2.14.0"

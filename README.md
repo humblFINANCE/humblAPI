@@ -59,6 +59,9 @@ The application can be containerized using Docker. Build and run the Docker imag
 - Type checking: MyPy
 - Documentation: MkDocs
 
+The FastAPI app uses fastapi-cache2 for caching. This stores cached values in a local redis DB when in development mode, and in a remote redis DB when in production mode (vercel kv).
+Please make sure that your local redis DB is running, or that the remote redis DB is available, before running the app.
+
 ## 📚 Documentation
 
 For more detailed information, refer to the MkDocs-generated documentation.

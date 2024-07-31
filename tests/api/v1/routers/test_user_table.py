@@ -2,8 +2,8 @@
 
 import httpx
 from fastapi.testclient import TestClient
-from humblapi.core.config import Config
 
+from humblapi.core.config import Config
 from humblapi.main import app
 
 client = TestClient(app)
