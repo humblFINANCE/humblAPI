@@ -6,6 +6,7 @@ from fastapi import Request, Response
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import ORJSONResponse
 from fastapi_cache import Coder
+from redis.asyncio.client import Redis
 
 
 class ORJsonCoder(Coder):
@@ -98,3 +99,29 @@ def raise_http_exception(status_code: int, detail: str):
         An exception with the specified status code and detail.
     """
     raise HTTPException(status_code=status_code, detail=detail)
+
+
+async def redis_delete_pattern(redis: Redis, pattern: str):
+    """
+    Delete Redis keys matching a given pattern.
+
+    Parameters
+    ----------
+    pattern : str
+        The pattern to match Redis keys against.
+
+    Returns
+    -------
+    None
+
+    Notes
+    -----
+    This function uses Redis' SCAN command to iterate over keys
+    matching the given pattern and deletes them.
+    """
+    records = await redis.dbsize()
+    async for key in redis.scan_iter(match=pattern):
+        await redis.delete(key)
+    records_left = await redis.dbsize()
+    records_deleted = records - records_left
+    return records_deleted
