@@ -19,6 +19,7 @@ from humbldata.core.utils.openbb_helpers import (
 )
 
 from humblapi.core.config import Config
+from humblapi.core.standard_models.abstract.responses import HumblResponse
 from humblapi.core.utils import ORJsonCoder
 
 config = Config()
@@ -95,10 +96,14 @@ class LastCloseData(BaseModel):
     )
 
 
+class LastCloseResponse(BaseModel):
+    data: list[LastCloseData]
+
+
 @router.get(
     "/last-close",
     response_class=ORJSONResponse,
-    response_model=list[LastCloseData],
+    response_model=HumblResponse[LastCloseResponse],
 )
 @cache(expire=86000, namespace="last_close", coder=ORJsonCoder)
 async def last_close(
@@ -109,7 +114,7 @@ async def last_close(
         OBB_EQUITY_PRICE_QUOTE_PROVIDERS,
         Query(description="The data provider for fetching stock prices."),
     ] = "yfinance",
-) -> list[LastCloseData]:
+) -> HumblResponse[LastCloseResponse]:
     """
     Retrieve the last closing price for the specified symbols using OpenBB.
 
@@ -154,4 +159,8 @@ async def last_close(
     # Convert the LazyFrame to a dictionary
     result = lf.collect().to_dicts()
 
-    return result
+    return HumblResponse(
+        response_data=LastCloseResponse(data=result),
+        message="Last closing price data fetched successfully.",
+        status_code=200,
+    )

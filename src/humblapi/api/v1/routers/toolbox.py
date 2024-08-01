@@ -5,9 +5,10 @@ This router is used to handle requests for the humblAPI Toolbox <context>
 """
 
 import datetime as dt
-from typing import Literal
+from typing import Any, Literal
 
 import orjson
+from pydantic.fields import Field
 import pytz
 from fastapi import APIRouter, HTTPException, Query
 from fastapi.responses import ORJSONResponse
@@ -28,7 +29,7 @@ logger = setup_logger(name="humblapi.api.v1.routers.toolbox")
 
 
 class MandelbrotChannelData(BaseModel):
-    date: str
+    date: str | dt.datetime
     symbol: str
     bottom_price: float
     recent_price: float
@@ -37,6 +38,31 @@ class MandelbrotChannelData(BaseModel):
 
 class MandelbrotChannelResponse(BaseModel):
     data: list[MandelbrotChannelData]
+
+
+class PlotlyTrace(BaseModel):
+    type: str
+    x: list[str]
+    y: list[float]
+    name: str
+    line: dict[str, Any] = Field(default_factory=dict)
+
+
+class PlotlyLayout(BaseModel):
+    title: dict[str, str]
+    xaxis: dict[str, Any]
+    yaxis: dict[str, Any]
+    template: dict[str, Any] = Field(default_factory=dict)
+    shapes: list[dict[str, Any]] = Field(default_factory=list)
+
+
+class MandelbrotChannelChartResponse(BaseModel):
+    data: list[PlotlyTrace]
+    layout: PlotlyLayout
+
+
+class MandelbrotChannelResult(BaseModel):
+    result: MandelbrotChannelResponse | MandelbrotChannelChartResponse
 
 
 def validate_symbols(symbols):
@@ -49,7 +75,7 @@ def validate_symbols(symbols):
 @router.get(
     "/mandelbrot-channel",
     response_class=ORJSONResponse,
-    response_model=HumblResponse[MandelbrotChannelResponse],
+    response_model=HumblResponse[MandelbrotChannelResult],
 )
 @cache(expire=86000, namespace="mandelbrot_channel", coder=ORJsonCoder)
 async def mandelbrot_channel_route(
@@ -122,7 +148,7 @@ async def mandelbrot_channel_route(
     ] = Query(
         "humbl_dark", description="The Plotly template to use for charts"
     ),
-) -> HumblResponse[MandelbrotChannelResponse]:
+):
     """
     Retrieve Mandelbrot Channel data for the specified symbols.
 
@@ -206,15 +232,18 @@ async def mandelbrot_channel_route(
                 if isinstance(json_data, str)
                 else [orjson.loads(item) for item in json_data]
             )
+            chart_response = MandelbrotChannelChartResponse(**parsed_json[0])
             return HumblResponse(
-                response_data=MandelbrotChannelResponse(data=parsed_json),
+                response_data=MandelbrotChannelResult(result=chart_response),
                 status_code=200,
             )
         else:
+            data = result.to_dict(row_wise=True, as_series=False)
+            channel_response = MandelbrotChannelResponse(
+                data=[MandelbrotChannelData(**item) for item in data]
+            )
             return HumblResponse(
-                response_data=MandelbrotChannelResponse(
-                    data=result.to_dict(row_wise=True, as_series=False)
-                ),
+                response_data=MandelbrotChannelResult(result=channel_response),
                 status_code=200,
             )
 
