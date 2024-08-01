@@ -13,17 +13,30 @@ from fastapi import APIRouter, HTTPException, Query
 from fastapi.responses import ORJSONResponse
 from fastapi_cache.decorator import cache
 from humbldata.toolbox.toolbox_controller import Toolbox
+from pydantic import BaseModel
 
-from humblapi.core.config import Config
+from humblapi.core.config import config
 from humblapi.core.logger import setup_logger
+from humblapi.core.standard_models.abstract.responses import HumblResponse
 from humblapi.core.utils import ORJsonCoder
 
-config = Config()
 router = APIRouter(
     prefix=config.API_V1_STR,
     tags=["toolbox"],
 )
 logger = setup_logger(name="humblapi.api.v1.routers.toolbox")
+
+
+class MandelbrotChannelData(BaseModel):
+    date: str
+    symbol: str
+    bottom_price: float
+    recent_price: float
+    top_price: float
+
+
+class MandelbrotChannelResponse(BaseModel):
+    data: list[MandelbrotChannelData]
 
 
 def validate_symbols(symbols):
@@ -33,7 +46,11 @@ def validate_symbols(symbols):
     return symbols
 
 
-@router.get("/mandelbrot-channel", response_class=ORJSONResponse)
+@router.get(
+    "/mandelbrot-channel",
+    response_class=ORJSONResponse,
+    response_model=HumblResponse[MandelbrotChannelResponse],
+)
 @cache(expire=86000, namespace="mandelbrot_channel", coder=ORJsonCoder)
 async def mandelbrot_channel_route(
     symbols: str = Query(
@@ -105,7 +122,7 @@ async def mandelbrot_channel_route(
     ] = Query(
         "humbl_dark", description="The Plotly template to use for charts"
     ),
-):
+) -> HumblResponse[MandelbrotChannelResponse]:
     """
     Retrieve Mandelbrot Channel data for the specified symbols.
 
@@ -158,9 +175,7 @@ async def mandelbrot_channel_route(
 
     Returns
     -------
-    dict
-        A dictionary containing the Mandelbrot Channel data for the
-        specified symbols.
+        MandelbrotChannelResponse: A response containing the Mandelbrot Channel data for the specified symbols.
     """
     try:
         symbol_list = validate_symbols(symbols.split(","))
@@ -191,9 +206,17 @@ async def mandelbrot_channel_route(
                 if isinstance(json_data, str)
                 else [orjson.loads(item) for item in json_data]
             )
-            return parsed_json
+            return HumblResponse(
+                response_data=MandelbrotChannelResponse(data=parsed_json),
+                status_code=200,
+            )
         else:
-            return result.to_dict(row_wise=True, as_series=False)
+            return HumblResponse(
+                response_data=MandelbrotChannelResponse(
+                    data=result.to_dict(row_wise=True, as_series=False)
+                ),
+                status_code=200,
+            )
 
     except Exception as e:
         error_message = f"Error in mandelbrot_channel_route: {e!s}"
