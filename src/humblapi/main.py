@@ -11,10 +11,12 @@ from fastapi.responses import ORJSONResponse
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 from fastapi_cache.decorator import cache
+from fastapi_limiter import FastAPILimiter
+from fastapi_limiter.depends import RateLimiter
 from redis import asyncio as aioredis
 from starlette.middleware.base import BaseHTTPMiddleware
 
-from humblapi.api.v1.routers import openbb, portfolio, toolbox, core
+from humblapi.api.v1.routers import core, openbb, portfolio, toolbox
 from humblapi.core.config import config
 from humblapi.core.env import Env
 from humblapi.core.middleware import TimeLogMiddleware
@@ -38,6 +40,7 @@ async def lifespan(app: FastAPI):
     else:
         redis = await aioredis.Redis().from_url(config.REDIS_URL)
     FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache")
+    await FastAPILimiter.init(redis)
 
     # Remove all handlers associated with the root logger object.
     for handler in logging.root.handlers:
@@ -46,6 +49,7 @@ async def lifespan(app: FastAPI):
     coloredlogs.install()
     yield
     # Clean up and release the resources
+    await FastAPILimiter.close()
 
 
 # Setup App

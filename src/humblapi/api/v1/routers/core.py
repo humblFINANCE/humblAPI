@@ -1,8 +1,9 @@
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Depends
 from fastapi.routing import APIRouter
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 from fastapi_cache.decorator import cache
+from fastapi_limiter.depends import RateLimiter
 from redis import asyncio as aioredis
 
 from humblapi.core.config import config
@@ -17,7 +18,11 @@ router = APIRouter(
 logger = setup_logger(name="humblapi.api.v1.routers.core")
 
 
-@router.get("/", response_model=HumblResponse[None])
+@router.get(
+    "/",
+    response_model=HumblResponse[None],
+    dependencies=[Depends(RateLimiter(times=1, seconds=10))],
+)
 @cache(expire=60)
 async def read_root() -> HumblResponse[None]:
     """Read root."""
