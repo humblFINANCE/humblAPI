@@ -149,7 +149,9 @@ async def mandelbrot_channel_route(
     ] = Query(
         "humbl_dark", description="The Plotly template to use for charts"
     ),
-):
+) -> HumblResponse[
+    Union[MandelbrotChannelResponse, MandelbrotChannelChartResponse]
+]:
     """
     Retrieve Mandelbrot Channel data for the specified symbols.
 
