@@ -1,3 +1,19 @@
+## v0.6.0 (2024-08-05)
+
+### ✨ Features
+
+- **HumblResponse**: standardize response object for all routes
+
+### 🐛🚑️ Fixes
+
+- **mandelbrot-channel**: added return type hint
+- **mandelbrot_channel**: fixed typing for HumblResponse
+- **mandelbrot-channel**: return type of route can be validated with chart=True
+
+### 📌➕⬇️ ➖⬆️  Dependencies
+
+- **fastapi-limiter**: adding rate limiting package
+
 ## v0.5.0 (2024-07-31)
 
 ### ✨ Features
