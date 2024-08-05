@@ -5,25 +5,63 @@ This router is used to handle requests for the humblAPI Toolbox <context>
 """
 
 import datetime as dt
-from typing import Literal
-
+from typing import Any, Literal, Union, TypeVar
 import orjson
+from pydantic.fields import Field
 import pytz
 from fastapi import APIRouter, HTTPException, Query
 from fastapi.responses import ORJSONResponse
 from fastapi_cache.decorator import cache
 from humbldata.toolbox.toolbox_controller import Toolbox
+from pydantic import BaseModel
 
-from humblapi.core.config import Config
+from humblapi.core.config import config
 from humblapi.core.logger import setup_logger
+from humblapi.core.standard_models.abstract.responses import HumblResponse
 from humblapi.core.utils import ORJsonCoder
 
-config = Config()
 router = APIRouter(
     prefix=config.API_V1_STR,
     tags=["toolbox"],
 )
 logger = setup_logger(name="humblapi.api.v1.routers.toolbox")
+
+
+class MandelbrotChannelData(BaseModel):
+    date: str | dt.datetime
+    symbol: str
+    bottom_price: float
+    recent_price: float
+    top_price: float
+
+
+class MandelbrotChannelResponse(BaseModel):
+    data: list[MandelbrotChannelData]
+
+
+class PlotlyTrace(BaseModel):
+    type: str
+    x: list[str]
+    y: list[float]
+    name: str
+    line: dict[str, Any] = Field(default_factory=dict)
+
+
+class PlotlyLayout(BaseModel):
+    title: dict[str, str]
+    xaxis: dict[str, Any]
+    yaxis: dict[str, Any]
+    template: dict[str, Any] = Field(default_factory=dict)
+    shapes: list[dict[str, Any]] = Field(default_factory=list)
+
+
+class MandelbrotChannelChartResponse(BaseModel):
+    data: list[PlotlyTrace]
+    layout: PlotlyLayout
+
+
+class MandelbrotChannelResult(BaseModel):
+    result: MandelbrotChannelResponse | MandelbrotChannelChartResponse
 
 
 def validate_symbols(symbols):
@@ -33,7 +71,13 @@ def validate_symbols(symbols):
     return symbols
 
 
-@router.get("/mandelbrot-channel", response_class=ORJSONResponse)
+@router.get(
+    "/mandelbrot-channel",
+    response_class=ORJSONResponse,
+    response_model=HumblResponse[
+        Union[MandelbrotChannelResponse, MandelbrotChannelChartResponse]
+    ],
+)
 @cache(expire=86000, namespace="mandelbrot_channel", coder=ORJsonCoder)
 async def mandelbrot_channel_route(
     symbols: str = Query(
@@ -105,7 +149,9 @@ async def mandelbrot_channel_route(
     ] = Query(
         "humbl_dark", description="The Plotly template to use for charts"
     ),
-):
+) -> HumblResponse[
+    Union[MandelbrotChannelResponse, MandelbrotChannelChartResponse]
+]:
     """
     Retrieve Mandelbrot Channel data for the specified symbols.
 
@@ -158,9 +204,7 @@ async def mandelbrot_channel_route(
 
     Returns
     -------
-    dict
-        A dictionary containing the Mandelbrot Channel data for the
-        specified symbols.
+        MandelbrotChannelResponse: A response containing the Mandelbrot Channel data for the specified symbols.
     """
     try:
         symbol_list = validate_symbols(symbols.split(","))
@@ -191,9 +235,20 @@ async def mandelbrot_channel_route(
                 if isinstance(json_data, str)
                 else [orjson.loads(item) for item in json_data]
             )
-            return parsed_json
+            chart_response = MandelbrotChannelChartResponse(**parsed_json[0])
+            return HumblResponse[MandelbrotChannelChartResponse](
+                response_data=chart_response,
+                status_code=200,
+            )
         else:
-            return result.to_dict(row_wise=True, as_series=False)
+            data = result.to_dict(row_wise=True, as_series=False)
+            channel_response = MandelbrotChannelResponse(
+                data=[MandelbrotChannelData(**item) for item in data]
+            )
+            return HumblResponse[MandelbrotChannelResponse](
+                response_data=channel_response,
+                status_code=200,
+            )
 
     except Exception as e:
         error_message = f"Error in mandelbrot_channel_route: {e!s}"
