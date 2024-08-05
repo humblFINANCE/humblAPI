@@ -5,7 +5,7 @@ This router is used to handle requests for the humblAPI Toolbox <context>
 """
 
 import datetime as dt
-from typing import Any, Literal
+from typing import Any, Literal, Union
 
 import orjson
 from pydantic.fields import Field
@@ -75,7 +75,10 @@ def validate_symbols(symbols):
 @router.get(
     "/mandelbrot-channel",
     response_class=ORJSONResponse,
-    response_model=HumblResponse[MandelbrotChannelResult],
+    response_model=Union[
+        MandelbrotChannelResponse, MandelbrotChannelChartResponse
+    ],
+    # response_model=HumblResponse[MandelbrotChannelResult],
 )
 @cache(expire=86000, namespace="mandelbrot_channel", coder=ORJsonCoder)
 async def mandelbrot_channel_route(
@@ -233,19 +236,21 @@ async def mandelbrot_channel_route(
                 else [orjson.loads(item) for item in json_data]
             )
             chart_response = MandelbrotChannelChartResponse(**parsed_json[0])
-            return HumblResponse(
-                response_data=MandelbrotChannelResult(result=chart_response),
-                status_code=200,
-            )
+            return chart_response
+            # return HumblResponse(
+            #     response_data=MandelbrotChannelResult(result=chart_response),
+            #     status_code=200,
+            # )
         else:
             data = result.to_dict(row_wise=True, as_series=False)
             channel_response = MandelbrotChannelResponse(
                 data=[MandelbrotChannelData(**item) for item in data]
             )
-            return HumblResponse(
-                response_data=MandelbrotChannelResult(result=channel_response),
-                status_code=200,
-            )
+            return channel_response
+            # return HumblResponse(
+            #     response_data=MandelbrotChannelResult(result=channel_response),
+            #     status_code=200,
+            # )
 
     except Exception as e:
         error_message = f"Error in mandelbrot_channel_route: {e!s}"
