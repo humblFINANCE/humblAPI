@@ -4,15 +4,21 @@ Portfolio API router.
 This router is used to handle requests for the humblAPI Portfolio <context>
 """
 
+import datetime as dt
 from typing import Annotated, Literal
 
 from fastapi import APIRouter, HTTPException, Query
 from fastapi.responses import ORJSONResponse
 from fastapi_cache.decorator import cache
-from humbldata.core.utils.descriptions import QUERY_DESCRIPTIONS
+from humbldata.core.utils.descriptions import (
+    DATA_DESCRIPTIONS,
+    QUERY_DESCRIPTIONS,
+)
 from humbldata.portfolio.portfolio_controller import Portfolio
+from pydantic import BaseModel, Field
 
 from humblapi.core.config import Config
+from humblapi.core.standard_models.abstract.responses import HumblResponse
 from humblapi.core.utils import ORJsonCoder
 
 config = Config()
@@ -22,7 +28,39 @@ router = APIRouter(
 )
 
 
-@router.get("/user-table")
+class UserTableData(BaseModel):
+    date: str | dt.datetime = Field(
+        ..., description=DATA_DESCRIPTIONS.get("date", "")
+    )
+    symbol: str = Field(..., description=DATA_DESCRIPTIONS.get("symbol", ""))
+    buy_price: float = Field(
+        ..., description=DATA_DESCRIPTIONS.get("buy_price", "")
+    )
+    last_price: float = Field(
+        ..., description=DATA_DESCRIPTIONS.get("last_price", "")
+    )
+    sector: str = Field(..., description=DATA_DESCRIPTIONS.get("sector", ""))
+    sell_price: float = Field(
+        ..., description=DATA_DESCRIPTIONS.get("sell_price", "")
+    )
+    ud_pct: str = Field(..., description=DATA_DESCRIPTIONS.get("ud_pct", ""))
+    ud_ratio: float = Field(
+        ..., description=DATA_DESCRIPTIONS.get("ud_ratio", "")
+    )
+    asset_class: str = Field(
+        ..., description=DATA_DESCRIPTIONS.get("asset_class", "")
+    )
+
+
+class UserTableResponse(BaseModel):
+    data: list[UserTableData]
+
+
+@router.get(
+    "/user-table",
+    response_class=ORJSONResponse,
+    response_model=HumblResponse[UserTableResponse],
+)
 @cache(expire=86000, namespace="user_table", coder=ORJsonCoder)
 async def user_table_route(
     symbols: Annotated[
@@ -80,7 +118,11 @@ async def user_table_route(
     user_table_data = (await portfolio.analytics.user_table()).to_dict(
         row_wise=True, as_series=False
     )
-    return user_table_data
-
-
-# Add more routes as needed
+    # return user_table_data
+    user_table_response = UserTableResponse(
+        data=[UserTableData(**item) for item in user_table_data]
+    )
+    return HumblResponse[UserTableResponse](
+        response_data=user_table_response,
+        status_code=200,
+    )

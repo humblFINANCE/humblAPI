@@ -5,15 +5,15 @@ This router is used to handle requests for the humblAPI Toolbox <context>
 """
 
 import datetime as dt
-from typing import Any, Literal, Union, TypeVar
+from typing import Any, Literal, TypeVar, Union
+
 import orjson
-from pydantic.fields import Field
 import pytz
 from fastapi import APIRouter, HTTPException, Query
 from fastapi.responses import ORJSONResponse
 from fastapi_cache.decorator import cache
 from humbldata.toolbox.toolbox_controller import Toolbox
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from humblapi.core.config import config
 from humblapi.core.logger import setup_logger
