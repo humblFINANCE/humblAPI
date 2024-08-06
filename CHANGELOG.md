@@ -1,3 +1,9 @@
+## v0.7.0 (2024-08-06)
+
+### ✨ Features
+
+- **HumblResponse**: added standard response to portfolio for user_table
+
 ## v0.6.0 (2024-08-05)
 
 ### ✨ Features
