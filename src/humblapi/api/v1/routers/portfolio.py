@@ -15,17 +15,21 @@ from humbldata.core.utils.descriptions import (
     QUERY_DESCRIPTIONS,
 )
 from humbldata.portfolio.portfolio_controller import Portfolio
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ValidationError
 
 from humblapi.core.config import Config
 from humblapi.core.standard_models.abstract.responses import HumblResponse
 from humblapi.core.utils import ORJsonCoder
+from humblapi.core.utils import raise_http_exception
+from humblapi.core.logger import setup_logger
 
 config = Config()
 router = APIRouter(
     prefix=config.API_V1_STR,
     tags=["portfolio"],
 )
+
+logger = setup_logger(name="humblapi.api.v1.routers.portfolio")
 
 
 class UserTableData(BaseModel):
@@ -39,7 +43,9 @@ class UserTableData(BaseModel):
     last_price: float = Field(
         ..., description=DATA_DESCRIPTIONS.get("last_price", "")
     )
-    sector: str = Field(..., description=DATA_DESCRIPTIONS.get("sector", ""))
+    sector: str | None = Field(
+        ..., description=DATA_DESCRIPTIONS.get("sector", "")
+    )
     sell_price: float = Field(
         ..., description=DATA_DESCRIPTIONS.get("sell_price", "")
     )
@@ -105,24 +111,29 @@ async def user_table_route(
     The function uses the `Portfolio` class from humblDATA to perform
     the data aggregation.
     """
-    if symbols == "":
-        raise HTTPException(
-            status_code=400, detail="Symbols parameter cannot be empty"
+    try:
+        if symbols == "":
+            raise_http_exception(400, "Symbols parameter cannot be empty")
+
+        # Split the symbols string into a list
+        symbol_list = symbols.split(",")
+
+        portfolio = Portfolio(symbols=symbol_list, membership=membership)
+
+        user_table_data = (await portfolio.analytics.user_table()).to_dict(
+            row_wise=True, as_series=False
         )
 
-    # Split the symbols string into a list
-    symbol_list = symbols.split(",")
-
-    portfolio = Portfolio(symbols=symbol_list, membership=membership)
-
-    user_table_data = (await portfolio.analytics.user_table()).to_dict(
-        row_wise=True, as_series=False
-    )
-    # return user_table_data
-    user_table_response = UserTableResponse(
-        data=[UserTableData(**item) for item in user_table_data]
-    )
-    return HumblResponse[UserTableResponse](
-        response_data=user_table_response,
-        status_code=200,
-    )
+        user_table_response = UserTableResponse(
+            data=[UserTableData(**item) for item in user_table_data]
+        )
+        return HumblResponse[UserTableResponse](
+            response_data=user_table_response,
+            status_code=200,
+        )
+    except ValidationError as ve:
+        logger.exception(f"Validation error: {ve}")
+        raise_http_exception(422, f"Validation error: {str(ve)}")
+    except Exception as e:
+        logger.exception(f"Internal server error: {e}")
+        raise_http_exception(500, f"Internal server error: {str(e)}")
