@@ -1,3 +1,9 @@
+## v0.8.0 (2024-08-07)
+
+### ✨ Features
+
+- **error-catching**: added cleaner errors for user-table/
+
 ## v0.7.0 (2024-08-06)
 
 ### ✨ Features
