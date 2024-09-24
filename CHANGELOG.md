@@ -1,3 +1,14 @@
+## v0.9.0 (2024-09-24)
+
+### ✨ Features
+
+- **CORSMiddleware**: expose headers accessible to browser
+- **logging**: added loggign for lifespan app setup
+
+### build
+
+- **deps**: bump redis from 5.0.7 to 5.0.8
+
 ## v0.8.0 (2024-08-07)
 
 ### ✨ Features
