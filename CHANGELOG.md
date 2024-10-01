@@ -1,3 +1,9 @@
+## v0.10.0 (2024-10-01)
+
+### ✨ Features
+
+- **LICENSE**: added license
+
 ## v0.9.0 (2024-09-24)
 
 ### ✨ Features
