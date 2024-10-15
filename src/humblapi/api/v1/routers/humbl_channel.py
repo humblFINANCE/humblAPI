@@ -1,7 +1,7 @@
 """
-Toolbox API router.
+humblCHANNEL API router.
 
-This router is used to handle requests for the humblAPI Toolbox <context>
+This router is used to handle requests for the humblAPI humblCHANNEL <context>
 """
 
 import datetime as dt
@@ -24,10 +24,10 @@ router = APIRouter(
     prefix=config.API_V1_STR,
     tags=["toolbox"],
 )
-logger = setup_logger(name="humblapi.api.v1.routers.toolbox")
+logger = setup_logger(name="humblapi.api.v1.routers.humbl_channel")
 
 
-class MandelbrotChannelData(BaseModel):
+class HumblChannelData(BaseModel):
     date: str | dt.datetime
     symbol: str
     bottom_price: float
@@ -35,8 +35,8 @@ class MandelbrotChannelData(BaseModel):
     top_price: float
 
 
-class MandelbrotChannelResponse(BaseModel):
-    data: list[MandelbrotChannelData]
+class HumblChannelResponse(BaseModel):
+    data: list[HumblChannelData]
 
 
 class PlotlyTrace(BaseModel):
@@ -55,13 +55,13 @@ class PlotlyLayout(BaseModel):
     shapes: list[dict[str, Any]] = Field(default_factory=list)
 
 
-class MandelbrotChannelChartResponse(BaseModel):
+class HumblChannelChartResponse(BaseModel):
     data: list[PlotlyTrace]
     layout: PlotlyLayout
 
 
-class MandelbrotChannelResult(BaseModel):
-    result: MandelbrotChannelResponse | MandelbrotChannelChartResponse
+class HumblChannelResult(BaseModel):
+    result: HumblChannelResponse | HumblChannelChartResponse
 
 
 def validate_symbols(symbols):
@@ -75,7 +75,7 @@ def validate_symbols(symbols):
     "/mandelbrot-channel",
     response_class=ORJSONResponse,
     response_model=HumblResponse[
-        Union[MandelbrotChannelResponse, MandelbrotChannelChartResponse]
+        Union[HumblChannelResponse, HumblChannelChartResponse]
     ],
 )
 @cache(expire=86000, namespace="mandelbrot_channel", coder=ORJsonCoder)
@@ -149,9 +149,7 @@ async def mandelbrot_channel_route(
     ] = Query(
         "humbl_dark", description="The Plotly template to use for charts"
     ),
-) -> HumblResponse[
-    Union[MandelbrotChannelResponse, MandelbrotChannelChartResponse]
-]:
+) -> HumblResponse[Union[HumblChannelResponse, HumblChannelChartResponse]]:
     """
     Retrieve Mandelbrot Channel data for the specified symbols.
 
@@ -204,7 +202,7 @@ async def mandelbrot_channel_route(
 
     Returns
     -------
-        MandelbrotChannelResponse: A response containing the Mandelbrot Channel data for the specified symbols.
+        HumblChannelResponse: A response containing the Mandelbrot Channel data for the specified symbols.
     """
     try:
         symbol_list = validate_symbols(symbols.split(","))
@@ -235,17 +233,17 @@ async def mandelbrot_channel_route(
                 if isinstance(json_data, str)
                 else [orjson.loads(item) for item in json_data]
             )
-            chart_response = MandelbrotChannelChartResponse(**parsed_json[0])
-            return HumblResponse[MandelbrotChannelChartResponse](
+            chart_response = HumblChannelChartResponse(**parsed_json[0])
+            return HumblResponse[HumblChannelChartResponse](
                 response_data=chart_response,
                 status_code=200,
             )
         else:
             data = result.to_dict(row_wise=True, as_series=False)
-            channel_response = MandelbrotChannelResponse(
-                data=[MandelbrotChannelData(**item) for item in data]
+            channel_response = HumblChannelResponse(
+                data=[HumblChannelData(**item) for item in data]
             )
-            return HumblResponse[MandelbrotChannelResponse](
+            return HumblResponse[HumblChannelResponse](
                 response_data=channel_response,
                 status_code=200,
             )
