@@ -16,7 +16,13 @@ from fastapi_limiter.depends import RateLimiter
 from redis import asyncio as aioredis
 from starlette.middleware.base import BaseHTTPMiddleware
 
-from humblapi.api.v1.routers import core, openbb, portfolio, toolbox
+from humblapi.api.v1.routers import (
+    core,
+    humbl_channel,
+    humbl_compass,
+    openbb,
+    portfolio,
+)
 from humblapi.core.config import config
 from humblapi.core.env import Env
 from humblapi.core.logger import setup_logger
@@ -98,6 +104,7 @@ app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 # Add Routers
 app.include_router(portfolio.router)
-app.include_router(toolbox.router)
+app.include_router(humbl_channel.router)
 app.include_router(openbb.router)
 app.include_router(core.router)
+app.include_router(humbl_compass.router)
