@@ -20,11 +20,8 @@ from humblapi.core.logger import setup_logger
 from humblapi.core.standard_models.abstract.responses import HumblResponse
 from humblapi.core.utils import ORJsonCoder
 
-router = APIRouter(
-    prefix=config.API_V1_STR,
-    tags=["toolbox"],
-)
-logger = setup_logger(name="humblapi.api.v1.routers.humbl_compass")
+router = APIRouter()
+logger = setup_logger(name="humblapi.api.v1.routers.toolbox.humbl_compass")
 
 
 class HumblCompassData(BaseModel):
