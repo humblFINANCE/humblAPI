@@ -1,3 +1,13 @@
+## v0.11.0 (2024-10-16)
+
+### ✨ Features
+
+- **humblCOMPASS**: new endpoint, added pydantic models and router
+
+### 📌➕⬇️➖⬆️ Dependencies
+
+- **humblDATA**: updated package
+
 ## v0.10.0 (2024-10-01)
 
 ### ✨ Features
