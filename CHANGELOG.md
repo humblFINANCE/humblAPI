@@ -1,3 +1,9 @@
+## v0.11.1 (2024-10-16)
+
+### ♻️ Refactorings
+
+- **toolbox**: compiled all toolbox routers to be imported into one router
+
 ## v0.11.0 (2024-10-16)
 
 ### ✨ Features
