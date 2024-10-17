@@ -1,3 +1,13 @@
+## v0.12.0 (2024-10-17)
+
+### ✨ Features
+
+- **humblCOMPASS**: added membership parameter
+
+### 📌➕⬇️➖⬆️ Dependencies
+
+- **humblDATA**: updated package
+
 ## v0.11.1 (2024-10-16)
 
 ### ♻️ Refactorings
