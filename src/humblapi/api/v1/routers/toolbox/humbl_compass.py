@@ -194,6 +194,12 @@ async def humbl_compass_route(
         "humbl_dark",
         description="The template/theme to use for the plotly figure",
     ),
+    membership: Literal[
+        "anonymous", "peon", "premium", "power", "permanent", "admin"
+    ] = Query(
+        "anonymous",
+        description="The membership level of the user",
+    ),
 ) -> HumblResponse[HumblCompassResponse | HumblCompassChartResponse]:
     """
     Retrieve HUMBL Compass data for the specified country or group of countries.
@@ -211,6 +217,7 @@ async def humbl_compass_route(
         toolbox = Toolbox(
             start_date=start_date,
             end_date=end_date,
+            membership=membership,
         )
 
         result = toolbox.fundamental.humbl_compass(
