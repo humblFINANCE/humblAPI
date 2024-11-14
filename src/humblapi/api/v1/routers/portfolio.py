@@ -66,8 +66,8 @@ class PortfolioResponse(BaseModel):
     response_class=ORJSONResponse,
     response_model=HumblResponse[PortfolioResponse],
 )
-@cache(expire=86000, namespace="user_table", coder=ORJsonCoder)
-async def user_table_route(
+@cache(expire=86000, namespace="portfolio", coder=ORJsonCoder)
+async def portfolio_route(
     symbols: Annotated[
         str, Query(description=QUERY_DESCRIPTIONS.get("symbols", ""))
     ] = "AAPL,NVDA,TSLA",
@@ -84,9 +84,9 @@ async def user_table_route(
     ] = "humblPEON",
 ):
     """
-    Retrieve user table data for the specified portfolio symbols.
+    Retrieve portfolio data for the specified portfolio symbols.
 
-    This endpoint aggregates user table data for the symbols provided in the query parameter.
+    This endpoint aggregates portfolio data for the symbols provided in the query parameter.
     The aggregated data is then collected and converted to a dictionary.
 
     Parameters
