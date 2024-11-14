@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, Query, Depends
+from fastapi import Depends, FastAPI, HTTPException, Query
 from fastapi.routing import APIRouter
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend

@@ -18,10 +18,9 @@ from humbldata.portfolio.portfolio_controller import Portfolio
 from pydantic import BaseModel, Field, ValidationError
 
 from humblapi.core.config import Config
-from humblapi.core.standard_models.abstract.responses import HumblResponse
-from humblapi.core.utils import ORJsonCoder
-from humblapi.core.utils import raise_http_exception
 from humblapi.core.logger import setup_logger
+from humblapi.core.standard_models.abstract.responses import HumblResponse
+from humblapi.core.utils import ORJsonCoder, raise_http_exception
 
 config = Config()
 router = APIRouter(
@@ -32,7 +31,7 @@ router = APIRouter(
 logger = setup_logger(name="humblapi.api.v1.routers.portfolio")
 
 
-class UserTableData(BaseModel):
+class PortfolioData(BaseModel):
     date: str | dt.datetime = Field(
         ..., description=DATA_DESCRIPTIONS.get("date", "")
     )
@@ -58,14 +57,14 @@ class UserTableData(BaseModel):
     )
 
 
-class UserTableResponse(BaseModel):
-    data: list[UserTableData]
+class PortfolioResponse(BaseModel):
+    data: list[PortfolioData]
 
 
 @router.get(
-    "/user-table",
+    "/portfolio",
     response_class=ORJSONResponse,
-    response_model=HumblResponse[UserTableResponse],
+    response_model=HumblResponse[PortfolioResponse],
 )
 @cache(expire=86000, namespace="user_table", coder=ORJsonCoder)
 async def user_table_route(
@@ -73,9 +72,16 @@ async def user_table_route(
         str, Query(description=QUERY_DESCRIPTIONS.get("symbols", ""))
     ] = "AAPL,NVDA,TSLA",
     membership: Annotated[
-        Literal["anonymous", "peon", "premium", "power", "permanent", "admin"],
+        Literal[
+            "anonymous",
+            "humblPEON",
+            "humblPREMIUM",
+            "humblPOWER",
+            "humblPERMANENT",
+            "admin",
+        ],
         Query(description=QUERY_DESCRIPTIONS.get("membership", "")),
-    ] = "peon",
+    ] = "humblPEON",
 ):
     """
     Retrieve user table data for the specified portfolio symbols.
@@ -89,16 +95,16 @@ async def user_table_route(
         A comma-separated string of stock symbols (e.g., "AAPL,MSFT,NVDA").
         Default is "AAPL,NVDA,TSLA" if no symbols are provided.
 
-    membership : Literal["anonymous", "peon", "premium", "power", "permanent", "admin"], optional
-        The user role or membership level. Default is "peon".
+    membership : Literal["anonymous", "humblPEON", "humblPREMIUM", "humblPOWER", "humblPERMANENT", "admin"], optional
+        The user role or membership level. Default is "humblPEON".
 
     Returns
     -------
-    dict : UserTableData
+    dict : PortfolioData
         A dictionary containing the aggregated user table data for the
         specified symbols. The dict of a HumblObject with `as_series=False` is
         identical to a JSON format.
-        UserTableData is a pandera.polars model that is used to validate the
+        PortfolioData is a pandera.polars model that is used to validate the
         output from humblDATA.
 
     Raises
@@ -124,10 +130,10 @@ async def user_table_route(
             row_wise=True, as_series=False
         )
 
-        user_table_response = UserTableResponse(
-            data=[UserTableData(**item) for item in user_table_data]
+        user_table_response = PortfolioResponse(
+            data=[PortfolioData(**item) for item in user_table_data]
         )
-        return HumblResponse[UserTableResponse](
+        return HumblResponse[PortfolioResponse](
             response_data=user_table_response,
             status_code=200,
         )

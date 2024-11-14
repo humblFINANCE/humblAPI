@@ -1,4 +1,4 @@
-"""Test humblapi REST API - `/mandelbrot_channel` router."""
+"""Test humblapi REST API - `/humblCHANNEL` router."""
 
 import httpx
 from fastapi.testclient import TestClient
@@ -10,7 +10,7 @@ client = TestClient(app)
 config = Config()
 
 
-def test_mandelbrot_channel_root() -> None:
+def test_humbl_channel_root() -> None:
     """Test that reading the root is successful."""
-    response = client.get(f"{config.API_V1_STR}/mandelbrot-channel")
+    response = client.get(f"{config.API_V1_STR}/humblCHANNEL")
     assert httpx.codes.is_success(response.status_code)

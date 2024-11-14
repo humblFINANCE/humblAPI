@@ -69,14 +69,14 @@ def validate_symbols(symbols):
 
 
 @router.get(
-    "/mandelbrot-channel",
+    "/humblCHANNEL",
     response_class=ORJSONResponse,
     response_model=HumblResponse[
         Union[HumblChannelResponse, HumblChannelChartResponse]
     ],
 )
-@cache(expire=86000, namespace="mandelbrot_channel", coder=ORJsonCoder)
-async def mandelbrot_channel_route(
+@cache(expire=86000, namespace="humblCHANNEL", coder=ORJsonCoder)
+async def humbl_channel_route(
     symbols: str = Query(
         "AAPL,NVDA,TSLA",
         description="A comma-separated string of stock symbols",
@@ -246,6 +246,6 @@ async def mandelbrot_channel_route(
             )
 
     except Exception as e:
-        error_message = f"Error in mandelbrot_channel_route: {e!s}"
+        error_message = f"Error in humbl_channel_route: {e!s}"
         logger.exception(error_message)
         raise HTTPException(status_code=400, detail=error_message) from e

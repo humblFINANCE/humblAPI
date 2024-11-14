@@ -124,14 +124,14 @@ class HumblCompassChartResponse(BaseModel):
 
 
 @router.get(
-    "/humbl-compass",
+    "/humblCOMPASS",
     response_class=ORJSONResponse,
     response_model=HumblResponse[
         Union[HumblCompassResponse, HumblCompassChartResponse]
     ],
 )
 @cache(
-    expire=2629757, namespace="humbl_compass", coder=ORJsonCoder
+    expire=2629757, namespace="humblCOMPASS", coder=ORJsonCoder
 )  # cached for a month
 async def humbl_compass_route(
     country: Literal[
@@ -195,7 +195,12 @@ async def humbl_compass_route(
         description="The template/theme to use for the plotly figure",
     ),
     membership: Literal[
-        "anonymous", "peon", "premium", "power", "permanent", "admin"
+        "anonymous",
+        "humblPEON",
+        "humblPREMIUM",
+        "humblPOWER",
+        "humblPERMANENT",
+        "admin",
     ] = Query(
         "anonymous",
         description="The membership level of the user",
