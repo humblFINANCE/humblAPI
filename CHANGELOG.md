@@ -1,3 +1,9 @@
+## v0.12.2 (2024-11-14)
+
+### ♻️ Refactorings
+
+- **rename**: renamed portfolio test
+
 ## v0.12.1 (2024-11-14)
 
 ### ♻️ Refactorings
