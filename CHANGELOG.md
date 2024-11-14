@@ -1,3 +1,9 @@
+## v0.12.1 (2024-11-14)
+
+### ♻️ Refactorings
+
+- **rename**: changed membership names; changed mandelbrot-channel
+
 ## v0.12.0 (2024-10-17)
 
 ### ✨ Features
