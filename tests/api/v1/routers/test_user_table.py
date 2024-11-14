@@ -1,4 +1,4 @@
-"""Test humblapi REST API - `/user_table` router"""
+"""Test humblapi REST API - `/portfolio` router"""
 
 import httpx
 from fastapi.testclient import TestClient
@@ -10,7 +10,7 @@ client = TestClient(app)
 config = Config()
 
 
-def test_user_table_root() -> None:
+def test_portfolio_root() -> None:
     """Test that reading the root is successful."""
-    response = client.get(f"{config.API_V1_STR}/user-table")
+    response = client.get(f"{config.API_V1_STR}/portfolio")
     assert httpx.codes.is_success(response.status_code)
