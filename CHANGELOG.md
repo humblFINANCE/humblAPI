@@ -1,3 +1,9 @@
+## v0.12.3 (2024-11-14)
+
+### ♻️ Refactorings
+
+- **rename**: changed cache namespcace for user-table
+
 ## v0.12.2 (2024-11-14)
 
 ### ♻️ Refactorings
