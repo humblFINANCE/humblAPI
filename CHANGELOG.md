@@ -1,3 +1,13 @@
+## v0.13.0 (2024-11-18)
+
+### ✨ Features
+
+- **humblCHANNEL**: added membership param
+
+### 📌➕⬇️➖⬆️ Dependencies
+
+- **humbldata**: updated the package for new validation for membership
+
 ## v0.12.3 (2024-11-14)
 
 ### ♻️ Refactorings
