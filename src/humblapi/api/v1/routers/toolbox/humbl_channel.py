@@ -146,6 +146,17 @@ async def humbl_channel_route(
     ] = Query(
         "humbl_dark", description="The Plotly template to use for charts"
     ),
+    membership: Literal[
+        "anonymous",
+        "humblPEON",
+        "humblPREMIUM",
+        "humblPOWER",
+        "humblPERMANENT",
+        "admin",
+    ] = Query(
+        "anonymous",
+        description="The membership level of the user",
+    ),
 ) -> HumblResponse[Union[HumblChannelResponse, HumblChannelChartResponse]]:
     """
     Retrieve Mandelbrot Channel data for the specified symbols.
@@ -155,6 +166,9 @@ async def humbl_channel_route(
 
     Parameters
     ----------
+    membership : str, optional
+        The membership level of the user. Default is "anonymous".
+
     symbols : str, optional
         A comma-separated string of stock symbols. Default is "AAPL,NVDA,TSLA".
 
@@ -209,6 +223,7 @@ async def humbl_channel_route(
             start_date=start_date,
             end_date=end_date,
             provider=provider,
+            membership=membership,
         )
 
         result = toolbox.technical.mandelbrot_channel(
