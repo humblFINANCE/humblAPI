@@ -1,7 +1,7 @@
 """
-HUMBL Compass API router.
+humblCOMPASS API router.
 
-This router is used to handle requests for the humblAPI HUMBL Compass functionality.
+This router is used to handle requests for the humblAPI humblCOMPASS functionality.
 """
 
 import datetime as dt
@@ -25,7 +25,7 @@ logger = setup_logger(name="humblapi.api.v1.routers.toolbox.humbl_compass")
 
 
 class HumblCompassData(BaseModel):
-    """Represents the data structure for HUMBL Compass information."""
+    """Represents the data structure for humblCOMPASS information."""
 
     date_month_start: str | dt.datetime
     country: str
@@ -38,7 +38,7 @@ class HumblCompassData(BaseModel):
 
 
 class HumblCompassResponse(BaseModel):
-    """Represents the response structure for HUMBL Compass data."""
+    """Represents the response structure for humblCOMPASS data."""
 
     data: list[HumblCompassData]
 
@@ -116,18 +116,28 @@ class PlotlyLayout(BaseModel):
     paper_bgcolor: str
 
 
+class LatestHumblRegimeData(BaseModel):
+    """Represents the latest regime data structure."""
+
+    date: str
+    humbl_regime: str
+
+
 class HumblCompassChartResponse(BaseModel):
-    """Represents the response structure for a HUMBL Compass chart."""
+    """Represents the response structure for a humblCOMPASS chart."""
 
     data: list[PlotlyTrace]
     layout: PlotlyLayout
+    latest_humbl_regime: LatestHumblRegimeData = Field(
+        description="Latest humblREGIME data containing date and regime value"
+    )
 
 
 @router.get(
     "/humblCOMPASS",
     response_class=ORJSONResponse,
     response_model=HumblResponse[
-        Union[HumblCompassResponse, HumblCompassChartResponse]
+        HumblCompassResponse | HumblCompassChartResponse
     ],
 )
 @cache(
@@ -207,16 +217,16 @@ async def humbl_compass_route(
     ),
 ) -> HumblResponse[HumblCompassResponse | HumblCompassChartResponse]:
     """
-    Retrieve HUMBL Compass data for the specified country or group of countries.
+    Retrieve humblCOMPASS data for the specified country or group of countries.
 
-    This endpoint calculates the HUMBL Compass data using the Toolbox from humblDATA.
+    This endpoint calculates the humblCOMPASS data using the Toolbox from humblDATA.
 
     Parameters are as described in the query parameters.
 
     Returns
     -------
     HumblResponse[Union[HumblCompassResponse, HumblCompassChartResponse]]
-        A response containing the HUMBL Compass data or chart for the specified country/countries.
+        A response containing the humblCOMPASS data or chart for the specified country/countries.
     """
     try:
         toolbox = Toolbox(
@@ -239,8 +249,22 @@ async def humbl_compass_route(
                 if isinstance(json_data, str)
                 else [orjson.loads(item) for item in json_data]
             )
-            chart_response = HumblCompassChartResponse(**parsed_json[0])
-            print(chart_response)
+
+            # Get latest regime data
+            latest_data = (
+                result.to_polars()
+                .select(["date_month_start", "humbl_regime"])
+                .row(-1)
+            )
+            latest_humbl_regime = LatestHumblRegimeData(
+                date=latest_data[0].isoformat(),
+                humbl_regime=latest_data[1],
+            )
+
+            chart_response = HumblCompassChartResponse(
+                **parsed_json[0],
+                latest_humbl_regime=latest_humbl_regime,
+            )
             return HumblResponse[HumblCompassChartResponse](
                 response_data=chart_response,
                 status_code=200,
