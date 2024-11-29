@@ -58,7 +58,7 @@ poethepoet = ">=0.20.0"
 python = ">=3.11,<3.13"
 uvicorn = { extras = ["standard"], version = ">=0.20.0" }
 poetry = "^1.8.3"
-humbldata = "^1.8.1"
+humbldata = "^1.10.1"
 fastapi-cache2 = "^0.2.2"
 redis = "^5.0.7"
 orjson = "^3.10.6"
