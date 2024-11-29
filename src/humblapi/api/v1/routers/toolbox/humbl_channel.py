@@ -211,6 +211,9 @@ async def humbl_channel_route(
     template : str, optional
         The Plotly template to use for charts. Default is "humbl_dark".
 
+    membership : str, optional
+        The membership level of the user. Default is "anonymous".
+
     Returns
     -------
         HumblChannelResponse: A response containing the Mandelbrot Channel data for the specified symbols.

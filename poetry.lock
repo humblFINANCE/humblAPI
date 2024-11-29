@@ -1846,13 +1846,13 @@ pyreadline3 = {version = "*", markers = "sys_platform == \"win32\" and python_ve
 
 [[package]]
 name = "humbldata"
-version = "1.9.4"
+version = "1.10.1"
 description = "open-sourcing the math behind major financial institutional investors/banks. this package connects data analysis to the humblFINANCE website."
 optional = false
 python-versions = "<3.13,>=3.11"
 files = [
-    {file = "humbldata-1.9.4-py3-none-any.whl", hash = "sha256:4f5f4230899ce19ee15a9845fab2b33b71d406b9eedec0b506b2552e229e94df"},
-    {file = "humbldata-1.9.4.tar.gz", hash = "sha256:2f8f26633289f096b6400eb3b63b78f2d0956dce011ac53621d22adec2253201"},
+    {file = "humbldata-1.10.1-py3-none-any.whl", hash = "sha256:d23a98d639bc91c79ddd8ba09986458031681b215b194cabbc50547c8ea9fe3a"},
+    {file = "humbldata-1.10.1.tar.gz", hash = "sha256:8266bb7758c1eeb3fbd12b4d365e31e8c47e77d74035eb95d87b3a851e23bbe6"},
 ]
 
 [package.dependencies]
