@@ -13,6 +13,9 @@ from fastapi import APIRouter, HTTPException, Query
 from fastapi.responses import ORJSONResponse
 from fastapi_cache.decorator import cache
 from humbldata.toolbox.toolbox_controller import Toolbox
+from humbldata.core.standard_models.toolbox.fundamental.humbl_compass import (
+    RegimeRecommendations,
+)
 from pydantic import BaseModel, Field
 
 from humblapi.core.config import config
@@ -41,6 +44,7 @@ class HumblCompassResponse(BaseModel):
     """Represents the response structure for humblCOMPASS data."""
 
     data: list[HumblCompassData]
+    recommendations: RegimeRecommendations | None = None
 
 
 class PlotlyMarker(BaseModel):
@@ -131,6 +135,7 @@ class HumblCompassChartResponse(BaseModel):
     latest_humbl_regime: LatestHumblRegimeData = Field(
         description="Latest humblREGIME data containing date and regime value"
     )
+    recommendations: RegimeRecommendations | None = None
 
 
 @router.get(
@@ -215,6 +220,10 @@ async def humbl_compass_route(
         "anonymous",
         description="The membership level of the user",
     ),
+    recommendations: bool = Query(
+        False,
+        description="Whether to include investment recommendations based on the HUMBL regime",
+    ),
 ) -> HumblResponse[HumblCompassResponse | HumblCompassChartResponse]:
     """
     Retrieve humblCOMPASS data for the specified country or group of countries.
@@ -240,6 +249,13 @@ async def humbl_compass_route(
             z_score=z_score,
             chart=chart,
             template=template,
+            recommendations=recommendations,
+        )
+
+        recommendations_data = (
+            result.extra.get("humbl_regime_recommendations")
+            if hasattr(result, "extra") and result.extra
+            else None
         )
 
         if chart:
@@ -264,6 +280,7 @@ async def humbl_compass_route(
             chart_response = HumblCompassChartResponse(
                 **parsed_json[0],
                 latest_humbl_regime=latest_humbl_regime,
+                recommendations=recommendations_data,
             )
             return HumblResponse[HumblCompassChartResponse](
                 response_data=chart_response,
@@ -278,7 +295,8 @@ async def humbl_compass_route(
                         **{k: v for k, v in item.items() if v is not None}
                     )
                     for item in data
-                ]
+                ],
+                recommendations=recommendations_data,
             )
             return HumblResponse[HumblCompassResponse](
                 response_data=compass_response,
