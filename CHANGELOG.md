@@ -1,3 +1,15 @@
+## v0.14.1 (2024-11-30)
+
+### 🐛🚑️ Fixes
+
+- **humblDATA**: updated humldata with stricter reqs
+
+### 📌➕⬇️➖⬆️ Dependencies
+
+- **update**: new humbldata with bug fixes for obb data collection
+- **update**: bum humbldata to 1.11.1
+- **update**: humbldata and others
+
 ## v0.14.0 (2024-11-29)
 
 ### ✨ Features
