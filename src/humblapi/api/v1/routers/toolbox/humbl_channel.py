@@ -88,7 +88,7 @@ async def humbl_channel_route(
     end_date: str = Query(
         default_factory=lambda: dt.datetime.now(
             tz=pytz.timezone("America/New_York")
-        ).date(),
+        ).date(), #make to string?
         description="The end date for the data range",
     ),
     provider: str = Query("yfinance", description="The data provider to use"),
@@ -210,6 +210,9 @@ async def humbl_channel_route(
 
     template : str, optional
         The Plotly template to use for charts. Default is "humbl_dark".
+
+    membership : str, optional
+        The membership level of the user. Default is "anonymous".
 
     Returns
     -------

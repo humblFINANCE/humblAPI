@@ -1,3 +1,14 @@
+## v0.14.0 (2024-11-29)
+
+### ✨ Features
+
+- **humbl_compass**: adding latest_humbl_regime
+
+### 📌➕⬇️➖⬆️ Dependencies
+
+- **update**: humbldata
+- **update**: humbldata
+
 ## v0.13.0 (2024-11-18)
 
 ### ✨ Features
