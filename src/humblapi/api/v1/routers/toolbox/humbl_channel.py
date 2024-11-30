@@ -88,7 +88,7 @@ async def humbl_channel_route(
     end_date: str = Query(
         default_factory=lambda: dt.datetime.now(
             tz=pytz.timezone("America/New_York")
-        ).date(),
+        ).date(), #make to string?
         description="The end date for the data range",
     ),
     provider: str = Query("yfinance", description="The data provider to use"),
