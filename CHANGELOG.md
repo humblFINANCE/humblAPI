@@ -1,3 +1,14 @@
+## v0.14.2 (2024-12-02)
+
+### 🐛🚑️ Fixes
+
+- **humbl_compass**: added latest_humbl_regime to both chart and non-chart responses
+
+### 📌➕⬇️➖⬆️ Dependencies
+
+- **update**: humbldata
+- **update**: humbldata now can parse quarterly CPI & CLI data
+
 ## v0.14.1 (2024-11-30)
 
 ### 🐛🚑️ Fixes
