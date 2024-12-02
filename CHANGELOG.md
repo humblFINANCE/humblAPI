@@ -1,3 +1,13 @@
+## v0.14.3 (2024-12-02)
+
+### 🐛🚑️ Fixes
+
+- **humbl_compass**: added custom_data to PlotlyTrace object
+
+### 📌➕⬇️➖⬆️ Dependencies
+
+- **update**: humbldata
+
 ## v0.14.2 (2024-12-02)
 
 ### 🐛🚑️ Fixes
