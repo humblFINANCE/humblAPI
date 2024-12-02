@@ -71,6 +71,7 @@ class PlotlyTrace(BaseModel):
     x: list[float]
     y: list[float]
     type: str
+    customdata: list[list[float | None]] | None = None
 
 
 class PlotlyShape(BaseModel):
