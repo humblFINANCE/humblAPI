@@ -2005,12 +2005,13 @@ pyreadline3 = {version = "*", markers = "sys_platform == \"win32\" and python_ve
 
 [[package]]
 name = "humbldata"
-version = "1.11.6"
+version = "1.12.0"
 description = "open-sourcing the math behind major financial institutional investors/banks. this package connects data analysis to the humblFINANCE website."
 optional = false
 python-versions = "<3.13,>=3.11"
 files = [
-    {file = "humbldata-1.11.6-py3-none-any.whl", hash = "sha256:b914316b15f4d86644e10ef29d146d7f1065506507b326ca579aa9fced170cc4"},
+    {file = "humbldata-1.12.0-py3-none-any.whl", hash = "sha256:1b1629b507b1c1d70f2c09bba735d5694f1a5396e1709904e6c78afccbe5c1bb"},
+    {file = "humbldata-1.12.0.tar.gz", hash = "sha256:9e76e1d6b8597f6a2fbcbd60c7bcb1d515c90de7dacbeeba41adfd4da9a61c70"},
 ]
 
 [package.dependencies]

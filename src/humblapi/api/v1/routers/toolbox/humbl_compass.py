@@ -40,13 +40,6 @@ class HumblCompassData(BaseModel):
     cli_zscore: float | None = None
 
 
-class HumblCompassResponse(BaseModel):
-    """Represents the response structure for humblCOMPASS data."""
-
-    data: list[HumblCompassData]
-    recommendations: RegimeRecommendations | None = None
-
-
 class PlotlyMarker(BaseModel):
     """Represents the marker properties for a Plotly trace."""
 
@@ -136,6 +129,14 @@ class HumblCompassChartResponse(BaseModel):
         description="Latest humblREGIME data containing date and regime value"
     )
     recommendations: RegimeRecommendations | None = None
+
+
+class HumblCompassResponse(BaseModel):
+    """Represents the response structure for humblCOMPASS data."""
+
+    data: list[HumblCompassData]
+    recommendations: RegimeRecommendations | None = None
+    latest_humbl_regime: LatestHumblRegimeData
 
 
 @router.get(
@@ -258,23 +259,23 @@ async def humbl_compass_route(
             else None
         )
 
+        # Get latest regime data - moved outside the if/else
+        latest_data = (
+            result.to_polars()
+            .select(["date_month_start", "humbl_regime"])
+            .row(-1)
+        )
+        latest_humbl_regime = LatestHumblRegimeData(
+            date=latest_data[0].isoformat(),
+            humbl_regime=latest_data[1],
+        )
+
         if chart:
             json_data = result.to_json(chart=True)
             parsed_json = (
                 orjson.loads(json_data)
                 if isinstance(json_data, str)
                 else [orjson.loads(item) for item in json_data]
-            )
-
-            # Get latest regime data
-            latest_data = (
-                result.to_polars()
-                .select(["date_month_start", "humbl_regime"])
-                .row(-1)
-            )
-            latest_humbl_regime = LatestHumblRegimeData(
-                date=latest_data[0].isoformat(),
-                humbl_regime=latest_data[1],
             )
 
             chart_response = HumblCompassChartResponse(
@@ -289,13 +290,13 @@ async def humbl_compass_route(
         else:
             data = result.to_dict(row_wise=True, as_series=False)
             compass_response = HumblCompassResponse(
-                # remove None values from the data
                 data=[
                     HumblCompassData(
                         **{k: v for k, v in item.items() if v is not None}
                     )
                     for item in data
                 ],
+                latest_humbl_regime=latest_humbl_regime,
                 recommendations=recommendations_data,
             )
             return HumblResponse[HumblCompassResponse](
