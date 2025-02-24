@@ -27,7 +27,7 @@ COPY src src
 COPY pyproject.toml poetry.lock* README.md ./
 
 RUN poetry build -f wheel
-RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
+RUN poetry export --format requirements.txt --output requirements.txt --without-hashes
 RUN poetry run pip wheel -w wheels -r requirements.txt
 RUN mv dist/* wheels
 
