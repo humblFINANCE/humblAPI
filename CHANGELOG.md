@@ -1,3 +1,9 @@
+## v0.15.0 (2025-02-24)
+
+### ✨ Features
+
+- **deploy**: updating URL to deploy
+
 ## v0.14.4 (2025-02-24)
 
 ### 📌➕⬇️➖⬆️ Dependencies
