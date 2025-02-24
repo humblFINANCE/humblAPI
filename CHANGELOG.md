@@ -1,3 +1,11 @@
+## v0.14.4 (2025-02-24)
+
+### 📌➕⬇️➖⬆️ Dependencies
+
+- **update**: humbldata update
+- **update**: humbldata
+- **uupdate**: updated humbldata with multiple bug fixes
+
 ## v0.14.3 (2024-12-02)
 
 ### 🐛🚑️ Fixes
