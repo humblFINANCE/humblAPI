@@ -9,7 +9,7 @@ version = "0.14.4"
 description = "A lightweight Fast API app to connect humnlDATA and humblFINANCE"
 authors = ["Jennings Fantini <jenningsfantini@gmail.com>"]
 readme = "README.md"
-repository = "https://github.com/humblFINANCE/humblFINANCE-api"
+repository = "https://github.com/humblFINANCE/humblAPI"
 
 [tool.cruft]
 skip = ["menv/", "tests"]
