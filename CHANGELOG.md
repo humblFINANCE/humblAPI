@@ -1,3 +1,9 @@
+## v0.15.1 (2025-02-25)
+
+### 🐛🚑️ Fixes
+
+- **dockerfile**: install poetry export plugin in the dockerfile
+
 ## v0.15.0 (2025-02-24)
 
 ### ✨ Features
