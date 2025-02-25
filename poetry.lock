@@ -2609,14 +2609,14 @@ pyreadline3 = {version = "*", markers = "sys_platform == \"win32\" and python_ve
 
 [[package]]
 name = "humbldata"
-version = "1.16.0"
+version = "1.17.0"
 description = "open-sourcing the math behind major financial institutional investors/banks. this package connects data analysis to the humblFINANCE website."
 optional = false
 python-versions = "<3.13,>=3.11"
 groups = ["main"]
 files = [
-    {file = "humbldata-1.16.0-py3-none-any.whl", hash = "sha256:249bea095f6e064708f1b12927f31199f7182b0c0c774e4a8ea1430680d4c064"},
-    {file = "humbldata-1.16.0.tar.gz", hash = "sha256:cc04c07b693a9360f7e9603a4a44eb6dfb43019729e7144167d38a29560b6e53"},
+    {file = "humbldata-1.17.0-py3-none-any.whl", hash = "sha256:a38904a799b8ac7d66609263ffc1953f68b61c98cc39bf5a707bf747ab098acb"},
+    {file = "humbldata-1.17.0.tar.gz", hash = "sha256:b5239774a302b6c1f9b5090a5c807fc37b4922316d171a27c5ed775a3b4edf66"},
 ]
 
 [package.dependencies]
@@ -10111,4 +10111,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<3.13"
-content-hash = "d6cc22da584a6f81543dd1cd7b4aa0988d622a42ee08c23819fea3a00b95db56"
+content-hash = "7b967ab7955787d49ee47affdbb323be79034166946c9cfc59919123dbfdd99c"

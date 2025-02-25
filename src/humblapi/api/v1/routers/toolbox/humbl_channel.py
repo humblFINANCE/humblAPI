@@ -88,7 +88,7 @@ async def humbl_channel_route(
     end_date: str = Query(
         default_factory=lambda: dt.datetime.now(
             tz=pytz.timezone("America/New_York")
-        ).date(), #make to string?
+        ).date(),  # make to string?
         description="The end date for the data range",
     ),
     provider: str = Query("yfinance", description="The data provider to use"),
@@ -199,7 +199,7 @@ async def humbl_channel_route(
     rv_grouped_mean : bool, optional
         Whether to calculate the mean value of realized volatility over multiple window lengths. Default is False.
 
-    live_price : bool, optional
+    live_price : bool, optionalPter
         Whether to calculate the ranges using the current live price. Default is False.
 
     historical : bool, optional
