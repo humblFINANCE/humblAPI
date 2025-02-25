@@ -11,6 +11,11 @@ authors = ["Jennings Fantini <jenningsfantini@gmail.com>"]
 readme = "README.md"
 repository = "https://github.com/humblFINANCE/humblAPI"
 
+# needs poetry export plugin to deploy to dockerfile, cannot be in reqs as
+# conda env uses remote build paths, install plugin in the dockerfile directly
+# [tool.poetry.requires-plugins]
+# poetry-plugin-export = ">=1.8"
+
 [tool.cruft]
 skip = ["menv/", "tests"]
 
@@ -57,7 +62,7 @@ fastapi = { extras = ["all"], version = ">=0.111.0" }
 poethepoet = ">=0.20.0"
 python = ">=3.11,<3.13"
 uvicorn = { extras = ["standard"], version = ">=0.20.0" }
-poetry = "^1.8.3"
+poetry = "^2.1.1"
 humbldata = "^1.15.0"
 fastapi-cache2 = "^0.2.2"
 redis = "^5.0.7"
@@ -129,8 +134,8 @@ xfail_strict = true
 fix = true
 ignore-init-module-imports = true
 line-length = 80
-select = ["A", "ASYNC", "B", "BLE", "C4", "C90", "D", "DTZ", "E", "EM", "ERA", "F", "FBT", "FLY", "FURB", "G", "I", "ICN", "INP", "INT", "ISC", "LOG", "N", "NPY", "PERF", "PGH", "PIE", "PLC", "PLE", "PLR", "PLW", "PT", "PTH", "PYI", "RET", "RSE", "RUF", "S", "SIM", "SLF", "SLOT", "T10", "T20", "TCH", "TID", "TRY", "UP", "W", "YTT"]
-ignore = ["E501", "PGH001", "RET504", "S101"]
+select = ["A", "ASYNC", "B", "BLE", "C4", "C90", "D", "DTZ", "E", "EM", "ERA", "F", "FBT", "FLY", "FURB", "G", "I", "ICN", "INP", "INT", "ISC", "LOG", "N", "NPY", "PERF", "PGH", "PIE", "PLC", "PLE", "PLR", "PLW", "PT", "PTH", "PYI", "RET", "RSE", "RUF", "S", "SIM", "SLF", "SLOT", "T10", "T20", "TID", "TRY", "UP", "W", "YTT"]
+ignore = ["E501", "S101", "RET504"]
 unfixable = ["ERA001", "F401", "F841", "T201", "T203"]
 src = ["src", "tests"]
 target-version = "py311"
