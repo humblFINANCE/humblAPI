@@ -1,0 +1,13 @@
+---
+description: Commands that need to be run with EVERY terminal command.
+globs: 
+alwaysApply: true
+---
+
+I always use micromamba environments in m projects to contain dependencies. I have them under a prefix .menv. 
+
+Before running any terminal command as an agent you need to run:
+
+```
+mm activate --prefix ./menv
+```
