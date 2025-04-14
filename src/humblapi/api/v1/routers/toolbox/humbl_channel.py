@@ -157,7 +157,7 @@ async def humbl_channel_route(
         "anonymous",
         description="The membership level of the user",
     ),
-) -> HumblResponse[Union[HumblChannelResponse, HumblChannelChartResponse]]:
+) -> HumblResponse[HumblChannelResponse | HumblChannelChartResponse]:
     """
     Retrieve Mandelbrot Channel data for the specified symbols.
 
