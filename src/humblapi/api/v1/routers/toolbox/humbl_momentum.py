@@ -82,8 +82,9 @@ async def humbl_momentum_route(  # noqa: PLR0913
         "1d",
         description=MOMENTUM_QUERY_DESCRIPTIONS["window"],
     ),
+    *,
     chart: bool = Query(
-        False,
+        default=False,
         description=MOMENTUM_QUERY_DESCRIPTIONS["chart"],
     ),
     template: Literal[

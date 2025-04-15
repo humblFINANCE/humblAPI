@@ -48,7 +48,7 @@ HUMBL_CHANNEL_QUERY_DESCRIPTIONS = {
 
 
 class HumblChannelData(BaseModel):
-    """Represents the data structure for a row of humblCHANNEL data."""
+    """Represents a row of humblCHANNEL data."""
 
     date: str | dt.datetime
     symbol: str
@@ -119,8 +119,9 @@ async def humbl_channel_route(  # noqa: PLR0913
         "1mo",
         description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["window"],
     ),
+    *,
     rv_adjustment: bool = Query(
-        True,
+        default=True,
         description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["rv_adjustment"],
     ),
     rv_method: Literal[
@@ -137,27 +138,27 @@ async def humbl_channel_route(  # noqa: PLR0913
         "squared_returns",
         "sq",
     ] = Query(
-        "std",
+        default="std",
         description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["rv_method"],
     ),
     rs_method: Literal["RS", "RS_min", "RS_max", "RS_mean"] = Query(
-        "RS",
+        default="RS",
         description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["rs_method"],
     ),
     rv_grouped_mean: bool = Query(
-        False,
+        default=False,
         description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["rv_grouped_mean"],
     ),
     live_price: bool = Query(
-        False,
+        default=False,
         description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["live_price"],
     ),
     historical: bool = Query(
-        False,
+        default=False,
         description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["historical"],
     ),
     chart: bool = Query(
-        False,
+        default=False,
         description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["chart"],
     ),
     template: Literal[

@@ -134,8 +134,9 @@ async def humbl_compass_route(  # noqa: PLR0913
         None,
         description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["z_score"],
     ),
+    *,
     chart: bool = Query(
-        False,
+        default=False,
         description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["chart"],
     ),
     template: Literal[
@@ -168,7 +169,7 @@ async def humbl_compass_route(  # noqa: PLR0913
         description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["membership"],
     ),
     recommendations: bool = Query(
-        False,
+        default=False,
         description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["recommendations"],
     ),
 ) -> HumblResponse[HumblCompassResponse | HumblCompassChartResponse]:
