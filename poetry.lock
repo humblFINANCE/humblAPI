@@ -2609,14 +2609,14 @@ pyreadline3 = {version = "*", markers = "sys_platform == \"win32\" and python_ve
 
 [[package]]
 name = "humbldata"
-version = "1.17.0"
+version = "1.19.0"
 description = "open-sourcing the math behind major financial institutional investors/banks. this package connects data analysis to the humblFINANCE website."
 optional = false
 python-versions = "<3.13,>=3.11"
 groups = ["main"]
 files = [
-    {file = "humbldata-1.17.0-py3-none-any.whl", hash = "sha256:a38904a799b8ac7d66609263ffc1953f68b61c98cc39bf5a707bf747ab098acb"},
-    {file = "humbldata-1.17.0.tar.gz", hash = "sha256:b5239774a302b6c1f9b5090a5c807fc37b4922316d171a27c5ed775a3b4edf66"},
+    {file = "humbldata-1.19.0-py3-none-any.whl", hash = "sha256:30de7d76fabadf60c2cdd6aeee009fca1439f9be8ed6fb258f96c14052b04808"},
+    {file = "humbldata-1.19.0.tar.gz", hash = "sha256:c2fffab926c21eb36dfb492c3d46cda86ae46175fce7e10700f2db3cc08909ad"},
 ]
 
 [package.dependencies]
@@ -3494,6 +3494,7 @@ python-versions = "*"
 groups = ["main"]
 files = [
     {file = "jusText-3.0.1-py2.py3-none-any.whl", hash = "sha256:e0fb882dd7285415709f4b7466aed23d6b98b7b89404c36e8a2e730facfed02b"},
+    {file = "justext-3.0.1-py2.py3-none-any.whl", hash = "sha256:0a5225c5cd7c5a124fec7bfa9a55110a73135e8b58ce784470af67d051ac9fd3"},
     {file = "justext-3.0.1.tar.gz", hash = "sha256:b6ed2fb6c5d21618e2e34b2295c4edfc0bcece3bd549ed5c8ef5a8d20f0b3451"},
 ]
 

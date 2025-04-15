@@ -5,7 +5,7 @@ This router is used to handle requests for the humblAPI humblCOMPASS functionali
 """
 
 import datetime as dt
-from typing import Any, Literal
+from typing import Literal
 
 import orjson
 import pytz
@@ -18,13 +18,28 @@ from humbldata.core.standard_models.toolbox.fundamental.humbl_compass import (
 from humbldata.toolbox.toolbox_controller import Toolbox
 from pydantic import BaseModel, Field
 
-from humblapi.core.config import config
 from humblapi.core.logger import setup_logger
 from humblapi.core.standard_models.abstract.responses import HumblResponse
+from humblapi.core.standard_models.plotly import (
+    PlotlyLayout,
+    PlotlyTrace,
+)
 from humblapi.core.utils import ORJsonCoder
 
 router = APIRouter()
 logger = setup_logger(name="humblapi.api.v1.routers.toolbox.humbl_compass")
+
+# Constants
+HUMBL_COMPASS_QUERY_DESCRIPTIONS = {
+    "country": "The country or group of countries to collect humblCOMPASS data for",
+    "start_date": "The start date for the data range",
+    "end_date": "The end date for the data range",
+    "z_score": "The time window for z-score calculation (e.g., '1 year', '18 months')",
+    "chart": "Whether to return a chart object",
+    "template": "The template/theme to use for the plotly figure",
+    "membership": "The membership level of the user",
+    "recommendations": "Whether to include investment recommendations based on the HUMBL regime",
+}
 
 
 class HumblCompassData(BaseModel):
@@ -38,80 +53,6 @@ class HumblCompassData(BaseModel):
     cli: float
     cli_3m_delta: float
     cli_zscore: float | None = None
-
-
-class PlotlyMarker(BaseModel):
-    """Represents the marker properties for a Plotly trace."""
-
-    color: list[int]
-    colorscale: list[list[Any]]
-    showscale: bool
-    size: int
-
-
-class PlotlyLine(BaseModel):
-    """Represents the line properties for a Plotly trace."""
-
-    color: str
-    shape: str
-    smoothing: float
-
-
-class PlotlyTrace(BaseModel):
-    """Represents a single trace in a Plotly chart."""
-
-    hovertemplate: str
-    line: PlotlyLine
-    marker: PlotlyMarker
-    mode: str
-    name: str
-    text: list[str]
-    textfont: dict[str, Any]
-    textposition: str
-    x: list[float]
-    y: list[float]
-    type: str
-    customdata: list[list[float | None]] | None = None
-
-
-class PlotlyShape(BaseModel):
-    """Represents a shape in a Plotly chart layout."""
-
-    fillcolor: str | None = None
-    layer: str | None = None
-    line: dict[str, Any]
-    type: str
-    x0: float | None = None
-    x1: float | None = None
-    y0: float | None = None
-    y1: float | None = None
-    xref: str | None = None
-    yref: str | None = None
-
-
-class PlotlyAxis(BaseModel):
-    """Represents the properties of an axis in a Plotly chart."""
-
-    title: dict[str, str]
-    range: list[float]
-    color: str
-    showgrid: bool
-    zeroline: bool
-
-
-class PlotlyLayout(BaseModel):
-    """Represents the layout properties of a Plotly chart."""
-
-    template: dict[str, Any]
-    shapes: list[PlotlyShape]
-    title: dict[str, Any]
-    xaxis: PlotlyAxis
-    yaxis: PlotlyAxis
-    font: dict[str, str]
-    margin: dict[str, int]
-    hovermode: str
-    plot_bgcolor: str
-    paper_bgcolor: str
 
 
 class LatestHumblRegimeData(BaseModel):
@@ -150,7 +91,7 @@ class HumblCompassResponse(BaseModel):
 @cache(
     expire=2629757, namespace="humblCOMPASS", coder=ORJsonCoder
 )  # cached for a month
-async def humbl_compass_route(
+async def humbl_compass_route(  # noqa: PLR0913
     country: Literal[
         "g20",
         "g7",
@@ -177,22 +118,26 @@ async def humbl_compass_route(
         "all",
     ] = Query(
         "united_states",
-        description="The country or group of countries to collect humblCOMPASS data for",
+        description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["country"],
     ),
     start_date: str = Query(
-        "2000-01-01", description="The start date for the data range"
+        "2000-01-01",
+        description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["start_date"],
     ),
     end_date: str | None = Query(
         default_factory=lambda: dt.datetime.now(
             tz=pytz.timezone("America/New_York")
         ).date(),
-        description="The end date for the data range",
+        description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["end_date"],
     ),
     z_score: str | None = Query(
         None,
-        description="The time window for z-score calculation (e.g., '1 year', '18 months')",
+        description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["z_score"],
     ),
-    chart: bool = Query(False, description="Whether to return a chart object"),
+    chart: bool = Query(
+        False,
+        description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["chart"],
+    ),
     template: Literal[
         "humbl_dark",
         "humbl_light",
@@ -209,7 +154,7 @@ async def humbl_compass_route(
         "none",
     ] = Query(
         "humbl_dark",
-        description="The template/theme to use for the plotly figure",
+        description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["template"],
     ),
     membership: Literal[
         "anonymous",
@@ -220,11 +165,11 @@ async def humbl_compass_route(
         "admin",
     ] = Query(
         "anonymous",
-        description="The membership level of the user",
+        description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["membership"],
     ),
     recommendations: bool = Query(
         False,
-        description="Whether to include investment recommendations based on the HUMBL regime",
+        description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["recommendations"],
     ),
 ) -> HumblResponse[HumblCompassResponse | HumblCompassChartResponse]:
     """

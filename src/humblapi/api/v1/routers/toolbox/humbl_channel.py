@@ -18,13 +18,38 @@ from pydantic import BaseModel, Field
 from humblapi.core.config import config
 from humblapi.core.logger import setup_logger
 from humblapi.core.standard_models.abstract.responses import HumblResponse
+from humblapi.core.standard_models.plotly import (
+    PlotlyLayout,
+    PlotlyTrace,
+)
 from humblapi.core.utils import ORJsonCoder
 
 router = APIRouter()
 logger = setup_logger(name="humblapi.api.v1.routers.toolbox.humbl_channel")
 
+# Constants
+HUMBL_CHANNEL_QUERY_DESCRIPTIONS = {
+    "symbols": "A comma-separated string of stock symbols",
+    "interval": "The interval for data points",
+    "start_date": "The start date for the data range",
+    "end_date": "The end date for the data range",
+    "provider": "The data provider to use",
+    "window": "The width of the window used for splitting the data into sections for detrending",
+    "rv_adjustment": "Whether to adjust the calculation for realized volatility",
+    "rv_method": "The method to calculate the realized volatility",
+    "rs_method": "The method to use for Range/STD calculation",
+    "rv_grouped_mean": "Whether to calculate the mean value of realized volatility over multiple window lengths",
+    "live_price": "Whether to calculate the ranges using the current live price",
+    "historical": "Whether to calculate the Historical Mandelbrot Channel",
+    "chart": "Whether to include chart data",
+    "template": "The Plotly template to use for charts",
+    "membership": "The membership level of the user",
+}
+
 
 class HumblChannelData(BaseModel):
+    """Represents the data structure for a row of humblCHANNEL data."""
+
     date: str | dt.datetime
     symbol: str
     bottom_price: float
@@ -33,35 +58,26 @@ class HumblChannelData(BaseModel):
 
 
 class HumblChannelResponse(BaseModel):
+    """Represents the response structure for a humblCHANNEL response."""
+
     data: list[HumblChannelData]
 
 
-class PlotlyTrace(BaseModel):
-    type: str
-    x: list[str]
-    y: list[float]
-    name: str
-    line: dict[str, Any] = Field(default_factory=dict)
-
-
-class PlotlyLayout(BaseModel):
-    title: dict[str, str]
-    xaxis: dict[str, Any]
-    yaxis: dict[str, Any]
-    template: dict[str, Any] = Field(default_factory=dict)
-    shapes: list[dict[str, Any]] = Field(default_factory=list)
-
-
 class HumblChannelChartResponse(BaseModel):
+    """Represents the response structure for a humblCHANNEL chart."""
+
     data: list[PlotlyTrace]
     layout: PlotlyLayout
 
 
 class HumblChannelResult(BaseModel):
+    """Represents the result of the humblCHANNEL API."""
+
     result: HumblChannelResponse | HumblChannelChartResponse
 
 
 def validate_symbols(symbols):
+    """Validate the symbols provided by the user."""
     if not symbols:
         msg = "No symbols provided"
         raise ValueError(msg)
@@ -72,30 +88,40 @@ def validate_symbols(symbols):
     "/humblCHANNEL",
     response_class=ORJSONResponse,
     response_model=HumblResponse[
-        Union[HumblChannelResponse, HumblChannelChartResponse]
+        HumblChannelResponse | HumblChannelChartResponse
     ],
 )
 @cache(expire=86000, namespace="humblCHANNEL", coder=ORJsonCoder)
-async def humbl_channel_route(
+async def humbl_channel_route(  # noqa: PLR0913
     symbols: str = Query(
         "AAPL,NVDA,TSLA",
-        description="A comma-separated string of stock symbols",
+        description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["symbols"],
     ),
-    interval: str = Query("1d", description="The interval for data points"),
+    interval: str = Query(
+        "1d",
+        description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["interval"],
+    ),
     start_date: str = Query(
-        "2000-01-01", description="The start date for the data range"
+        "2000-01-01",
+        description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["start_date"],
     ),
     end_date: str = Query(
         default_factory=lambda: dt.datetime.now(
             tz=pytz.timezone("America/New_York")
-        ).date(),  # make to string?
-        description="The end date for the data range",
+        ).date(),
+        description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["end_date"],
     ),
-    provider: str = Query("yfinance", description="The data provider to use"),
-    window: str = Query("1mo", description="The window size for calculations"),
+    provider: str = Query(
+        "yfinance",
+        description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["provider"],
+    ),
+    window: str = Query(
+        "1mo",
+        description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["window"],
+    ),
     rv_adjustment: bool = Query(
         True,
-        description="Whether to adjust the calculation for realized volatility",
+        description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["rv_adjustment"],
     ),
     rv_method: Literal[
         "std",
@@ -111,24 +137,29 @@ async def humbl_channel_route(
         "squared_returns",
         "sq",
     ] = Query(
-        "std", description="The method to calculate the realized volatility"
+        "std",
+        description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["rv_method"],
     ),
     rs_method: Literal["RS", "RS_min", "RS_max", "RS_mean"] = Query(
-        "RS", description="The method to use for Range/STD calculation"
+        "RS",
+        description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["rs_method"],
     ),
     rv_grouped_mean: bool = Query(
         False,
-        description="Whether to calculate the mean value of realized volatility over multiple window lengths",
+        description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["rv_grouped_mean"],
     ),
     live_price: bool = Query(
         False,
-        description="Whether to calculate the ranges using the current live price",
+        description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["live_price"],
     ),
     historical: bool = Query(
         False,
-        description="Whether to calculate the Historical Mandelbrot Channel",
+        description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["historical"],
     ),
-    chart: bool = Query(False, description="Whether to include chart data"),
+    chart: bool = Query(
+        False,
+        description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["chart"],
+    ),
     template: Literal[
         "humbl_dark",
         "humbl_light",
@@ -144,7 +175,8 @@ async def humbl_channel_route(
         "gridon",
         "none",
     ] = Query(
-        "humbl_dark", description="The Plotly template to use for charts"
+        "humbl_dark",
+        description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["template"],
     ),
     membership: Literal[
         "anonymous",
@@ -155,7 +187,7 @@ async def humbl_channel_route(
         "admin",
     ] = Query(
         "anonymous",
-        description="The membership level of the user",
+        description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["membership"],
     ),
 ) -> HumblResponse[HumblChannelResponse | HumblChannelChartResponse]:
     """
