@@ -83,6 +83,7 @@ app = FastAPI(
     title=config.PROJECT_NAME,
     lifespan=lifespan,
     default_response_class=ORJSONResponse,
+    version="0.16.0",  # TODO: update to version from pyproject.toml
 )
 
 # Add Middleware
