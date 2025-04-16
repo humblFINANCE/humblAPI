@@ -22,23 +22,24 @@ class PlotlyLine(BaseModel):
     """Represents the line properties for a Plotly trace."""
 
     color: str
-    shape: str
-    smoothing: float
+    width: int | None = None
+    shape: str | None = "linear"
+    smoothing: float | None = 0.0
 
 
 class PlotlyTrace(BaseModel):
     """Represents a single trace in a Plotly chart."""
 
-    hovertemplate: str
+    hovertemplate: str | None = "%{x}<br>%{y:.2f} USD<br><extra>%{text}</extra>"
     line: PlotlyLine
-    marker: PlotlyMarker
-    mode: str
+    marker: PlotlyMarker | None = None
+    mode: str = "lines"  # Default to 'lines' mode if not specified
     name: str
-    text: list[str]
-    textfont: dict[str, Any]
-    textposition: str
-    x: list[float]
-    y: list[float]
+    text: list[str] | None = None
+    textfont: dict[str, Any] | None = None
+    textposition: str | None = "top"
+    x: list[float | str | None]  # Allow None values for missing data points
+    y: list[float | None]
     type: str
     customdata: list[list[float | None]] | None = None
 
@@ -62,22 +63,26 @@ class PlotlyAxis(BaseModel):
     """Represents the properties of an axis in a Plotly chart."""
 
     title: dict[str, str]
-    range: list[float]
-    color: str
-    showgrid: bool
-    zeroline: bool
+    range: list[float] | None = None
+    color: str | None = "#FFFFFF"
+    showgrid: bool | None = True
+    zeroline: bool | None = True
 
 
 class PlotlyLayout(BaseModel):
     """Represents the layout properties of a Plotly chart."""
 
     template: dict[str, Any]
-    shapes: list[PlotlyShape]
-    title: dict[str, Any]
+    shapes: list[PlotlyShape] | None = None
+    title: dict[str, Any] | None = None
     xaxis: PlotlyAxis
     yaxis: PlotlyAxis
-    font: dict[str, str]
-    margin: dict[str, int]
-    hovermode: str
-    plot_bgcolor: str
-    paper_bgcolor: str
+    font: dict[str, str] | None = {
+        "family": "Arial",
+        "size": "12",
+        "color": "#FFFFFF",
+    }
+    margin: dict[str, int] | None = {"l": 50, "r": 50, "t": 50, "b": 50}
+    hovermode: str | None = "closest"
+    plot_bgcolor: str | None = "#000000"
+    paper_bgcolor: str | None = "#000000"
