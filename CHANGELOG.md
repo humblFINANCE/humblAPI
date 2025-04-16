@@ -1,3 +1,13 @@
+## v0.16.0 (2025-04-16)
+
+### ✨ Features
+
+- **endpoints**: updated humbl_channel and humbl_momentum
+
+### 📌➕⬇️➖⬆️ Dependencies
+
+- **humbldata**: updated to fix plotly encoding bug
+
 ## v0.15.1 (2025-02-25)
 
 ### 🐛🚑️ Fixes
