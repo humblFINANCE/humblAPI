@@ -43,6 +43,7 @@ HUMBL_CHANNEL_QUERY_DESCRIPTIONS = {
     "chart": "Whether to include chart data",
     "template": "The Plotly template to use for charts",
     "membership": "The membership level of the user",
+    "momentum": "Method to calculate momentum: 'shift' for simple shift, 'log' for logarithmic ROC, 'simple' for simple ROC",
 }
 
 
@@ -178,6 +179,10 @@ async def humbl_channel_route(  # noqa: PLR0913
         "humbl_dark",
         description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["template"],
     ),
+    momentum: Literal["shift", "log", "simple"] | None = Query(
+        default=None,
+        description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["momentum"],
+    ),
     membership: Literal[
         "anonymous",
         "humblPEON",
@@ -271,6 +276,7 @@ async def humbl_channel_route(  # noqa: PLR0913
             historical=historical,
             chart=chart,
             template=template,
+            momentum=momentum,
         )
 
         if chart:
