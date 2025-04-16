@@ -4,15 +4,13 @@ import logging
 from contextlib import asynccontextmanager
 
 import coloredlogs
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import ORJSONResponse
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
-from fastapi_cache.decorator import cache
 from fastapi_limiter import FastAPILimiter
-from fastapi_limiter.depends import RateLimiter
 from redis import asyncio as aioredis
 from starlette.middleware.base import BaseHTTPMiddleware
 
@@ -48,14 +46,16 @@ async def lifespan(app: FastAPI):
             FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache")
             logger.info("FastAPICache initialized successfully")
         except Exception as e:
-            logger.exception(f"Failed to initialize FastAPICache: {e!s}")
+            msg = f"Failed to initialize FastAPICache: {e!s}"
+            logger.exception(msg)
 
         # Initialize FastAPILimiter
         try:
             await FastAPILimiter.init(redis)
             logger.info("FastAPILimiter initialized successfully")
         except Exception as e:
-            logger.exception(f"Failed to initialize FastAPILimiter: {e!s}")
+            msg = f"Failed to initialize FastAPILimiter: {e!s}"
+            logger.exception(msg)
 
         # Remove all handlers associated with the root logger object.
         for handler in logging.root.handlers:
@@ -70,10 +70,12 @@ async def lifespan(app: FastAPI):
             await FastAPILimiter.close()
             logger.info("FastAPILimiter closed successfully")
         except Exception as e:
-            logger.exception(f"Failed to close FastAPILimiter: {e!s}")
+            msg = f"Failed to close FastAPILimiter: {e!s}"
+            logger.exception(msg)
 
     except Exception as e:
-        logger.exception(f"An error occurred during lifespan setup: {e!s}")
+        msg = f"An error occurred during lifespan setup: {e!s}"
+        logger.exception(msg)
 
 
 # Setup App
@@ -97,7 +99,7 @@ app.add_middleware(
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 # Add Routers
-app.include_router(portfolio.router)
-app.include_router(toolbox.router)
-app.include_router(openbb.router)
-app.include_router(core.router)
+app.include_router(portfolio.router, prefix=config.API_V1_STR)
+app.include_router(toolbox.router, prefix=config.API_V1_STR)
+app.include_router(openbb.router, prefix=config.API_V1_STR)
+app.include_router(core.router, prefix=config.API_V1_STR)

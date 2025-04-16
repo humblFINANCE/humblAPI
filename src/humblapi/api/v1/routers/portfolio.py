@@ -7,7 +7,7 @@ This router is used to handle requests for the humblAPI Portfolio <context>
 import datetime as dt
 from typing import Annotated, Literal
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Query
 from fastapi.responses import ORJSONResponse
 from fastapi_cache.decorator import cache
 from humbldata.core.utils.descriptions import (
@@ -17,16 +17,11 @@ from humbldata.core.utils.descriptions import (
 from humbldata.portfolio.portfolio_controller import Portfolio
 from pydantic import BaseModel, Field, ValidationError
 
-from humblapi.core.config import Config
 from humblapi.core.logger import setup_logger
 from humblapi.core.standard_models.abstract.responses import HumblResponse
 from humblapi.core.utils import ORJsonCoder, raise_http_exception
 
-config = Config()
-router = APIRouter(
-    prefix=config.API_V1_STR,
-    tags=["portfolio"],
-)
+router = APIRouter(tags=["portfolio"])
 
 logger = setup_logger(name="humblapi.api.v1.routers.portfolio")
 

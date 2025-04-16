@@ -2609,14 +2609,14 @@ pyreadline3 = {version = "*", markers = "sys_platform == \"win32\" and python_ve
 
 [[package]]
 name = "humbldata"
-version = "1.19.0"
+version = "1.20.0"
 description = "open-sourcing the math behind major financial institutional investors/banks. this package connects data analysis to the humblFINANCE website."
 optional = false
 python-versions = "<3.13,>=3.11"
 groups = ["main"]
 files = [
-    {file = "humbldata-1.19.0-py3-none-any.whl", hash = "sha256:30de7d76fabadf60c2cdd6aeee009fca1439f9be8ed6fb258f96c14052b04808"},
-    {file = "humbldata-1.19.0.tar.gz", hash = "sha256:c2fffab926c21eb36dfb492c3d46cda86ae46175fce7e10700f2db3cc08909ad"},
+    {file = "humbldata-1.20.0-py3-none-any.whl", hash = "sha256:1ca03ce76e08d4f00739167c4dc9db92ddb24ebb05a90ab786abd5a82e8629c1"},
+    {file = "humbldata-1.20.0.tar.gz", hash = "sha256:4960754e840f6a300776854b891055d4bbdf8a338d3c140280f00aad8b60e6a2"},
 ]
 
 [package.dependencies]

@@ -146,7 +146,7 @@ async def humbl_momentum_route(  # noqa: PLR0913
             membership=membership,
         )
 
-        result = toolbox.technical.momentum(
+        result = toolbox.technical.humbl_momentum(
             method=method,
             window=window,
             chart=chart,
@@ -179,9 +179,11 @@ async def humbl_momentum_route(  # noqa: PLR0913
                     for item in data
                 ]
             )
-            return HumblResponse[HumblMomentumResponse](
+            return HumblResponse(
                 response_data=momentum_response,
+                message="humblMOMENTUM data retrieved successfully",
                 status_code=200,
+                warnings=result.warnings,
             )
 
     except Exception as e:

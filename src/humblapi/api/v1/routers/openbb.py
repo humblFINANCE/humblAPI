@@ -17,6 +17,7 @@ from humbldata.core.utils.openbb_helpers import (
     aget_last_close,
     aget_latest_price,
 )
+from pydantic import BaseModel, Field
 
 from humblapi.core.config import Config
 from humblapi.core.standard_models.abstract.responses import HumblResponse
@@ -24,7 +25,6 @@ from humblapi.core.utils import ORJsonCoder
 
 config = Config()
 router = APIRouter(
-    prefix=config.API_V1_STR,
     tags=["openbb"],
 )
 
@@ -36,7 +36,7 @@ async def latest_price(
     ] = "AAPL,NVDA,TSLA",
     provider: Annotated[
         OBB_EQUITY_PRICE_QUOTE_PROVIDERS,
-        Query(description="The data provider for fetching stock prices."),
+        Query(description=QUERY_DESCRIPTIONS.get("provider", "")),
     ] = "yfinance",
 ):
     """
@@ -83,13 +83,16 @@ async def latest_price(
     # Convert the LazyFrame to a dictionary
     result = lf.collect().to_dicts()
 
-    return result
-
-
-from pydantic import BaseModel, Field
+    return HumblResponse(
+        response_data=result,
+        message="Latest price data fetched successfully.",
+        status_code=200,
+    )
 
 
 class LastCloseData(BaseModel):
+    """Data model for last close price information."""
+
     symbol: str = Field(description="The stock symbol")
     prev_close: float = Field(
         description="The previous closing price of the stock"
@@ -97,6 +100,8 @@ class LastCloseData(BaseModel):
 
 
 class LastCloseResponse(BaseModel):
+    """Response model containing a list of last close price data."""
+
     data: list[LastCloseData]
 
 

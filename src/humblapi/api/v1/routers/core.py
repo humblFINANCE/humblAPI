@@ -1,20 +1,22 @@
-from fastapi import Depends, FastAPI, HTTPException, Query
+"""
+Core API router.
+
+This router is used to handle requests for the humblAPI Core functionality.
+"""
+
+from fastapi import Depends, Query
 from fastapi.routing import APIRouter
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 from fastapi_cache.decorator import cache
 from fastapi_limiter.depends import RateLimiter
-from redis import asyncio as aioredis
 
 from humblapi.core.config import config
 from humblapi.core.logger import setup_logger
 from humblapi.core.standard_models.abstract.responses import HumblResponse
 from humblapi.core.utils import raise_http_exception, redis_delete_pattern
 
-router = APIRouter(
-    prefix=config.API_V1_STR,
-    tags=["core"],
-)
+router = APIRouter(tags=["core"])
 logger = setup_logger(name="humblapi.api.v1.routers.core")
 
 

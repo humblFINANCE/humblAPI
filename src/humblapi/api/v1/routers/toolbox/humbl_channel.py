@@ -5,7 +5,7 @@ This router is used to handle requests for the humblAPI humblCHANNEL <context>
 """
 
 import datetime as dt
-from typing import Any, Literal, TypeVar, Union
+from typing import Literal
 
 import orjson
 import pytz
@@ -13,9 +13,8 @@ from fastapi import APIRouter, HTTPException, Query
 from fastapi.responses import ORJSONResponse
 from fastapi_cache.decorator import cache
 from humbldata.toolbox.toolbox_controller import Toolbox
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
-from humblapi.core.config import config
 from humblapi.core.logger import setup_logger
 from humblapi.core.standard_models.abstract.responses import HumblResponse
 from humblapi.core.standard_models.plotly import (
@@ -39,7 +38,7 @@ HUMBL_CHANNEL_QUERY_DESCRIPTIONS = {
     "rv_method": "The method to calculate the realized volatility",
     "rs_method": "The method to use for Range/STD calculation",
     "rv_grouped_mean": "Whether to calculate the mean value of realized volatility over multiple window lengths",
-    "live_price": "Whether to calculate the ranges using the current live price",
+    "yesterday_close": "Whether to calculate the ranges using yesterday's closing price",
     "historical": "Whether to calculate the Historical Mandelbrot Channel",
     "chart": "Whether to include chart data",
     "template": "The Plotly template to use for charts",
@@ -149,9 +148,9 @@ async def humbl_channel_route(  # noqa: PLR0913
         default=False,
         description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["rv_grouped_mean"],
     ),
-    live_price: bool = Query(
+    yesterday_close: bool = Query(
         default=False,
-        description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["live_price"],
+        description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["yesterday_close"],
     ),
     historical: bool = Query(
         default=False,
@@ -232,8 +231,8 @@ async def humbl_channel_route(  # noqa: PLR0913
     rv_grouped_mean : bool, optional
         Whether to calculate the mean value of realized volatility over multiple window lengths. Default is False.
 
-    live_price : bool, optionalPter
-        Whether to calculate the ranges using the current live price. Default is False.
+    yesterday_close : bool, optional
+        Whether to calculate the ranges using yesterday's closing price. Default is False.
 
     historical : bool, optional
         Whether to calculate the Historical Mandelbrot Channel. Default is False.
@@ -262,13 +261,13 @@ async def humbl_channel_route(  # noqa: PLR0913
             membership=membership,
         )
 
-        result = toolbox.technical.mandelbrot_channel(
+        result = toolbox.technical.humbl_channel(
             window=window,
             rv_adjustment=rv_adjustment,
             rv_method=rv_method,
             rs_method=rs_method,
             rv_grouped_mean=rv_grouped_mean,
-            live_price=live_price,
+            yesterday_close=yesterday_close,
             historical=historical,
             chart=chart,
             template=template,
@@ -291,9 +290,13 @@ async def humbl_channel_route(  # noqa: PLR0913
             channel_response = HumblChannelResponse(
                 data=[HumblChannelData(**item) for item in data]
             )
-            return HumblResponse[HumblChannelResponse](
+            return HumblResponse[
+                HumblChannelResponse | HumblChannelChartResponse
+            ](
                 response_data=channel_response,
+                message="humblCHANNEL data retrieved successfully",
                 status_code=200,
+                warnings=result.warnings,
             )
 
     except Exception as e:
