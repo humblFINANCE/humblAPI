@@ -14,12 +14,13 @@ humblFINANCE Backend is a FastAPI-based backend service for the humblFINANCE web
 - 🏗️ Poetry (Dependency management)
 - 🐳 Docker (Containerization)
 
-## 🌟 Features
+## 🌟 Features.
 
 - RESTful API endpoints for financial data
 - Database integration with SQLModel
 - Asynchronous operations support
 - Configurable settings for different environments
+
 
 ## 🚀 Getting Started
 
@@ -48,6 +49,33 @@ humblFINANCE Backend is a FastAPI-based backend service for the humblFINANCE web
 
    fastapi run backend/main.py --host 0.0.0.0 --port 8080
    ```
+## 📡 API Endpoints
+
+### Core Endpoints
+- `GET /` - Welcome endpoint
+- `GET /health` - Health check endpoint
+- `GET /redis-health` - Redis connection health check
+- `GET /flush-redis` - Flush Redis database or FastAPI cache (requires API token)
+
+### Portfolio Endpoints
+- `GET /portfolio` - Get portfolio data for specified symbols
+  - Query params: `symbols` (default: "AAPL,NVDA,TSLA"), `membership` (default: "humblPEON")
+
+### OpenBB Endpoints
+- `GET /latest-price` - Get latest price data for specified symbols
+  - Query params: `symbols`, `provider` (default: "yfinance")
+- `GET /last-close` - Get last closing price for specified symbols
+  - Query params: `symbols`, `provider` (default: "yfinance")
+
+### Toolbox Endpoints
+
+#### humblCHANNEL
+- `GET /humblCHANNEL` - Get Mandelbrot Channel data
+  - Query params: `symbols`, `interval`, `start_date`, `end_date`, `provider`, `window`, `rv_adjustment`, `rv_method`, `rs_method`, `rv_grouped_mean`, `yesterday_close`, `historical`, `chart`, `template`, `membership`
+
+#### humblMOMENTUM
+- `GET /humblMOMENTUM` - Get momentum analysis data
+  - Query params: `symbols`, `method` (log/simple/shift), `window`, `chart`, `template`, `start_date`, `end_date`, `membership`
 
 ## 🐳 Docker Support
 
