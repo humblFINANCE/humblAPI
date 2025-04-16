@@ -1,3 +1,9 @@
+## v0.16.1 (2025-04-16)
+
+### 🐛🚑️ Fixes
+
+- **test**: adding automatic version bumping to FastAPI app
+
 ## v0.16.0 (2025-04-16)
 
 ### ✨ Features
