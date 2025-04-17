@@ -44,6 +44,7 @@ HUMBL_CHANNEL_QUERY_DESCRIPTIONS = {
     "template": "The Plotly template to use for charts",
     "membership": "The membership level of the user",
     "momentum": "Method to calculate momentum: 'shift' for simple shift, 'log' for logarithmic ROC, 'simple' for simple ROC",
+    "equity_data": "Whether to include raw equity data in the response extra field",
 }
 
 
@@ -194,6 +195,10 @@ async def humbl_channel_route(  # noqa: PLR0913
         "anonymous",
         description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["membership"],
     ),
+    equity_data: bool = Query(
+        default=False,
+        description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["equity_data"],
+    ),
 ) -> HumblResponse[HumblChannelResponse | HumblChannelChartResponse]:
     """
     Retrieve Mandelbrot Channel data for the specified symbols.
@@ -251,6 +256,9 @@ async def humbl_channel_route(  # noqa: PLR0913
     membership : str, optional
         The membership level of the user. Default is "anonymous".
 
+    equity_data : bool, optional
+        Whether to include raw equity data in the response extra field. Default is False.
+
     Returns
     -------
         HumblChannelResponse: A response containing the Mandelbrot Channel data for the specified symbols.
@@ -287,22 +295,60 @@ async def humbl_channel_route(  # noqa: PLR0913
                 else [orjson.loads(item) for item in json_data]
             )
             chart_response = HumblChannelChartResponse(**parsed_json[0])
-            return HumblResponse[HumblChannelChartResponse](
+
+            # Prepare extra equity data if requested
+            if equity_data:
+                extra_data = None
+                try:
+                    extra_data = result.to_polars(equity_data=True).select(
+                        [
+                            "date",
+                            "close",
+                        ]
+                    )
+                    extra_data = extra_data.to_dicts()
+                except Exception as extra_exc:  # pragma: no cover
+                    logger.warning(
+                        "Failed to extract equity data for extra field: %s",
+                        extra_exc,
+                    )
+
+            return HumblResponse(
                 response_data=chart_response,
+                message="humblCHANNEL data retrieved successfully with chart",
                 status_code=200,
+                warnings=result.warnings,
+                extra=extra_data,
             )
         else:
             data = result.to_dict(row_wise=True, as_series=False)
             channel_response = HumblChannelResponse(
                 data=[HumblChannelData(**item) for item in data]
             )
-            return HumblResponse[
-                HumblChannelResponse | HumblChannelChartResponse
-            ](
+
+            # Prepare extra equity data if requested
+            extra_data = None
+            if equity_data:
+                try:
+                    extra_data = result.to_polars(equity_data=True).select(
+                        [
+                            "date",
+                            "close",
+                        ]
+                    )
+                    extra_data = extra_data.to_dicts()
+                except Exception as extra_exc:  # pragma: no cover
+                    logger.warning(
+                        "Failed to extract equity data for extra field: %s",
+                        extra_exc,
+                    )
+
+            return HumblResponse(
                 response_data=channel_response,
                 message="humblCHANNEL data retrieved successfully",
                 status_code=200,
                 warnings=result.warnings,
+                extra=extra_data,
             )
 
     except Exception as e:
