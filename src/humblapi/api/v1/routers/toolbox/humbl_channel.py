@@ -56,6 +56,7 @@ class HumblChannelData(BaseModel):
     bottom_price: float
     recent_price: float
     top_price: float
+    momentum_signal: float | None
 
 
 class HumblChannelResponse(BaseModel):
@@ -328,13 +329,11 @@ async def humbl_channel_route(  # noqa: PLR0913
 
             # Prepare extra equity data if requested
             extra_data = None
-            if equity_data:
+            if equity_data and not historical:
                 try:
                     extra_data = result.to_polars(equity_data=True).select(
-                        [
-                            "date",
-                            "close",
-                        ]
+                        ["date", "close"]
+                        + (["momentum_signal"] if momentum else [])
                     )
                     extra_data = extra_data.to_dicts()
                 except Exception as extra_exc:  # pragma: no cover
