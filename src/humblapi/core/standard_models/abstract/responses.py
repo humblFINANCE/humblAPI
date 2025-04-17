@@ -1,4 +1,4 @@
-from typing import Generic, TypeVar
+from typing import Generic, TypeVar, Any
 
 from humbldata.core.standard_models.abstract.warnings import Warning_
 from pydantic import BaseModel, Field
@@ -16,6 +16,7 @@ class HumblResponse(BaseModel, Generic[T]):
     response_data: T | None = None
     message: str | None = None
     warnings: list[Warning_] | None = None
+    extra: Any | None = None
     status_code: int = Field(200, description="HTTP status code")
 
     class Config:

@@ -50,6 +50,9 @@ class PortfolioData(BaseModel):
     asset_class: str = Field(
         ..., description=DATA_DESCRIPTIONS.get("asset_class", "")
     )
+    momentum_signal: float | None = Field(
+        ..., description=DATA_DESCRIPTIONS.get("momentum_signal", "")
+    )
 
 
 class PortfolioResponse(BaseModel):
