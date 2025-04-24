@@ -44,7 +44,7 @@ HUMBL_CHANNEL_QUERY_DESCRIPTIONS = {
     "template": "The Plotly template to use for charts",
     "membership": "The membership level of the user",
     "momentum": "Method to calculate momentum: 'shift' for simple shift, 'log' for logarithmic ROC, 'simple' for simple ROC",
-    "equity_data": "Whether to include raw equity data in the response extra field",
+    "equity_data": "Whether to include raw equity data in the response extra field. This is only available when historical=False, otherwise the equity data is included in each historical observation",
 }
 
 
@@ -56,7 +56,7 @@ class HumblChannelData(BaseModel):
     bottom_price: float
     recent_price: float
     top_price: float
-    momentum_signal: float | None
+    momentum_signal: float | None = None
 
 
 class HumblChannelResponse(BaseModel):
