@@ -43,7 +43,7 @@ HUMBL_CHANNEL_QUERY_DESCRIPTIONS = {
     "chart": "Whether to include chart data",
     "template": "The Plotly template to use for charts",
     "membership": "The membership level of the user",
-    "momentum": "Method to calculate momentum: 'shift' for simple shift, 'log' for logarithmic ROC, 'simple' for simple ROC",
+    "momentum": "Method to calculate momentum: 'shift' for simple shift, 'log' for logarithmic ROC, 'simple' for simple ROC. The momentum calculation uses the same window as the humblCHANNEL calculation.",
     "equity_data": "Whether to include raw equity data in the response extra field. This is only available when historical=False, otherwise the equity data is included in each historical observation",
 }
 

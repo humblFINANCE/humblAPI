@@ -26,7 +26,7 @@ router = APIRouter(tags=["portfolio"])
 logger = setup_logger(name="humblapi.api.v1.routers.portfolio")
 
 
-class PortfolioData(BaseModel):
+class WatchlistTableData(BaseModel):
     date: str | dt.datetime = Field(
         ..., description=DATA_DESCRIPTIONS.get("date", "")
     )
@@ -55,14 +55,14 @@ class PortfolioData(BaseModel):
     )
 
 
-class PortfolioResponse(BaseModel):
-    data: list[PortfolioData]
+class WatchlistTableResponse(BaseModel):
+    data: list[WatchlistTableData]
 
 
 @router.get(
-    "/portfolio",
+    "/watchlist_table",
     response_class=ORJSONResponse,
-    response_model=HumblResponse[PortfolioResponse],
+    response_model=HumblResponse[WatchlistTableResponse],
 )
 @cache(expire=86000, namespace="portfolio", coder=ORJsonCoder)
 async def portfolio_route(
@@ -124,20 +124,22 @@ async def portfolio_route(
 
         portfolio = Portfolio(symbols=symbol_list, membership=membership)
 
-        user_table_data = (await portfolio.analytics.user_table()).to_dict(
-            row_wise=True, as_series=False
-        )
+        watchlist_table_data = (
+            await portfolio.analytics.watchlist_table()
+        ).to_dict(row_wise=True, as_series=False)
 
-        user_table_response = PortfolioResponse(
-            data=[PortfolioData(**item) for item in user_table_data]
+        watchlist_table_response = WatchlistTableResponse(
+            data=[WatchlistTableData(**item) for item in watchlist_table_data]
         )
-        return HumblResponse[PortfolioResponse](
-            response_data=user_table_response,
+        return HumblResponse[WatchlistTableResponse](
+            response_data=watchlist_table_response,
             status_code=200,
         )
     except ValidationError as ve:
-        logger.exception(f"Validation error: {ve}")
-        raise_http_exception(422, f"Validation error: {str(ve)}")
+        msg = f"Validation error: {ve!s}"
+        logger.exception(msg)
+        raise_http_exception(422, msg)
     except Exception as e:
-        logger.exception(f"Internal server error: {e}")
-        raise_http_exception(500, f"Internal server error: {str(e)}")
+        msg = f"Internal server error: {e!s}"
+        logger.exception(msg)
+        raise_http_exception(500, msg)
