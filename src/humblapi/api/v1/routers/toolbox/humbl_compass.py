@@ -31,16 +31,20 @@ logger = setup_logger(name="humblapi.api.v1.routers.toolbox.humbl_compass")
 
 # Constants
 HUMBL_COMPASS_QUERY_DESCRIPTIONS = {
-    "country": "The country or group of countries to collect humblCOMPASS data for",
-    "start_date": "The start date for the data range",
-    "end_date": "The end date for the data range",
+    "country": "Country or region for the COMPASS analysis. Must be one of the predefined CountryType values.",
+    "start_date": "Start date for the backtest analysis in YYYY-MM-DD format",
+    "end_date": "End date for the backtest analysis in YYYY-MM-DD format",
     "z_score": "The time window for z-score calculation (e.g., '1 year', '18 months')",
-    "chart": "Whether to return a chart object",
+    "chart": "Whether to generate visualization charts of the backtest results",
     "template": "The template/theme to use for the plotly figure",
     "membership": "The membership level of the user",
     "recommendations": "Whether to include investment recommendations based on the HUMBL regime",
-    "symbols": "A comma-separated string of stock symbols to backtest",
+    "symbols": "List of stock symbols to analyze",
     "provider": "The data provider to use for backtesting (fmp or yfinance)",
+    "initial_investment": "Initial investment amount in base currency for regime growth simulation",
+    "vol_window": "Window size for volatility calculation. Must end with d (days), w (weeks), m (months), or y (years).",
+    "risk_free_rate": "Annual risk-free rate used in Sharpe ratio calculation, expressed as decimal (e.g., 0.03 = 3%)",
+    "min_regime_days": "Minimum number of consecutive days required for a regime to be considered valid",
 }
 
 
@@ -392,6 +396,31 @@ async def humbl_compass_route(  # noqa: PLR0913
     expire=2629757, namespace="humblCOMPASS_backtest", coder=ORJsonCoder
 )  # cached for a month
 async def humbl_compass_backtest_route(  # noqa: PLR0913
+    # Required parameters
+    symbols: str = Query(
+        default="SPY",
+        title="Symbols",
+        description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["symbols"],
+        example="SPY",
+    ),
+    start_date: str = Query(
+        default="1960-01-01",
+        title="Start Date",
+        description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["start_date"],
+        example="1960-01-01",
+        regex=r"^\d{4}-\d{2}-\d{2}$",
+    ),
+    end_date: str | None = Query(
+        default_factory=lambda: dt.datetime.now(
+            tz=pytz.timezone("America/New_York")
+        )
+        .date()
+        .strftime("%Y-%m-%d"),
+        title="End Date",
+        description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["end_date"],
+        example="2024-03-20",
+        regex=r"^\d{4}-\d{2}-\d{2}$",
+    ),
     country: Literal[
         "g20",
         "g7",
@@ -418,30 +447,52 @@ async def humbl_compass_backtest_route(  # noqa: PLR0913
         "all",
     ] = Query(
         "united_states",
+        title="Country",
         description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["country"],
+        example="united_states",
     ),
-    symbols: str = Query(
-        "SPY,XLY,XLF",
-        description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["symbols"],
+    vol_window: str = Query(
+        default="1m",
+        title="Volatility Window",
+        description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["vol_window"],
+        example="1m",
+        regex=r"^\d+[dwmy]$",
     ),
-    start_date: str = Query(
-        "2000-01-01",
-        description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["start_date"],
+    risk_free_rate: float = Query(
+        default=0.03,
+        title="Risk-Free Rate",
+        description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["risk_free_rate"],
+        example=0.03,
+        ge=0.0,
+        le=1.0,
     ),
-    end_date: str | None = Query(
-        default_factory=lambda: dt.datetime.now(
-            tz=pytz.timezone("America/New_York")
-        ).date(),
-        description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["end_date"],
+    min_regime_days: int = Query(
+        default=21,
+        title="Minimum Regime Days",
+        description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["min_regime_days"],
+        example=21,
+        ge=1,
+    ),
+    initial_investment: float = Query(
+        default=100000.0,
+        title="Initial Investment",
+        description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["initial_investment"],
+        example=100000.0,
+        gt=0.0,
     ),
     provider: Literal["fmp", "yfinance"] = Query(
         "yfinance",
+        title="Data Provider",
         description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["provider"],
+        example="yfinance",
     ),
+    # Optional parameters
     *,
     chart: bool = Query(
         default=False,
+        title="Chart",
         description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["chart"],
+        example=False,
     ),
     template: Literal[
         "humbl_dark",
@@ -459,7 +510,9 @@ async def humbl_compass_backtest_route(  # noqa: PLR0913
         "none",
     ] = Query(
         "humbl_dark",
+        title="Chart Template",
         description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["template"],
+        example="humbl_dark",
     ),
     membership: Literal[
         "anonymous",
@@ -470,7 +523,9 @@ async def humbl_compass_backtest_route(  # noqa: PLR0913
         "admin",
     ] = Query(
         "anonymous",
+        title="Membership Level",
         description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["membership"],
+        example="anonymous",
     ),
 ) -> HumblResponse[
     HumblCompassBacktestResponse | HumblCompassBacktestChartResponse
@@ -484,18 +539,25 @@ async def humbl_compass_backtest_route(  # noqa: PLR0913
     ----
     country : str
         The country or group of countries to collect humblCOMPASS data for.
+
     symbols : str
         A comma-separated string of stock symbols to backtest.
+
     start_date : str
         The start date for the backtest period.
+
     end_date : str, optional
         The end date for the backtest period.
+
     provider : str
         The data provider to use for backtesting (fmp or yfinance).
+
     chart : bool, optional
         Whether to return a chart object.
+
     template : str, optional
         The template/theme to use for the plotly figure.
+
     membership : str, optional
         The membership level of the user.
 
