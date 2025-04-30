@@ -1,0 +1,251 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# FastAPI Route Creation Guidelines
+
+## Overview
+This document provides a comprehensive guide for creating new FastAPI routes in the humblAPI project, based on established patterns and best practices found in the codebase.
+
+## Core Components
+
+### 1. File Structure
+Every route file should follow this basic structure:
+```python
+"""
+{TOOL_NAME} API router.
+
+This router is used to handle requests for the humblAPI {TOOL_NAME} functionality.
+"""
+
+import datetime as dt
+from typing import Literal
+
+import orjson
+import pytz
+from fastapi import APIRouter, HTTPException, Query
+from fastapi.responses import ORJSONResponse
+from fastapi_cache.decorator import cache
+from humbldata.toolbox.toolbox_controller import Toolbox
+from pydantic import BaseModel
+
+from humblapi.core.logger import setup_logger
+from humblapi.core.standard_models.abstract.responses import HumblResponse
+from humblapi.core.utils import ORJsonCoder
+
+router = APIRouter()
+logger = setup_logger(name="humblapi.api.v1.routers.{route_name}")
+```
+
+### 2. Constants and Query Descriptions
+Always define query descriptions at the top of the file:
+```python
+# Constants
+QUERY_DESCRIPTIONS = {
+    "param1": "Description of parameter 1",
+    "param2": "Description of parameter 2",
+    # ... more parameters
+}
+```
+
+### 3. Response Models
+Define Pydantic models for your responses:
+```python
+class BaseDataModel(BaseModel):
+    """Represents a row of {TOOL_NAME} data."""
+    date: str | dt.datetime
+    # ... other fields
+
+class StandardResponse(BaseModel):
+    """Represents the response structure for {TOOL_NAME} data."""
+    data: list[BaseDataModel]
+
+class ChartResponse(BaseModel):
+    """Represents the response structure for a {TOOL_NAME} chart."""
+    data: list[PlotlyTrace]
+    layout: PlotlyLayout
+```
+
+### 4. Route Definition
+Standard route structure:
+```python
+@router.get(
+    "/{route_name}",
+    response_class=ORJSONResponse,
+    response_model=HumblResponse[StandardResponse | ChartResponse],
+)
+@cache(expire=86400, namespace="{TOOL_NAME}", coder=ORJsonCoder)
+async def route_handler(
+    # Required parameters
+    symbols: str = Query(
+        "AAPL,NVDA,TSLA",
+        description=QUERY_DESCRIPTIONS["symbols"],
+    ),
+    # Optional parameters with *
+    *,
+    chart: bool = Query(
+        default=False,
+        description=QUERY_DESCRIPTIONS["chart"],
+    ),
+    membership: Literal[
+        "anonymous",
+        "humblPEON",
+        "humblPREMIUM",
+        "humblPOWER",
+        "humblPERMANENT",
+        "admin",
+    ] = Query(
+        "anonymous",
+        description=QUERY_DESCRIPTIONS["membership"],
+    ),
+) -> HumblResponse[StandardResponse | ChartResponse]:
+    """
+    Retrieve {TOOL_NAME} data for the specified parameters.
+
+    This endpoint calculates data using the Toolbox from humblDATA.
+
+    Parameters
+    ----------
+    symbols : str, optional
+        A comma-separated string of stock symbols. Default is "AAPL,NVDA,TSLA".
+
+    membership : str, optional
+        The membership level of the user. Default is "anonymous".
+
+    Returns
+    -------
+    HumblResponse[Union[StandardResponse, ChartResponse]]
+        A response containing the data or chart based on the specified parameters.
+    """
+    try:
+        # Initialize toolbox
+        toolbox = Toolbox(
+            symbols=symbols.split(","),
+            membership=membership,
+        )
+
+        # Get result from toolbox
+        result = toolbox.{category}.{method}(
+            # ... parameters
+        )
+
+        if chart:
+            json_data = result.to_json(chart=True)
+            parsed_json = (
+                orjson.loads(json_data)
+                if isinstance(json_data, str)
+                else [orjson.loads(item) for item in json_data]
+            )
+            chart_response = ChartResponse(**parsed_json[0])
+            return HumblResponse(
+                response_data=chart_response,
+                status_code=200,
+            )
+        else:
+            data = result.to_dict(row_wise=True, as_series=False)
+            standard_response = StandardResponse(
+                data=[BaseDataModel(**item) for item in data]
+            )
+            return HumblResponse(
+                response_data=standard_response,
+                message="{TOOL_NAME} data retrieved successfully",
+                status_code=200,
+                warnings=result.warnings,
+            )
+
+    except Exception as e:
+        error_message = f"Error in {route_name}_route: {e!s}"
+        logger.exception(error_message)
+        raise HTTPException(status_code=400, detail=error_message) from e
+```
+
+## Best Practices
+
+1. **Error Handling**
+   - Always wrap main logic in try-except
+   - Use HTTPException for client errors (400s)
+   - Log exceptions with logger.exception
+   - Include descriptive error messages
+
+2. **Response Structure**
+   - Always use HumblResponse as the outer wrapper
+   - Define specific response models using Pydantic
+   - Include both data and chart response variants if needed
+
+3. **Caching**
+   - Use @cache decorator with appropriate expire time
+   - Use ORJsonCoder for serialization
+   - Set namespace based on tool name
+
+4. **Query Parameters**
+   - Use Query for all parameters with descriptions
+   - Group required params first, then optional with *
+   - Use Literal for enum-like parameters
+   - Provide sensible defaults
+
+5. **Documentation**
+   - Include docstring with Parameters and Returns sections
+   - Document all query parameters in QUERY_DESCRIPTIONS
+   - Add descriptions to all Pydantic model fields
+
+6. **Data Processing**
+   - Use toolbox for data operations
+   - Convert results to dict with row_wise=True, as_series=False
+   - Handle both chart and data response formats
+
+7. **Type Safety**
+   - Use proper type hints throughout
+   - Define explicit response models
+   - Use Union types for multiple response formats
+
+## Common Patterns
+
+1. **Chart Handling**
+```python
+if chart:
+    json_data = result.to_json(chart=True)
+    parsed_json = orjson.loads(json_data) if isinstance(json_data, str) else [orjson.loads(item) for item in json_data]
+    chart_response = ChartResponse(**parsed_json[0])
+```
+
+2. **Data Handling**
+```python
+data = result.to_dict(row_wise=True, as_series=False)
+response = StandardResponse(
+    data=[BaseDataModel(**item) for item in data]
+)
+```
+
+3. **Parameter Validation**
+```python
+if not symbols:
+    raise HTTPException(status_code=400, detail="No symbols provided")
+symbol_list = symbols.split(",")
+```
+
+4. **Response Creation**
+```python
+return HumblResponse(
+    response_data=response_data,
+    message="Operation successful",
+    status_code=200,
+    warnings=result.warnings,
+)
+```
+
+## Testing Guidelines
+
+1. Test both success and error cases
+2. Verify cache behavior
+3. Test all parameter combinations
+4. Validate response models
+5. Check error handling
+6. Verify chart vs data responses
+
+## Deployment Considerations
+
+1. Cache expiration times should match data update frequency
+2. Consider rate limiting for heavy operations
+3. Monitor response times and optimize as needed
+4. Use appropriate logging levels

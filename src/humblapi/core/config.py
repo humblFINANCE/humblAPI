@@ -53,6 +53,7 @@ class Config(BaseSettings):
     API_V1_STR: str = "/api/v1"
 
     FLUSH_API_TOKEN: str | None = os.getenv("FLUSH_API_TOKEN", None)
+    OBB_PAT: str | None = os.getenv("OBB_PAT", None)
 
 
 class ProductionConfig(Config):
