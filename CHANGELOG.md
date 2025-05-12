@@ -1,3 +1,9 @@
+## v0.18.1 (2025-05-12)
+
+### 🐛🚑️ Fixes
+
+- **deps**: bumped humblDATA, still running into typing error
+
 ## v0.18.0 (2025-04-30)
 
 ## v0.17.0 (2025-04-30)
