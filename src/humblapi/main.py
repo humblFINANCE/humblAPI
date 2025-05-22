@@ -91,7 +91,7 @@ app = FastAPI(
     title=config.PROJECT_NAME,
     lifespan=lifespan,
     default_response_class=ORJSONResponse,
-    version="0.18.1",
+    version="0.19.0",
 )
 
 # Add Middleware
