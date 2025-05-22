@@ -1,9 +1,9 @@
 from typing import Any
-from fastapi.exceptions import HTTPException
 
 import orjson
 from fastapi import Request, Response
 from fastapi.encoders import jsonable_encoder
+from fastapi.exceptions import HTTPException
 from fastapi.responses import ORJSONResponse
 from fastapi_cache import Coder
 from redis.asyncio.client import Redis
