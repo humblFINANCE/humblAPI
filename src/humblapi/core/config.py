@@ -107,10 +107,10 @@ def get_config():
     Config
         The configuration object for the current environment.
     """
-    env = os.getenv("ENV", "dev")
+    env = os.getenv("ENVIRONMENT", "development")
     config_type = {
-        "dev": DevelopmentConfig(),
-        "prod": ProductionConfig(),
+        "development": DevelopmentConfig(),
+        "production": ProductionConfig(),
     }
     return config_type[env]
 
