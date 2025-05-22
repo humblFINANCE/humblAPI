@@ -146,7 +146,7 @@ async def humbl_momentum_route(  # noqa: PLR0913
             membership=membership,
         )
 
-        result = toolbox.technical.humbl_momentum(
+        result = await toolbox.technical.humbl_momentum(
             method=method,
             window=window,
             chart=chart,
