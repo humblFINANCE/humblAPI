@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "humblapi"
-version = "0.20.1"
+version = "0.20.2"
 description = "A lightweight Fast API app to connect humnlDATA and humblFINANCE"
 authors = [
     { name = "Jennings Fantini", email = "jenningsfantini@gmail.com" }
@@ -62,7 +62,7 @@ skip = ["menv/", "tests"]
 
 [tool.commitizen]
 name = "cz_gitmoji"
-version = "0.20.1"
+version = "0.20.2"
 tag_format = "v$version"
 update_changelog_on_bump = true
 annotated_tag = true

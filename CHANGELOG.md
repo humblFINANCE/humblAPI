@@ -1,3 +1,9 @@
+## v0.20.2 (2025-05-22)
+
+### 🐛🚑️ Fixes
+
+- **Dockerfile**: using a multistage build
+
 ## v0.20.1 (2025-05-22)
 
 ### 🐛🚑️ Fixes
