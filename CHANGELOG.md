@@ -1,3 +1,9 @@
+## v0.20.0 (2025-05-22)
+
+### ✨ Features
+
+- **Dockerfile**: updated dockerfile to use uv
+
 ## v0.19.0 (2025-05-22)
 
 ### ✨ Features
