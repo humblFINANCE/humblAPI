@@ -320,7 +320,7 @@ async def humbl_compass_route(  # noqa: PLR0913
             membership=membership,
         )
 
-        result = toolbox.fundamental.humbl_compass(
+        result = await toolbox.fundamental.humbl_compass(
             country=country,
             z_score=z_score,
             chart=chart,
@@ -574,10 +574,12 @@ async def humbl_compass_backtest_route(  # noqa: PLR0913
             provider=provider,
         )
 
-        compass_result = toolbox.fundamental.humbl_compass(
-            country=country,
-            chart=chart,
-            template=template,
+        compass_result = await (
+            await toolbox.fundamental.humbl_compass(
+                country=country,
+                chart=chart,
+                template=template,
+            )
         ).backtest(
             symbols=symbols.split(","),
             chart=chart,

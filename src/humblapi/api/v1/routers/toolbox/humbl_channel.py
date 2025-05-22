@@ -275,7 +275,7 @@ async def humbl_channel_route(  # noqa: PLR0913
             membership=membership,
         )
 
-        result = toolbox.technical.humbl_channel(
+        result = await toolbox.technical.humbl_channel(
             window=window,
             rv_adjustment=rv_adjustment,
             rv_method=rv_method,

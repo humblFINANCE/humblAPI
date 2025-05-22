@@ -23,7 +23,7 @@ dependencies = [
     "uvicorn[standard]>=0.20.0",
     # poetry is a build tool, not a runtime dep typically, removing it
     # "poetry^2.1.1", # Removed
-    "humbldata>=1.20.22", # Adjusted version constraint syntax if needed, assuming `>=` is okay based on Poetry's ^
+    "humbldata>=1.21.3", # Adjusted version constraint syntax if needed, assuming `>=` is okay based on Poetry's ^
     "fastapi-cache2>=0.2.2",
     "redis>=5.0.7",
     "orjson>=3.10.6",

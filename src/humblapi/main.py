@@ -11,7 +11,6 @@ from fastapi.responses import ORJSONResponse
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 from fastapi_limiter import FastAPILimiter
-from openbb import obb
 from redis import asyncio as aioredis
 from starlette.middleware.base import BaseHTTPMiddleware
 
@@ -64,12 +63,13 @@ async def lifespan(app: FastAPI):
         # Add coloredlogs' coloured StreamHandler to the root logger.
         coloredlogs.install()
 
-        if config.OBB_PAT:
-            obb.account.login(pat=config.OBB_PAT, remember_me=True)
-        else:
-            logger.warning(
-                "No OBB PAT provided, skipping OpenBB login, alternative providers will be unavailable"
-            )
+        # TODO: Add OpenBB login with OpenBBAPIClient
+        # if config.OBB_PAT:
+        #     obb.account.login(pat=config.OBB_PAT, remember_me=True)
+        # else:
+        #     logger.warning(
+        #         "No OBB PAT provided, skipping OpenBB login, alternative providers will be unavailable"
+        #     )
 
         yield
 
