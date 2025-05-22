@@ -1,3 +1,9 @@
+## v0.20.1 (2025-05-22)
+
+### 🐛🚑️ Fixes
+
+- **Dockerfile**: added another dockerfile logic to test
+
 ## v0.20.0 (2025-05-22)
 
 ### ✨ Features
