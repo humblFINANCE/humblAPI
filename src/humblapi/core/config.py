@@ -9,6 +9,13 @@ import os
 
 from pydantic_settings import BaseSettings
 
+from humblapi.core.env import Env
+
+# Instantiate the singleton here (rather than relying on main.py to do it
+# first) so `.env` is loaded via dotenv before the `os.getenv(...)` calls
+# below evaluate the `Config` subclasses' field defaults.
+env = Env()
+
 
 class Config(BaseSettings):
     """
@@ -102,17 +109,22 @@ def get_config():
     This function determines the current environment and returns the
     corresponding configuration object.
 
+    Notes
+    -----
+    `ENVIRONMENT` (`development`/`production`, see `core/env.py`) is the
+    canonical variable, read here via the `Env` singleton instantiated
+    above so `.env` is loaded first.
+
     Returns
     -------
     Config
         The configuration object for the current environment.
     """
-    env = os.getenv("ENVIRONMENT", "development")
     config_type = {
         "development": DevelopmentConfig(),
         "production": ProductionConfig(),
     }
-    return config_type[env]
+    return config_type[env.ENVIRONMENT]
 
 
 config: Config | DevelopmentConfig | ProductionConfig = get_config()

@@ -167,7 +167,7 @@ convention = "numpy"
         --host $host \
         --port $port \
         --reload \
-        humblapi.api:app
+        humblapi.main:app
     } else {
       gunicorn \
         --access-logfile - \
@@ -179,7 +179,7 @@ convention = "numpy"
         --worker-class uvicorn.workers.UvicornWorker \
         --worker-tmp-dir /dev/shm \
         --workers 2 \
-        humblapi.api:app
+        humblapi.main:app
     } fi
     """
 
