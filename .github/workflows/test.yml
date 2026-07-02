@@ -18,6 +18,29 @@ jobs:
 
     name: Python ${{ matrix.python-version }}
 
+    services:
+      redis:
+        image: redis:7
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    # ENVIRONMENT=development selects DevelopmentConfig (config.py), which
+    # points at the `redis` service above via localhost:6379 - the
+    # alternative, ENVIRONMENT=production, requires a real Upstash
+    # REDIS_API_TOKEN we don't have in CI. OPENBB_API_DEV_URL is pointed at
+    # the same production OpenBB instance the app defaults to elsewhere
+    # (see humblDATA's AGENTS.md), since there's no OpenBB instance running
+    # in this job.
+    env:
+      ENVIRONMENT: development
+      OPENBB_API_DEV_URL: https://data.humblfinance.io
+      OPENBB_API_PREFIX: /api/v1
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
