@@ -1,3 +1,13 @@
+## v0.20.3 (2026-07-02)
+
+### fix
+
+- **config**: unify on ENVIRONMENT, fix poe api target, default OpenBB to prod
+- **ci**: add Redis service and required env vars to test workflow
+- **ci**: replace broken devcontainer-based test workflow with uv, fix resulting test failures
+- apply CodeRabbit auto-fixes
+- **config**: unify on ENVIRONMENT, fix poe api target, default OpenBB to prod
+
 ## v0.20.2 (2025-05-22)
 
 ### 🐛🚑️ Fixes
