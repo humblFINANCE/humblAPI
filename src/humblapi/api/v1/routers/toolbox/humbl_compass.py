@@ -255,7 +255,9 @@ async def humbl_compass_route(  # noqa: PLR0913
     end_date: str | None = Query(
         default_factory=lambda: dt.datetime.now(
             tz=pytz.timezone("America/New_York")
-        ).date(),
+        )
+        .date()
+        .isoformat(),
         description=HUMBL_COMPASS_QUERY_DESCRIPTIONS["end_date"],
     ),
     z_score: str | None = Query(
@@ -362,22 +364,21 @@ async def humbl_compass_route(  # noqa: PLR0913
                 response_data=chart_response,
                 status_code=200,
             )
-        else:
-            data = result.to_dict(row_wise=True, as_series=False)
-            compass_response = HumblCompassResponse(
-                data=[
-                    HumblCompassData(
-                        **{k: v for k, v in item.items() if v is not None}
-                    )
-                    for item in data
-                ],
-                latest_humbl_regime=latest_humbl_regime,
-                recommendations=recommendations_data,
-            )
-            return HumblResponse[HumblCompassResponse](
-                response_data=compass_response,
-                status_code=200,
-            )
+        data = result.to_dict(row_wise=True, as_series=False)
+        compass_response = HumblCompassResponse(
+            data=[
+                HumblCompassData(
+                    **{k: v for k, v in item.items() if v is not None}
+                )
+                for item in data
+            ],
+            latest_humbl_regime=latest_humbl_regime,
+            recommendations=recommendations_data,
+        )
+        return HumblResponse[HumblCompassResponse](
+            response_data=compass_response,
+            status_code=200,
+        )
 
     except Exception as e:
         error_message = f"Error in humbl_compass_route: {e!s}"
@@ -536,7 +537,7 @@ async def humbl_compass_backtest_route(  # noqa: PLR0913
     This endpoint performs backtesting using the humblCOMPASS data from humblDATA Toolbox.
 
     Parameters
-    ----
+    ----------
     country : str
         The country or group of countries to collect humblCOMPASS data for.
 
@@ -562,7 +563,7 @@ async def humbl_compass_backtest_route(  # noqa: PLR0913
         The membership level of the user.
 
     Returns
-    ----
+    -------
     HumblResponse[Union[HumblCompassBacktestResponse, HumblCompassBacktestChartResponse]]
         A response containing the backtest data or chart for the specified symbols.
     """
@@ -600,23 +601,22 @@ async def humbl_compass_backtest_route(  # noqa: PLR0913
                 status_code=200,
             )
             return response
-        else:
-            data = compass_result.to_dict(row_wise=True, as_series=False)
-            backtest_response = HumblCompassBacktestResponse(
-                data=[
-                    HumblCompassBacktestData(
-                        **{k: v for k, v in item.items() if v is not None}
-                    )
-                    for item in data
-                ],
-            )
-            response: HumblResponse[
-                HumblCompassBacktestResponse | HumblCompassBacktestChartResponse
-            ] = HumblResponse(
-                response_data=backtest_response,
-                status_code=200,
-            )
-            return response
+        data = compass_result.to_dict(row_wise=True, as_series=False)
+        backtest_response = HumblCompassBacktestResponse(
+            data=[
+                HumblCompassBacktestData(
+                    **{k: v for k, v in item.items() if v is not None}
+                )
+                for item in data
+            ],
+        )
+        response: HumblResponse[
+            HumblCompassBacktestResponse | HumblCompassBacktestChartResponse
+        ] = HumblResponse(
+            response_data=backtest_response,
+            status_code=200,
+        )
+        return response
 
     except Exception as e:
         error_message = f"Error in humbl_compass_backtest_route: {e!s}"

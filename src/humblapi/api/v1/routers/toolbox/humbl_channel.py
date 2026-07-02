@@ -110,7 +110,9 @@ async def humbl_channel_route(  # noqa: PLR0913
     end_date: str = Query(
         default_factory=lambda: dt.datetime.now(
             tz=pytz.timezone("America/New_York")
-        ).date(),
+        )
+        .date()
+        .isoformat(),
         description=HUMBL_CHANNEL_QUERY_DESCRIPTIONS["end_date"],
     ),
     provider: str = Query(
@@ -321,34 +323,33 @@ async def humbl_channel_route(  # noqa: PLR0913
                 warnings=result.warnings,
                 extra=extra_data,
             )
-        else:
-            data = result.to_dict(row_wise=True, as_series=False)
-            channel_response = HumblChannelResponse(
-                data=[HumblChannelData(**item) for item in data]
-            )
+        data = result.to_dict(row_wise=True, as_series=False)
+        channel_response = HumblChannelResponse(
+            data=[HumblChannelData(**item) for item in data]
+        )
 
-            # Prepare extra equity data if requested
-            extra_data = None
-            if equity_data and not historical:
-                try:
-                    extra_data = result.to_polars(equity_data=True).select(
-                        ["date", "close"]
-                        + (["momentum_signal"] if momentum else [])
-                    )
-                    extra_data = extra_data.to_dicts()
-                except Exception as extra_exc:  # pragma: no cover
-                    logger.warning(
-                        "Failed to extract equity data for extra field: %s",
-                        extra_exc,
-                    )
+        # Prepare extra equity data if requested
+        extra_data = None
+        if equity_data and not historical:
+            try:
+                extra_data = result.to_polars(equity_data=True).select(
+                    ["date", "close"]
+                    + (["momentum_signal"] if momentum else [])
+                )
+                extra_data = extra_data.to_dicts()
+            except Exception as extra_exc:  # pragma: no cover
+                logger.warning(
+                    "Failed to extract equity data for extra field: %s",
+                    extra_exc,
+                )
 
-            return HumblResponse(
-                response_data=channel_response,
-                message="humblCHANNEL data retrieved successfully",
-                status_code=200,
-                warnings=result.warnings,
-                extra=extra_data,
-            )
+        return HumblResponse(
+            response_data=channel_response,
+            message="humblCHANNEL data retrieved successfully",
+            status_code=200,
+            warnings=result.warnings,
+            extra=extra_data,
+        )
 
     except Exception as e:
         error_message = f"Error in humbl_channel_route: {e!s}"
