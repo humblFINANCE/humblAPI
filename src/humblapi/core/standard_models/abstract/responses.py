@@ -1,4 +1,4 @@
-from typing import Generic, TypeVar, Any
+from typing import Any, Generic, TypeVar
 
 from humbldata.core.standard_models.abstract.warnings import Warning_
 from pydantic import BaseModel, Field

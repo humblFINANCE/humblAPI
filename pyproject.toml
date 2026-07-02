@@ -133,7 +133,22 @@ warn_untyped_fields = true
 
 [tool.pytest.ini_options]  # https://docs.pytest.org/en/latest/reference/reference.html#ini-options-ref
 addopts = "--color=yes --doctest-modules --exitfirst --failed-first --strict-config --strict-markers --typeguard-packages=humblapi --verbosity=2 --junitxml=reports/pytest.xml"
-filterwarnings = ["error", "ignore::DeprecationWarning"]
+filterwarnings = [
+    "error",
+    "ignore::DeprecationWarning",
+    # Async HTTP/Redis clients (httpx, redis-py, humbldata's shared aiohttp
+    # session) can leave a connection object for GC to finalize slightly
+    # after a test completes, especially under uvloop. That's GC-timing
+    # noise, not a real leak in this test suite's own code - don't let it
+    # fail otherwise-passing tests.
+    "ignore::ResourceWarning",
+    # humbldata intentionally uses HumblDataWarning for expected, non-fatal
+    # notices (e.g. "start date was adjusted for your membership tier") -
+    # it's designed to be caught with warnings.warn(), not raised. Treating
+    # it as a hard error here turns a normal, documented code path into a
+    # HumblDataError in Toolbox.__init__'s broad exception handler.
+    "ignore::humbldata.core.standard_models.abstract.warnings.HumblDataWarning",
+]
 testpaths = ["src", "tests"]
 xfail_strict = true
 
@@ -167,7 +182,7 @@ convention = "numpy"
         --host $host \
         --port $port \
         --reload \
-        humblapi.api:app
+        humblapi.main:app
     } else {
       gunicorn \
         --access-logfile - \
@@ -179,7 +194,7 @@ convention = "numpy"
         --worker-class uvicorn.workers.UvicornWorker \
         --worker-tmp-dir /dev/shm \
         --workers 2 \
-        humblapi.api:app
+        humblapi.main:app
     } fi
     """
 

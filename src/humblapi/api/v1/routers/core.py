@@ -131,16 +131,15 @@ async def flush_redis(
                     message="FastAPI cache was flushed successfully.",
                     status_code=200,
                 )
-            else:
-                records = await redis.dbsize()
-                await redis.flushdb()
-                return HumblResponse(
-                    response_data={
-                        "records_deleted": records,
-                    },
-                    message="Redis database flushed successfully.",
-                    status_code=200,
-                )
+            records = await redis.dbsize()
+            await redis.flushdb()
+            return HumblResponse(
+                response_data={
+                    "records_deleted": records,
+                },
+                message="Redis database flushed successfully.",
+                status_code=200,
+            )
         raise_http_exception(500, "Redis backend not found")
     except Exception as e:
         raise_http_exception(500, f"Error flushing Redis: {e!s}")

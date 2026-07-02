@@ -111,7 +111,9 @@ async def humbl_momentum_route(  # noqa: PLR0913
     end_date: str | None = Query(
         default_factory=lambda: dt.datetime.now(
             tz=pytz.timezone("America/New_York")
-        ).date(),
+        )
+        .date()
+        .isoformat(),
         description="The end date for the data range",
     ),
     membership: Literal[
@@ -168,23 +170,22 @@ async def humbl_momentum_route(  # noqa: PLR0913
                 response_data=chart_response,
                 status_code=200,
             )
-        else:
-            # Convert DataFrame to list of dicts and create MomentumData objects
-            data = result.to_dict(row_wise=True, as_series=False)
-            momentum_response = HumblMomentumResponse(
-                data=[
-                    HumblMomentumData(
-                        **{k: v for k, v in item.items() if v is not None}
-                    )
-                    for item in data
-                ]
-            )
-            return HumblResponse(
-                response_data=momentum_response,
-                message="humblMOMENTUM data retrieved successfully",
-                status_code=200,
-                warnings=result.warnings,
-            )
+        # Convert DataFrame to list of dicts and create MomentumData objects
+        data = result.to_dict(row_wise=True, as_series=False)
+        momentum_response = HumblMomentumResponse(
+            data=[
+                HumblMomentumData(
+                    **{k: v for k, v in item.items() if v is not None}
+                )
+                for item in data
+            ]
+        )
+        return HumblResponse(
+            response_data=momentum_response,
+            message="humblMOMENTUM data retrieved successfully",
+            status_code=200,
+            warnings=result.warnings,
+        )
 
     except Exception as e:
         error_message = f"Error in humbl_momentum_route: {e!s}"
